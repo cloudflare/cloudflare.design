@@ -1,0 +1,4 @@
+[submodule "dist"]
+	path = dist
+	url = https://github.com/cloudflare-design/cloudflare-design.github.io.git
+	branch = master
