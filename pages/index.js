@@ -1,9 +1,8 @@
 import React from "react"
 
 const Home = props => (
-  <Div>
+  <Flex height='100vh' alignItems='center'>
     <Container py={[5, 6]} px={[3, 4, 5]}>
-      <img src="/static/logo.svg" />
       <Div textAlign="center">
         <H1 fontSize={7} mt={0} mb={2}>
           Cloudflare Design
@@ -18,7 +17,7 @@ const Home = props => (
         </A>
       </Div>
     </Container>
-  </Div>
+  </Flex>
 )
 
 export default Home
