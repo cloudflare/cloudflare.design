@@ -1,9 +1,6 @@
 const path = require("path")
 const fs = require("fs-extra")
 const webpack = require("webpack")
-const withMDX = require("@zeit/next-mdx")({
-  extension: /\.mdx?$/
-})
 
 const fetchFiles = async filePath => {
   const files = await fs.readdir(filePath)
@@ -17,8 +14,7 @@ const fetchFiles = async filePath => {
   }, {})
 }
 
-module.exports = withMDX({
-  pageExtensions: ["js", "jsx", "md", "mdx"],
+module.exports = {
   webpack: async (config, {}) => {
     const elements = await fetchFiles(path.join(__dirname, "elements"))
     const components = await fetchFiles(path.join(__dirname, "components"))
@@ -34,4 +30,4 @@ module.exports = withMDX({
     }
     return config
   }
-})
+}
