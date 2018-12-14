@@ -6,8 +6,7 @@
     "dev": "next -p $(./node_modules/detect-port/bin/detect-port 3000)",
     "build": "next build",
     "start": "next start",
-    "deploy": "next build && next export -o dist",
-    "gh-pages": "bash ./deploy.sh"
+    "deploy": "next build && next export -o dist && gh-pages -d dist -b master"
   },
   "dependencies": {
     "@compositor/kit": "^1.0.47",
@@ -34,6 +33,7 @@
     "@mdx-js/mdx": "^0.15.5",
     "babel-plugin-emotion": "^9.2.11",
     "detect-port": "1.2.3",
-    "fs-extra": "^7.0.1"
+    "fs-extra": "^7.0.1",
+    "gh-pages": "^2.0.1"
   }
 }
