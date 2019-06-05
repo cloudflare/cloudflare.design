@@ -1,13 +1,12 @@
 import React from "react"
 
-import styled from "react-emotion"
+import styled from "@emotion/styled"
 import {
   space,
   width,
   maxWidth,
   height,
   size,
-  ratio,
   display,
   flex,
   alignItems,
@@ -22,7 +21,8 @@ import {
   color,
   borders,
   borderColor,
-  borderRadius
+  borderRadius,
+  position
 } from "styled-system"
 
 const Div = styled.div(
@@ -31,7 +31,6 @@ const Div = styled.div(
   maxWidth,
   height,
   size,
-  ratio,
   display,
   alignItems,
   justifyContent,
@@ -45,6 +44,7 @@ const Div = styled.div(
   borders,
   borderColor,
   borderRadius,
+  position,
   {
     boxSizing: "border-box"
   }

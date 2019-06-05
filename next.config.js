@@ -1,9 +1,9 @@
 const path = require("path")
-const fs = require("fs-extra")
+const fs = require("fs")
 const webpack = require("webpack")
 
-const fetchFiles = async filePath => {
-  const files = await fs.readdir(filePath)
+const fetchFiles = filePath => {
+  const files = fs.readdirSync(filePath)
 
   return files.reduce((acc, file) => {
     const elName = path.basename(file, ".js")
@@ -17,21 +17,25 @@ const fetchFiles = async filePath => {
 module.exports = {
   exportPathMap: async (defaultPathMap, { dev, dir, outDir }) => {
     if (dev) {
-      return defaultPathMap
+      return {
+        "/posts/test-post": { page: "/posts/test-post" },
+        ...defaultPathMap
+      }
     }
 
-    await fs.copyFile(path.join(dir, "CNAME"), path.join(outDir, "CNAME"))
+    fs.copyFileSync(path.join(dir, "CNAME"), path.join(outDir, "CNAME"))
     return defaultPathMap
   },
-  webpack: async (config, {}) => {
-    const elements = await fetchFiles(path.join(__dirname, "elements"))
-    const components = await fetchFiles(path.join(__dirname, "components"))
+  webpack: (config, {}) => {
+    const elements = fetchFiles(path.join(__dirname, "elements"))
+    const components = fetchFiles(path.join(__dirname, "components"))
     config.plugins.push(
       new webpack.ProvidePlugin(elements),
       new webpack.ProvidePlugin(components)
     )
     config.resolve = {
       alias: {
+        ...(config.resolve.alias || {}),
         elements: path.resolve(__dirname, "elements/"),
         components: path.resolve(__dirname, "components/")
       }
