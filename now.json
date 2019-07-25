@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "cloudflare.design",
+  "builds": [{ "src": "site/**", "use": "@now/static" }],
+  "routes": [
+    { "src": "/color", "dest": "https://color-smasoncf.cloudflare1.now.sh/" },
+    { "src": "/(.*)", "dest": "site/$1" }
+  ]
+}
