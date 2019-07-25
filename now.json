@@ -3,7 +3,10 @@
   "name": "cloudflare.design",
   "builds": [{ "src": "site/**", "use": "@now/static" }],
   "routes": [
-    { "src": "/color", "dest": "https://color-smasoncf.cloudflare1.now.sh/" },
+    {
+      "src": "/color([/]*)",
+      "dest": "https://color.cloudflare.design/"
+    },
     { "src": "/(.*)", "dest": "site/$1" }
   ]
 }
