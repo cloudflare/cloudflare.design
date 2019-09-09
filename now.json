@@ -7,6 +7,10 @@
       "src": "/color([/]*)",
       "dest": "https://color.cloudflare.design/"
     },
+    {
+      "src": "/color/(.*)",
+      "dest": "https://color.cloudflare.design/$1"
+    },
     { "src": "/(.*)", "dest": "site/$1" }
   ]
 }
