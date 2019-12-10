@@ -41,6 +41,11 @@ function App() {
           }}>
             Locations
           </h3>
+           {data.locations.map((location, index) => (
+             <article>
+                <h4>{location.city}</h4>
+             </article>
+            ))}
         </section>
         <footer sx={{p: 2, borderTop: '1px solid'}}>
           <small sx={{ fontSize: 0 }}>{data.copyright}</small>
