@@ -2,8 +2,10 @@
 import jsx from "./jsx";
 import { ThemeProvider } from "theme-ui";
 import theme from "./theme";
+import data from './data'
 import { ConfigProvider } from "./useConfig";
 import NewConfigNotification from "./NewConfigNotification";
+import SiteTitle from './components/SiteTitle'
 
 // This is the current config from the worker
 // and just maps a key of our choosing to a value from our theme file
@@ -20,20 +22,38 @@ function App() {
     <ConfigProvider initialConfig={initialConfig}>
       {config => (
         <ThemeProvider theme={{ ...theme, c: { ...config } }}>
+      <div  sx={{ 
+        fontFamily: 'system-ui, sans-serif',
+        // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
+        color: "c.colorPrimary",
+        bg: "c.colorSecondary"
+      }}>
           <header
-            sx={{
-              // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
-              color: "c.colorPrimary",
-              textDecoration: "underline",
-              bg: "c.colorSecondary"
-            }}
           >
             <NewConfigNotification />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a href="https://reactjs.org">Learn React</a>
-          </header>
+            <SiteTitle text={data.title} />
+        </header>
+        <section>
+          
+        </section>
+        <section>
+          <h3 sx={{
+            fontSize: [3,5,6], 
+            textAlign: 'center' 
+          }}>
+            Locations
+          </h3>
+           {data.locations.map((location, index) => (
+             <article>
+                <h4>{location.city}</h4>
+             </article>
+            ))}
+        </section>
+        <footer sx={{p: 2, borderTop: '1px solid'}}>
+          <small sx={{ fontSize: 0 }}>{data.copyright}</small>
+        </footer>
+      </div>
+
         </ThemeProvider>
       )}
     </ConfigProvider>
