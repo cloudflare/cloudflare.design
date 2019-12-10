@@ -1,45 +1,43 @@
 /** @jsx jsx */
-import { ThemeProvider, jsx } from "theme-ui";
-import logo from "./logo.svg";
-import data from "./data";
-import SiteTitle from "./components/SiteTitle";
-import NewTheme from "./NewTheme";
+import jsx from "./jsx";
+import { ThemeProvider } from "theme-ui";
+import theme from "./theme";
+import { ConfigProvider } from "./useConfig";
+import NewConfigNotification from "./NewConfigNotification";
 
-window.__THEME__ = {
-  colors: {
-    text: "#000",
-    primary: "red"
-  }
+// This is the current config from the worker
+// and just maps a key of our choosing to a value from our theme file
+window.__CONFIG__ = {
+  colorPrimary: "orange.3",
+  colorSecondary: "gray.8"
 };
 
-const themeObject = window.__THEME__;
-delete window.__THEME__;
+const initialConfig = window.__CONFIG__;
+delete window.__CONFIG__;
 
 function App() {
   return (
-    <ThemeProvider theme={themeObject}>
-      <div  sx={{ fontFamily: 'system-ui, sans-serif' }}>
-        <header sx={{ 
-            color: "primary" 
-          }}>
-          <NewTheme />
-          <SiteTitle text={data.title} />
-        </header>
-        <section>
-          <h3 sx={{
-            fontSize: [3,5,6], 
-            textAlign: 'center' 
-          }}>
-            Locations
-          </h3>
-        </section>
-        <footer sx={{p: 2, borderTop: '1px solid'}}>
-          <small sx={{ fontSize: 0 }}>{data.copyright}</small>
-        </footer>
-      </div>
-    </ThemeProvider>
+    <ConfigProvider initialConfig={initialConfig}>
+      {config => (
+        <ThemeProvider theme={{ ...theme, c: { ...config } }}>
+          <header
+            sx={{
+              // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
+              color: "c.colorPrimary",
+              textDecoration: "underline",
+              bg: "c.colorSecondary"
+            }}
+          >
+            <NewConfigNotification />
+            <p>
+              Edit <code>src/App.js</code> and save to reload.
+            </p>
+            <a href="https://reactjs.org">Learn React</a>
+          </header>
+        </ThemeProvider>
+      )}
+    </ConfigProvider>
   );
 }
 
 export default App;
-
