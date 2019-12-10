@@ -1,17 +1,23 @@
-import React from "react";
+/** @jsx jsx */
+import { ThemeProvider, jsx } from "theme-ui";
 import logo from "./logo.svg";
-import "./App.css";
+import NewTheme from "./NewTheme";
 
-const configObject = window.__CONFIG__;
+window.__THEME__ = {
+  colors: {
+    text: "#000",
+    primary: "red"
+  }
+};
 
-delete window.__CONFIG__;
-
-console.log(configObject);
+const themeObject = window.__THEME__;
+delete window.__THEME__;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <ThemeProvider theme={themeObject}>
+      <header sx={{ color: "primary" }}>
+        <NewTheme />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -25,7 +31,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </ThemeProvider>
   );
 }
 
