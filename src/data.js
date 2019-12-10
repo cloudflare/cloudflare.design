@@ -1,6 +1,6 @@
 const data = {
   title: 'Cloudflare Design',
-  copyright: '© Copyright 2019',
+  copyright: '© 2019 Cloudflare, Inc.',
   locations: [
     {
       city: 'Lisbon',

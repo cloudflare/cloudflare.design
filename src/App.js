@@ -22,18 +22,20 @@ function App() {
     <ConfigProvider initialConfig={initialConfig}>
       {config => (
         <ThemeProvider theme={{ ...theme, c: { ...config } }}>
-      <div  sx={{ fontFamily: 'system-ui, sans-serif' }}>
+      <div  sx={{ 
+        fontFamily: 'system-ui, sans-serif',
+        // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
+        color: "c.colorPrimary",
+        bg: "c.colorSecondary"
+      }}>
           <header
-            sx={{
-              // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
-              color: "c.colorPrimary",
-              textDecoration: "underline",
-              bg: "c.colorSecondary"
-            }}
           >
             <NewConfigNotification />
             <SiteTitle text={data.title} />
         </header>
+        <section>
+          
+        </section>
         <section>
           <h3 sx={{
             fontSize: [3,5,6], 
