@@ -27,7 +27,7 @@ import Card from './components/Card';
 
 function App() {
   // Set default config whilst loading
-  const [config, setConfig] = useState({
+  const [initalConfig, setInitalConfig] = useState({
     colorPrimary: 'white',
     colorSecondary: 'gray.0',
     variants: {
@@ -40,11 +40,13 @@ function App() {
   useEffect(() => {
     fetch('https://cloudflare-design-read.cloudflare-ui.workers.dev')
       .then(res => res.json())
-      .then(json => setConfig(json));
+      .then(json => {
+        setInitalConfig(json)
+      });
   }, []);
 
   return (
-    <ConfigProvider initialConfig={config}>
+    <ConfigProvider initialConfig={initalConfig}>
       {config => (
         <ThemeProvider theme={{ ...theme, c: { ...config } }}>
           {console.log(config)}
