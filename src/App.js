@@ -62,19 +62,21 @@ const Site = () => {
         >
           Color
         </h3>
+        <Text>
+        </Text>
         <div sx={{ mx: 'auto', maxWidth: '64em' }}>
           <div sx={{ display: 'flex', flexWrap: ['wrap', 'nowrap'], mx: -3 }}>
             <div sx={{ px: 3, width: ['100%', '50%'], mb: 4 }}>
               <Card
                 title="Color"
-                text="Build and preview accessible color palettes"
+                text="Our open source app for building and previewing accessible color palettes"
                 image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/palette-docs-2.png"
               />
             </div>
             <div sx={{ px: 3, width: ['100%', '50%'], mb: 4 }}>
               <Card
                 title="Thinking about color"
-                text="Building accessible color systems for flexible ui theming."
+                text="Notes and documentation from our journey exploring color systems"
                 image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/new-scales.png"
               />
             </div>
@@ -183,6 +185,9 @@ const Site = () => {
         >
           Locations
         </h3>
+        <Text>
+          Cloudflare has n offices in y countries. Our design team is currently spread out across these four cities.
+        </Text>
         <div sx={{ mx: 'auto', maxWidth: '64em' }}>
           <div sx={{ display: 'flex', mx: -3 }}>
             {data.locations.map((location, index) => (
