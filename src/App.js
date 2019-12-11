@@ -197,6 +197,10 @@ function App() {
               >
                 Locations
               </h3>
+              <Text>
+                Our team is currently distributed across London, San Francisco, and Austin with plans
+                to grow our team in Lisbon this year.
+              </Text>
               <div sx={{ mx: 'auto', maxWidth: '64em' }}>
                 <div sx={{ display: 'flex', mx: -3 }}>
                   {data.locations.map((location, index) => (
