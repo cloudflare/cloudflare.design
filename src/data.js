@@ -4,19 +4,19 @@ const data = {
   locations: [
     {
       city: 'Lisbon',
-      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/lisbon-1.jpg',
+      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/lisbon-1.jpg',
     },
     {
       city: 'London',
-      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/london-1.jpg',
+      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/london-1.jpg',
     },
     {
       city: 'San Francisco',
-      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/sf.jpg',
+      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/sf.jpg',
     },
     {
       city: 'Austin',
-      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/austin-1.jpg',
+      image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/austin-1.jpg',
     },
   ],
   social: [
