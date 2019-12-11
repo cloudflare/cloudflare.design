@@ -1,69 +1,88 @@
 /** @jsx jsx */
-import { ThemeProvider } from "theme-ui";
-import theme from "./theme";
-import data from "./data";
-import { ConfigProvider, useConfig, jsx } from "./config";
-import NewConfigNotification from "./NewConfigNotification";
-import SiteTitle from "./components/SiteTitle";
-import IconLink from "./components/IconLink";
-import Text from "./components/Text";
-import Card from "./components/Card";
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from 'theme-ui';
+import theme from './theme';
+import data from './data';
+import { ConfigProvider, useConfig, jsx } from './config';
+import NewConfigNotification from './NewConfigNotification';
+import SiteTitle from './components/SiteTitle';
+import IconLink from './components/IconLink';
+import Text from './components/Text';
+import Card from './components/Card';
 
 // This is the current config from the worker
 // and just maps a key of our choosing to a value from our theme file
-window.__CONFIG__ = {
-  colorPrimary: "white",
-  colorSecondary: "gray.0",
-  variants: {
-    card: "default",
-    header: "new"
-  }
-};
 
-const initialConfig = window.__CONFIG__;
-delete window.__CONFIG__;
+// window.__CONFIG__ = {
+//   colorPrimary: 'white',
+//   colorSecondary: 'gray.2',
+//   variants: {
+//     card: 'default',
+//     header: 'new'
+//   }
+// };
+
+// const initialConfig = window.__CONFIG__;
+// delete window.__CONFIG__;
 
 function App() {
+  // Set default config whilst loading
+  const [config, setConfig] = useState({
+    colorPrimary: 'white',
+    colorSecondary: 'gray.0',
+    variants: {
+      card: 'default',
+      header: 'new'
+    }
+  });
+
+  // Load remote config and replace when ready
+  useEffect(() => {
+    fetch('https://cloudflare-design-read.cloudflare-ui.workers.dev')
+      .then(res => res.json())
+      .then(json => setConfig(json));
+  }, []);
+
   return (
-    <ConfigProvider initialConfig={initialConfig}>
+    <ConfigProvider initialConfig={config}>
       {config => (
         <ThemeProvider theme={{ ...theme, c: { ...config } }}>
           {console.log(config)}
           <div
             sx={{
-              fontFamily: "system-ui, sans-serif",
+              fontFamily: 'system-ui, sans-serif',
               // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
-              color: "c.colorPrimary",
-              bg: "c.colorSecondary"
+              color: 'c.colorPrimary',
+              bg: 'c.colorSecondary'
             }}
           >
             <header>
               <NewConfigNotification />
               <SiteTitle text={data.title} />
             </header>
-            <section></section>
+            <section />
             <section sx={{ pb: [5, 6], px: [4, 0, 0] }}>
               <h3
                 sx={{
                   fontSize: [3, 5, 6],
-                  textAlign: "center",
+                  textAlign: 'center',
                   mb: 5
                 }}
               >
                 Color
               </h3>
-              <div sx={{ mx: "auto", maxWidth: "64em" }}>
+              <div sx={{ mx: 'auto', maxWidth: '64em' }}>
                 <div
-                  sx={{ display: "flex", flexWrap: ["wrap", "nowrap"], mx: -3 }}
+                  sx={{ display: 'flex', flexWrap: ['wrap', 'nowrap'], mx: -3 }}
                 >
-                  <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
+                  <div sx={{ px: 3, width: ['100%', '50%'], mb: 4 }}>
                     <Card
                       title="Color"
                       text="Build and preview accessible color palettes"
                       image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/palette-docs-2.png"
                     />
                   </div>
-                  <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
+                  <div sx={{ px: 3, width: ['100%', '50%'], mb: 4 }}>
                     <Card
                       title="Thinking about color"
                       text="Building accessible color systems for flexible ui theming."
@@ -77,7 +96,7 @@ function App() {
               <h3
                 sx={{
                   fontSize: [3, 5, 6],
-                  textAlign: "center",
+                  textAlign: 'center',
                   mb: 5
                 }}
               >
@@ -87,8 +106,8 @@ function App() {
                 As we've been making the transition to Figma, we've been
                 building some plugins to help us with common workflows.
               </Text>
-              <div sx={{ mt: 5, maxWidth: "64em", mx: "auto" }}>
-                <div sx={{ display: "flex", mx: -3 }}>
+              <div sx={{ mt: 5, maxWidth: '64em', mx: 'auto' }}>
+                <div sx={{ display: 'flex', mx: -3 }}>
                   <div sx={{ px: 3 }}>
                     <Card
                       href="https://www.figma.com/c/plugin/733343906244951586/Color-Blind"
@@ -120,15 +139,15 @@ function App() {
                 <article sx={{ mt: 5 }}>
                   <a
                     href="https://www.figma.com/blog/behind-the-plugins-sam-mason-de-caires-cloudflare/"
-                    sx={{ color: "inherit", textDecoration: "none" }}
+                    sx={{ color: 'inherit', textDecoration: 'none' }}
                   >
                     <span
                       sx={{
-                        display: "block",
+                        display: 'block',
                         lineHeight: 1.5,
-                        maxWidth: "34em",
+                        maxWidth: '34em',
                         fontSize: [3, 4, 4],
-                        mx: "auto",
+                        mx: 'auto',
                         mb: 3
                       }}
                     >
@@ -141,9 +160,9 @@ function App() {
                     </span>
                     <div
                       sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center"
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center'
                       }}
                     >
                       <img
@@ -156,7 +175,7 @@ function App() {
                         }}
                       />
                       <div>
-                        <span sx={{ display: "block", mb: 1, fontWeight: 800 }}>
+                        <span sx={{ display: 'block', mb: 1, fontWeight: 800 }}>
                           Sam Mason
                         </span>
                         <span>UX Engineer</span>
@@ -170,42 +189,42 @@ function App() {
               <h3
                 sx={{
                   fontSize: [3, 5, 6],
-                  textAlign: "center",
+                  textAlign: 'center',
                   mb: 5
                 }}
               >
                 Locations
               </h3>
-              <div sx={{ mx: "auto", maxWidth: "64em" }}>
-                <div sx={{ display: "flex", mx: -3 }}>
+              <div sx={{ mx: 'auto', maxWidth: '64em' }}>
+                <div sx={{ display: 'flex', mx: -3 }}>
                   {data.locations.map((location, index) => (
-                    <article sx={{ width: "25%", px: 3 }}>
+                    <article sx={{ width: '25%', px: 3 }}>
                       <div
                         sx={{
-                          backgroundSize: "cover",
-                          backgroundImage: "url(" + location.image + ")",
-                          backgroundPosition: "bottom center",
+                          backgroundSize: 'cover',
+                          backgroundImage: 'url(' + location.image + ')',
+                          backgroundPosition: 'bottom center',
                           px: 4,
                           pt: 7,
                           pb: 6
                         }}
-                      ></div>
+                      />
                       <h4>{location.city}</h4>
                     </article>
                   ))}
                 </div>
-                <div sx={{ textAlign: "center" }}>
+                <div sx={{ textAlign: 'center' }}>
                   <h4 sx={{ fontWeight: 700, fontSize: [4, 5, 6], mt: 6 }}>
                     Want to come work with us? We'd love to hear from you.
                   </h4>
                   <a
                     sx={{
-                      display: "inline-block",
-                      borderRadius: "7px",
-                      border: "1px solid",
-                      color: "inherit",
+                      display: 'inline-block',
+                      borderRadius: '7px',
+                      border: '1px solid',
+                      color: 'inherit',
                       fontWeight: 800,
-                      textDecoration: "none",
+                      textDecoration: 'none',
                       px: 4,
                       py: 3
                     }}
@@ -219,7 +238,7 @@ function App() {
             <section>
               <IconLink />
             </section>
-            <footer sx={{ p: 2, borderTop: "1px solid" }}>
+            <footer sx={{ p: 2, borderTop: '1px solid' }}>
               <small sx={{ fontSize: 0 }}>{data.copyright}</small>
             </footer>
           </div>
