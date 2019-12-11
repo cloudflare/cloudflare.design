@@ -1,34 +1,44 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx, useVariant } from "../config";
 
-const Card = ({ height, href, title, text, image, variant, ...props }) => {
+const Card = ({ height, href, title, text, image, ...props }) => {
+  const { variant } = useVariant("card");
   switch (variant) {
-    case 'default': 
+    case "default":
+    default:
       return (
-        <a sx={{
-          color: 'inherit',
-          textDecoration: 'none'
-        }} href={href}>
-          <div sx={{ 
-            borderRadius: 5,
-            backgroundSize: 'cover', 
-            backgroundImage: 'url('+image+')',
-            height: height
-          }}></div> 
+        <a
+          sx={{
+            color: "inherit",
+            textDecoration: "none"
+          }}
+          href={href}
+        >
+          <div
+            sx={{
+              borderRadius: 5,
+              backgroundSize: "cover",
+              backgroundImage: "url(" + image + ")",
+              height: height
+            }}
+          ></div>
           <h4 sx={{ mt: 3, mb: 2 }}>{title}</h4>
           <span>{text}</span>
         </a>
-      )
+      );
+    case "test":
+      return <div>MEHHHHH</div>;
   }
-}
+};
 
 Card.defaultProps = {
-  variant: 'default',
-  image: 'https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/color-blind.png',
-  title: 'Color Blind',
-  text: 'Some default text',
+  variant: "default",
+  image:
+    "https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/color-blind.png",
+  title: "Color Blind",
+  text: "Some default text",
   height: 256,
   href: "#0"
-}
+};
 
-export default Card
+export default Card;

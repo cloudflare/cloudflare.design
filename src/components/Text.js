@@ -1,23 +1,27 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx } from "../config";
 
 const Text = ({ variant, ...props }) => {
   switch (variant) {
-    case 'default': 
+    case "default":
       return (
-        <p sx={{ 
-          fontSize: [4,5,7],
-          fontWeight: 800,
-          maxWidth: '20em',
-          mx: 'auto',
-        }}>{props.children}</p> 
-      )
+        <p
+          sx={{
+            fontSize: [4, 5, 7],
+            fontWeight: 800,
+            maxWidth: "20em",
+            mx: "auto"
+          }}
+        >
+          {props.children}
+        </p>
+      );
   }
-}
+};
 
 Text.defaultProps = {
-  variant: 'default',
+  variant: "default",
   text: "Site Title"
-}
+};
 
-export default Text
+export default Text;
