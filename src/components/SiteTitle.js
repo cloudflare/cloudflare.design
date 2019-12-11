@@ -6,7 +6,7 @@ const SiteTitle = ({ text, variant, ...props }) => {
     case 'default': 
       return (
         <h1 sx={{ 
-          fontSize: [4,5,8],
+          fontSize: [6,7,9],
           textAlign: 'center', 
           mt: 0, 
           py: [5,6,7]

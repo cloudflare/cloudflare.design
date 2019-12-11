@@ -39,7 +39,7 @@ function App() {
         <section>
           
         </section>
-        <section sx={{ pb: [5,6] }}>
+        <section sx={{ pb: [5,6], px: [4, 0, 0] }}>
           <h3 sx={{
             fontSize: [3,5,6], 
             textAlign: 'center',
@@ -49,15 +49,15 @@ function App() {
           </h3>
           <div sx={{mx: 'auto', maxWidth: '64em' }}>
             
-          <div sx={{display: 'flex', mx: -3}}>
-            <div sx={{px: 3, width: '50%'}}>
+          <div sx={{display: 'flex',flexWrap: ['wrap', 'nowrap'],  mx: -3}}>
+            <div sx={{px: 3, width: ['100%', '50%'], mb: 4, }}>
               <Card 
                 title="Color"
                 text="Build and preview accessible color palettes"
                 image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/palette-docs-2.png"
               />
             </div>
-            <div sx={{px: 3, width: '50%' }}>
+            <div sx={{ px: 3, width: ['100%', '50%'], mb: 4 }}>
               <Card 
                 title="Thinking about color"
                 text="Building accessible color systems for flexible ui theming."
