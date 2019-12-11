@@ -229,10 +229,14 @@ const Site = () => {
         </div>
       </section>
       <section>
-        <IconLink />
       </section>
-      <footer sx={{ p: 2, borderTop: '1px solid' }}>
-        <small sx={{ fontSize: 0 }}>{data.copyright}</small>
+      <footer sx={{ py: 4, borderTop: '1px solid' }}>
+        <div sx={{ display: 'flex', alignItems: 'center' }}>
+        <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
+        <div sx={{ ml: 'auto' }}>
+          <IconLink />
+        </div>
+        </div>
       </footer>
     </div>
   );
