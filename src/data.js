@@ -1,5 +1,6 @@
 const data = {
   title: 'Cloudflare Design',
+  subtitle: '',
   copyright: '© 2019 Cloudflare, Inc.',
   locations: [
     {
@@ -21,14 +22,22 @@ const data = {
   ],
   social: [
     {
+      type: "github",
       name: "GitHub",
       username: "cloudflare",
       url: "https://github.com/cloudflare",
     },
     {
+      type: "twitter",
       name: "Twitter",
       username: "@cloudflare",
       url: "https://twitter.com/cloudflare",
+    },
+    {
+      type: "dribbble",
+      name: "Dribbble",
+      username: "@cloudflare",
+      url: "https://dribbble.com/cloudflare",
     },
   ],
   dribbble: [
@@ -52,7 +61,33 @@ const data = {
       href: "https://dribbble.com/shots/3353651-Rainbow-Cloud-Preview",
       image: "https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/rainbow-cloud--preview.png",
     }
-  ]
+  ],
+  tarot: [
+     {
+       front: 'https://cloudflare.design/fool-front.png',
+       back: 'https://cloudflare.design/fool-back.png',
+     },
+     {
+       front: 'https://cloudflare.design/hermit-front.png',
+       back: 'https://cloudflare.design/hermit-back.png',
+     },
+     {
+       front: 'https://cloudflare.design/lovers-front.png',
+       back: 'https://cloudflare.design/lovers-back.png',
+     },
+     {
+       front: 'https://cloudflare.design/moon-front.png',
+       back: 'https://cloudflare.design/moon-back.png',
+     },
+     {
+       front: 'https://cloudflare.design/tower-front.png',
+       back: 'https://cloudflare.design/tower-back.png',
+     },
+     {
+       front: 'https://cloudflare.design/wheel-front.png',
+       back: 'https://cloudflare.design/wheel-back.png',
+     },
+  ] 
 }
 
 export default data
