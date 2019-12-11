@@ -30,7 +30,7 @@ import Card from "./components/Card";
 // delete window.__CONFIG__;
 
 const Site = () => {
-  const { setConfig, config } = useConfig();
+  const { setConfig } = useConfig();
 
   // Load remote config and replace when ready
   useEffect(() => {
