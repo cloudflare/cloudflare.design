@@ -1,8 +1,11 @@
 /** @jsx jsx */
 import { useConfig, jsx } from "./config";
+import useInterval from "./useInterval";
 
 const NewConfigNotification = () => {
   const { setConfig } = useConfig();
+
+  useInterval(() => {}, 2000);
 
   return (
     // We can then use the hook to update a value with a new one basec on the key and a valid theme value

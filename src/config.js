@@ -43,9 +43,9 @@ export const jsx = (type, props, ...children) =>
 
 export const ConfigProvider = ({ initialConfig, children }) => {
   const [config, setConfig] = useState(initialConfig);
-  const handleSetConfig = newValue => setConfig(newValue);
+
   return (
-    <ConfigContext.Provider value={{ config, setConfig: handleSetConfig }}>
+    <ConfigContext.Provider value={{ config, setConfig }}>
       <ConfigContext.Consumer>
         {({ config }) => children(config)}
       </ConfigContext.Consumer>
@@ -63,6 +63,7 @@ export const useConfig = () => {
 export const useVariant = key => {
   const { config, setConfig } = useContext(ConfigContext);
   const variant = get(config, `variants[${key}]`);
+
   const setVariant = value => {
     setConfig(
       produce(draft => {
@@ -70,6 +71,7 @@ export const useVariant = key => {
       })
     );
   };
+
   return { variant, setVariant };
 };
 
