@@ -26,7 +26,7 @@ import Card from "./components/Card";
 // delete window.__CONFIG__;
 
 const Site = () => {
-  const { setConfig } = useConfig();
+  const { setConfig, config } = useConfig();
 
   // Load remote config and replace when ready
   useEffect(() => {
@@ -36,8 +36,6 @@ const Site = () => {
         setConfig(json);
       });
   }, []);
-
-  console.log(config);
 
   return (
     <div
@@ -192,7 +190,7 @@ const Site = () => {
         <div sx={{ mx: "auto", maxWidth: "64em" }}>
           <div sx={{ display: "flex", mx: -3 }}>
             {data.locations.map((location, index) => (
-              <article sx={{ width: "25%", px: 3 }}>
+              <article key={index} sx={{ width: "25%", px: 3 }}>
                 <div
                   sx={{
                     backgroundSize: "cover",
