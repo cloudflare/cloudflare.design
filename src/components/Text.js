@@ -10,7 +10,8 @@ const Text = ({ variant, ...props }) => {
             fontSize: [4, 5, 7],
             fontWeight: 800,
             maxWidth: "20em",
-            mx: "auto"
+            mx: "auto",
+            lineHeight: 1.25,
           }}
         >
           {props.children}

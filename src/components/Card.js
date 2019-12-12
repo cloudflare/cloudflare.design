@@ -16,7 +16,7 @@ const Card = ({ height, href, title, text, image, ...props }) => {
         >
           <div
             sx={{
-              borderRadius: 5,
+              borderRadius: props.borderRadius? props.borderRadius: 5,
               backgroundSize: "cover",
               backgroundImage: "url(" + image + ")",
               height: height
@@ -27,7 +27,27 @@ const Card = ({ height, href, title, text, image, ...props }) => {
         </a>
       );
     case "test":
-      return <div>MEHHHHH</div>;
+      test:
+      return (
+        <a
+          sx={{
+            color: "inherit",
+            textDecoration: "none"
+          }}
+          href={href}
+        >
+          <div
+            sx={{
+              borderRadius: 0,
+              backgroundSize: "cover",
+              backgroundImage: "url(" + image + ")",
+              height: height
+            }}
+          ></div>
+          <h4 sx={{ mt: 3, mb: 2, fontSize: [5,6,7] }}>{title}</h4>
+          <span sx={{ fontSize: [3,4,5]}}>{text}</span>
+        </a>
+      );
   }
 };
 
