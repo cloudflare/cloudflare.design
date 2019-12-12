@@ -1,26 +1,8 @@
 /** @jsx jsx */
-import { useState } from "react";
 import { jsx } from "../config";
-import useInterval from "../useInterval";
 
-const NewConfigNotification = () => {
-  const [updateAvailable, setUpdateAvailable] = useState(false);
-  const [versionId, setVersionId] = useState();
-
-  useInterval(() => {
-    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
-      .then(res => res.json())
-      .then(json => {
-        if (!versionId) {
-          setVersionId(json.id);
-        }
-        if (versionId && versionId !== json.id) {
-          setUpdateAvailable(true);
-        }
-      });
-  }, 10000);
-
-  if (!updateAvailable) return null;
+const NewConfigNotification = ({ show }) => {
+  if (!show) return null;
   return (
     <div
       sx={{
