@@ -8,6 +8,7 @@ import NewConfigNotification from "./components/NewConfigNotification";
 import SectionHeader from "./components/SectionHeader";
 import SectionColor from "./components/SectionColor";
 import SectionFigma from "./components/SectionFigma";
+import SectionFooter from "./components/SectionFooter";
 import SectionLocations from "./components/SectionLocations";
 import IconLink from "./components/IconLink";
 import useInterval from "./useInterval";
@@ -82,17 +83,26 @@ const Site = () => {
       <SectionColor />
       <SectionFigma variant={1} />
       <SectionLocations variant={1} />
-      <div>
-        <button onClick={handleDeployConfig}>Deploy config</button>
+      <SectionFooter variant={1} />
+      <div sx={{ bg: '#000', textAlign: 'center' }}>
+        <button onClick={handleDeployConfig} sx={{
+          width: '100%',
+          border: 0, 
+          textAlign: 'center',
+          py: 3, 
+          px: 3,
+          bg: 'black',
+          color: 'white',
+          fontSize: 4, 
+          fontWeight: 800,
+          cursor: 'pointer',
+          transition: 'background-color .2s ease-in',
+          ":hover": {
+            bg: 'blue.4',
+            transition: 'background-color .2s ease-in'
+          }
+        }}>Deploy config</button>
       </div>
-      <footer sx={{ py: 4, borderTop: "1px solid" }}>
-        <div sx={{ display: "flex", alignItems: "center" }}>
-          <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
-          <div sx={{ ml: "auto" }}>
-            <IconLink />
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
