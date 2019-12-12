@@ -1,8 +1,7 @@
 /** @jsx jsx */
-import { jsx, useVariant } from "../config";
+import { jsx } from "../config";
 
 const SiteTitle = ({ text, variant, ...props }) => {
-  const { setVariant } = useVariant("card");
   switch (variant) {
     case "default":
       return (
@@ -14,7 +13,6 @@ const SiteTitle = ({ text, variant, ...props }) => {
             py: [5, 6, 7]
           }}
         >
-          <button onClick={() => setVariant("test")}>Set Variant</button>
           {text}
         </h1>
       );

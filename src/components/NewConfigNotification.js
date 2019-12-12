@@ -1,18 +1,20 @@
 /** @jsx jsx */
 import { useState } from "react";
-import { useConfig, jsx } from "./config";
-import useInterval from "./useInterval";
-import isEqual from "lodash/isEqual";
+import { jsx } from "../config";
+import useInterval from "../useInterval";
 
 const NewConfigNotification = () => {
-  const { config } = useConfig();
   const [updateAvailable, setUpdateAvailable] = useState(false);
+  const [versionId, setVersionId] = useState();
 
   useInterval(() => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        if (!isEqual(config, json)) {
+        if (!versionId) {
+          setVersionId(json.id);
+        }
+        if (versionId && versionId !== json.id) {
           setUpdateAvailable(true);
         }
       });

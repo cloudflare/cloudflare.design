@@ -4,15 +4,12 @@ import { ThemeProvider } from "theme-ui";
 import theme from "./theme";
 import data from "./data";
 import { ConfigProvider, useConfig, jsx } from "./config";
-import NewConfigNotification from "./NewConfigNotification";
-import SiteTitle from "./components/SiteTitle";
+import NewConfigNotification from "./components/NewConfigNotification";
 import SectionHeader from "./components/SectionHeader";
 import SectionColor from "./components/SectionColor";
 import SectionFigma from "./components/SectionFigma";
 import SectionLocations from "./components/SectionLocations";
 import IconLink from "./components/IconLink";
-import Text from "./components/Text";
-import Card from "./components/Card";
 
 // This is the current config from the worker
 // and just maps a key of our choosing to a value from our theme file
@@ -26,18 +23,18 @@ import Card from "./components/Card";
 //   }
 // };
 
-// const initialConfig = window.__CONFIG__;
+// const initialConfig = window.__CONFIG__.config;
 // delete window.__CONFIG__;
 
 const Site = () => {
-  const { setConfig } = useConfig();
+  const { config, setConfig } = useConfig();
 
   // Load remote config and replace when ready
   useEffect(() => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        setConfig(json);
+        setConfig(json.config);
       });
   }, []);
 
@@ -52,7 +49,7 @@ const Site = () => {
     >
       <NewConfigNotification />
       <SectionHeader variant={1} />
-      <SectionColor variant={1} />
+      <SectionColor />
       <SectionFigma variant={1} />
       <SectionLocations variant={1} />
       <footer sx={{ py: 4, borderTop: "1px solid" }}>
@@ -74,8 +71,8 @@ function App() {
         colorPrimary: "white",
         colorSecondary: "gray.0",
         variants: {
-          card: "default",
-          header: "new"
+          colorSection: 0,
+          headerSection: 0
         }
       }}
     >
