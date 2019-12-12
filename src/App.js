@@ -22,7 +22,7 @@ import IconLink from "./components/IconLink";
 //     header: 'new'
 //   }
 // };
-
+//
 // const initialConfig = window.__CONFIG__.config;
 // delete window.__CONFIG__;
 

@@ -144,6 +144,28 @@ const theme = {
       navy: "#00517f",
       lightNavy: "#4f8cc8",
       gray: ["#404242", "#707070", "#aaaaaa", "#dddddd", "#f5f5f5"]
+    },
+    modes: {
+      1: {
+        text: '#1d1f20',
+        background: '#ffffff',
+        primary: '#2c7cb9',
+      },
+      2: {
+        text: '#1d1f20',
+        background: '#ffffff',
+        primary: '#9f5bb0',
+      },
+      3: {
+        text: '#ffffff',
+        background: '#1d1f20',
+        primary: '#2c7cb9',
+      },
+      4: {
+        text: '#ffffff',
+        background: '#1d1f20',
+        primary: '#9f5bb0',
+      },
     }
   }
 };
