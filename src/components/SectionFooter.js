@@ -7,7 +7,7 @@ import Text from "./Text";
 import IconLink from './IconLink'
 import VariantPicker from "./VariantPicker";
 
-const variantKey = "figmaSection";
+const variantKey = "footerSection";
 
 const variants = [
   {
@@ -50,7 +50,7 @@ const SectionFooter = ({ ...props }) => {
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
-        <div sx={{display: 'flex', alignItems: 'center'}}>
+        <div sx={{ fontSize: 7, fontWeight: 800, display: 'flex', alignItems: 'center'}}>
         <a
           sx={{
             color: 'inherit',
