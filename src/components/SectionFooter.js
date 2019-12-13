@@ -35,7 +35,7 @@ const SectionFooter = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <footer sx={{ py: 4, borderTop: "1px solid" }}>
+          <footer sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}>
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
@@ -49,7 +49,7 @@ const SectionFooter = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <footer sx={{ py: 4, borderTop: "1px solid" }}>
+          <footer sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}>
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
@@ -101,7 +101,7 @@ const SectionFooter = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <footer sx={{ py: 4, borderTop: "1px solid" }}>
+          <footer sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}>
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>

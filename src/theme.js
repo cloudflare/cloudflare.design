@@ -171,6 +171,21 @@ const theme = {
         background: '#9f5bb0',
         primary: '#1d1f20',
       },
+      6: {
+        text: '#ffffff',
+        background: '#2b818e',
+        primary: '#1d1f20',
+      },
+      7: {
+        text: '#ffffff',
+        background: '#2c7cb0',
+        primary: '#1d1f20',
+      },
+      8: {
+        text: '#ffffff',
+        background: '#6373b6',
+        primary: '#1d1f20',
+      },
     }
   }
 };

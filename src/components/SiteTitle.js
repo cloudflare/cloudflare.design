@@ -9,7 +9,7 @@ const SiteTitle = ({ text, variant, ...props }) => {
           sx={{
             fontSize: [6, 7, 9],
             textAlign: "center",
-            mt: 0,
+            my: 0,
             py: [5, 6, 7]
           }}
         >

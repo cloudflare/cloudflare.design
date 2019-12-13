@@ -44,8 +44,7 @@ const SectionLocations = ({ showUI, ...props }) => {
               Locations
             </h3>
             <Text>
-              Cloudflare has n offices in y countries. We're currently growing
-              our Design teams in San Francisco, Austin, London, and Lisbon.
+              We're currently growing our Design teams in San Francisco, Austin, London, and Lisbon.
             </Text>
             <div sx={{ mx: "auto", maxWidth: "64em", width: "100%" }}>
               <div
