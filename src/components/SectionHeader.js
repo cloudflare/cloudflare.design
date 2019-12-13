@@ -34,7 +34,7 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <header {...props}>
+          <header sx={{bg: background, color: text }} {...props}>
             <SiteTitle text={data.title} />
           </header>
         </>
@@ -44,7 +44,7 @@ const SectionHeader = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header {...props}>
-              <div sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid' }}>
+              <div sx={{ bg: background, color: text, display: 'flex', alignItems: 'center', borderBottom: '1px solid' }}>
               <Logo variant='mark' sx={{ mx: 3, width: 160 }} />
               <h1
                 sx={{
@@ -65,7 +65,7 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <header {...props}>
+          <header sx={{ bg: background, color: text }} {...props}>
             <h1
               sx={{
                 my: 0,

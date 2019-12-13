@@ -97,12 +97,22 @@ const Site = () => {
     >
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
       <NewConfigNotification show={updateAvailable} />
+      <div sx={{ position: 'relative' }}>
+        <SectionHeader showUI={showUI} />
+      </div>
+      <div sx={{ position: 'relative' }}>
+        <SectionColor showUI={showUI} />
+      </div>
+      <div sx={{ position: 'relative' }}>
+        <SectionFigma showUI={showUI} />
+      </div>
+      <div sx={{ position: 'relative' }}>
+        <SectionLocations showUI={showUI} />
+      </div>
+      <div sx={{ position: 'relative' }}>
+        <SectionFooter showUI={showUI} />
+      </div>
       <ConfigHistory history={config.history} />
-      <SectionHeader showUI={showUI} />
-      <SectionColor showUI={showUI} />
-      <SectionFigma showUI={showUI} />
-      <SectionLocations showUI={showUI} />
-      <SectionFooter showUI={showUI} />
       <Frame>
         <div
           sx={{

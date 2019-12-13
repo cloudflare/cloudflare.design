@@ -32,7 +32,7 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           <section
-            sx={{ pb: [5, 6], px: [4, 0, 0], backgroundColor: background }}
+            sx={{ pb: [5, 6], pt: 5, px: [4, 0, 0], backgroundColor: background }}
           >
             {showUI && (
               <PickerUIs variants={variants} sectionKey={sectionKey} />
@@ -42,7 +42,8 @@ const SectionHeader = ({ showUI, ...props }) => {
                 color: text,
                 fontSize: [3, 5, 6],
                 textAlign: "center",
-                mb: 5
+                mt: 0,
+                mb: 5,
               }}
             >
               Color
