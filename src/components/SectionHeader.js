@@ -5,6 +5,7 @@ import SiteTitle from "./SiteTitle";
 import data from "../data";
 import PickerUIs from "./PickerUIs";
 import useColorMode from "../useColorMode";
+import Logo from './Logo'
 
 const sectionKey = "headerSection";
 
@@ -43,16 +44,20 @@ const SectionHeader = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header {...props}>
-            <h1
-              sx={{
-                my: 0,
-                fontSize: [7, 7, 96],
-                borderBottom: "1px solid",
-                py: 0
-              }}
-            >
-              Cloudflare Design
-            </h1>
+              <div sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid' }}>
+              <Logo variant='mark' sx={{ mx: 3, width: 160 }} />
+              <h1
+                sx={{
+                  pl: 3,
+                  my: 0,
+                  fontSize: [7, 7, 96],
+                  borderLeft: '1px solid',
+                  py: 0
+                }}
+              >
+                Cloudflare Design
+              </h1>
+            </div>
           </header>
         </>
       );
