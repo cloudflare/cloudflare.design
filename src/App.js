@@ -15,7 +15,7 @@ import SectionLocations from "./components/SectionLocations";
 import ConfigHistory from "./components/ConfigHistory";
 import IconLink from "./components/IconLink";
 import useInterval from "./useInterval";
-
+import Frame from "./components/Frame";
 // This is the current config from the worker
 // and just maps a key of our choosing to a value from our theme file
 
@@ -103,6 +103,23 @@ const Site = () => {
       <SectionFigma showUI={showUI} />
       <SectionLocations showUI={showUI} />
       <SectionFooter showUI={showUI} />
+      <Frame>
+        <div
+          sx={{
+            fontFamily: "system-ui, sans-serif",
+            // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
+            color: "c.colorPrimary",
+            bg: "c.colorSecondary"
+          }}
+        >
+          <SectionHeader showUI={false} />
+          <SectionColor showUI={false} />
+          <SectionFigma showUI={false} />
+          <SectionLocations showUI={false} />
+          <SectionFooter showUI={false} />
+        </div>
+      </Frame>
+
       <div sx={{ bg: "#000", textAlign: "center" }}>
         <button
           onClick={handleDeployConfig}
