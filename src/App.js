@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "theme-ui";
 import { GlobalHotKeys } from "react-hotkeys";
+import drop from "lodash/drop";
 import theme from "./theme";
 import data from "./data";
 import { ConfigProvider, useConfig, jsx } from "./config";
@@ -11,6 +12,7 @@ import SectionColor from "./components/SectionColor";
 import SectionFigma from "./components/SectionFigma";
 import SectionFooter from "./components/SectionFooter";
 import SectionLocations from "./components/SectionLocations";
+import ConfigHistory from "./components/ConfigHistory";
 import IconLink from "./components/IconLink";
 import useInterval from "./useInterval";
 
@@ -42,8 +44,8 @@ const Site = () => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        console.log(json[0]);
-        setConfig(json[0].config);
+        const history = drop(json);
+        setConfig({ ...json[0].config, history });
       });
   }, []);
 
@@ -93,7 +95,9 @@ const Site = () => {
         bg: "c.colorSecondary"
       }}
     >
+      <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
       <NewConfigNotification show={updateAvailable} />
+      <ConfigHistory history={config.history} />
       <SectionHeader showUI={showUI} />
       <SectionColor showUI={showUI} />
       <SectionFigma showUI={showUI} />
@@ -136,6 +140,7 @@ function App() {
         headerSection: 1,
         locationSection: 1,
         footerSection: 1,
+        history: [],
         variants: {}
       }}
     >
