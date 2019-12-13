@@ -95,7 +95,7 @@ const Site = () => {
         bg: "c.colorSecondary"
       }}
     >
-      <GlobalHotKeys kyMap={keyMap} handlers={handlers} />
+      <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
       <NewConfigNotification show={updateAvailable} />
       <ConfigHistory history={config.history} />
       <SectionHeader showUI={showUI} />
