@@ -1,13 +1,14 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx, useVariant } from "../config";
-import data from '../data'
+import data from "../data";
 import Card from "./Card";
 import Text from "./Text";
-import IconLink from './IconLink'
-import VariantPicker from "./VariantPicker";
+import IconLink from "./IconLink";
+import PickerUIs from "./PickerUIs";
+import useColorMode from "../useColorMode";
 
-const variantKey = "footerSection";
+const sectionKey = "footerSection";
 
 const variants = [
   {
@@ -24,14 +25,16 @@ const variants = [
   }
 ];
 
-const SectionFooter = ({ ...props }) => {
-  const { variant } = useVariant(variantKey);
+const SectionFooter = ({ showUI, ...props }) => {
+  const { variant } = useVariant(sectionKey);
+  const { background, text } = useColorMode(sectionKey);
+
   switch (variant) {
     case 0:
     default:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer sx={{ py: 4, borderTop: "1px solid" }}>
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
@@ -45,43 +48,50 @@ const SectionFooter = ({ ...props }) => {
     case 1:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer sx={{ py: 4, borderTop: "1px solid" }}>
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
-        <div sx={{ fontSize: 7, fontWeight: 800, display: 'flex', alignItems: 'center'}}>
-        <a
-          sx={{
-            color: 'inherit',
-            textDecoration: "none",
-            mr: 3
-          }}
-          href='https://dribbble.com/cloudflare'
-        >
-          Dribbble
-        </a>
-        <a
-          sx={{
-            color: 'inherit',
-            textDecoration: "none",
-            mr: 3
-          }}
-          href='https://github.com/cloudflare'
-        >
-        GitHub
-        </a>
-        <a
-          sx={{
-            color: 'inherit',
-            textDecoration: "none",
-            mr: 3
-          }}
-          href='https://twitter.com/cloudflare'
-        >
-          Twitter
-        </a>
-        </div>
+                <div
+                  sx={{
+                    fontSize: 7,
+                    fontWeight: 800,
+                    display: "flex",
+                    alignItems: "center"
+                  }}
+                >
+                  <a
+                    sx={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      mr: 3
+                    }}
+                    href="https://dribbble.com/cloudflare"
+                  >
+                    Dribbble
+                  </a>
+                  <a
+                    sx={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      mr: 3
+                    }}
+                    href="https://github.com/cloudflare"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    sx={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      mr: 3
+                    }}
+                    href="https://twitter.com/cloudflare"
+                  >
+                    Twitter
+                  </a>
+                </div>
               </div>
             </div>
           </footer>
@@ -90,7 +100,7 @@ const SectionFooter = ({ ...props }) => {
     case 2:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer sx={{ py: 4, borderTop: "1px solid" }}>
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>

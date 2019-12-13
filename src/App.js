@@ -135,6 +135,7 @@ function App() {
         figmaSection: 1,
         headerSection: 1,
         locationSection: 1,
+        footerSection: 1,
         variants: {}
       }}
     >
