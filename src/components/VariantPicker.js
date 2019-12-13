@@ -12,8 +12,10 @@ const VariantPicker = ({ variants, variantKey }) => {
   return (
     <div>
       <select value={variant} onChange={handleSetVariant}>
-        {variants.map(({ label, value }) => (
-          <option value={value}>{label}</option>
+        {variants.map(({ label, value }, i) => (
+          <option key={i} value={value}>
+            {label}
+          </option>
         ))}
       </select>
     </div>

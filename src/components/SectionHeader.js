@@ -3,9 +3,10 @@ import React from "react";
 import { jsx, useVariant } from "../config";
 import SiteTitle from "./SiteTitle";
 import data from "../data";
-import VariantPicker from "./VariantPicker";
+import PickerUIs from "./PickerUIs";
+import useColorMode from "../useColorMode";
 
-const variantKey = "headerSection";
+const sectionKey = "headerSection";
 
 const variants = [
   {
@@ -22,15 +23,16 @@ const variants = [
   }
 ];
 
-const SectionHeader = ({ ...props }) => {
-  const { variant } = useVariant(variantKey);
+const SectionHeader = ({ showUI, ...props }) => {
+  const { variant } = useVariant(sectionKey);
+  const { background, text } = useColorMode(sectionKey);
 
   switch (variant) {
     case 0:
     default:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header {...props}>
             <SiteTitle text={data.title} />
           </header>
@@ -39,7 +41,7 @@ const SectionHeader = ({ ...props }) => {
     case 1:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header {...props}>
             <h1
               sx={{
@@ -57,7 +59,7 @@ const SectionHeader = ({ ...props }) => {
     case 2:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header {...props}>
             <h1
               sx={{

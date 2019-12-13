@@ -3,9 +3,10 @@ import React from "react";
 import { jsx, useVariant } from "../config";
 import Text from "./Text";
 import data from "../data";
-import VariantPicker from "./VariantPicker";
+import PickerUIs from "./PickerUIs";
+import useColorMode from "../useColorMode";
 
-const variantKey = "locationSection";
+const sectionKey = "locationSection";
 
 const variants = [
   {
@@ -22,15 +23,16 @@ const variants = [
   }
 ];
 
-const SectionLocations = ({ ...props }) => {
-  const { variant } = useVariant(variantKey);
+const SectionLocations = ({ showUI, ...props }) => {
+  const { variant } = useVariant(sectionKey);
+  const { background, text } = useColorMode(sectionKey);
 
   switch (variant) {
     case 0:
     default:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section sx={{ py: [5, 6] }}>
             <h3
               sx={{
@@ -100,7 +102,7 @@ const SectionLocations = ({ ...props }) => {
     case 1:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section>
             <div>
               <div
@@ -169,7 +171,7 @@ const SectionLocations = ({ ...props }) => {
     case 2:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section {...props}></section>
         </>
       );

@@ -3,9 +3,10 @@ import React from "react";
 import { jsx, useVariant } from "../config";
 import Card from "./Card";
 import Text from "./Text";
-import VariantPicker from "./VariantPicker";
+import PickerUIs from "./PickerUIs";
+import useColorMode from "../useColorMode";
 
-const variantKey = "figmaSection";
+const sectionKey = "figmaSection";
 
 const variants = [
   {
@@ -22,14 +23,16 @@ const variants = [
   }
 ];
 
-const SectionFigma = ({ ...props }) => {
-  const { variant } = useVariant(variantKey);
+const SectionFigma = ({ showUI, ...props }) => {
+  const { variant } = useVariant(sectionKey);
+  const { background, text } = useColorMode(sectionKey);
+
   switch (variant) {
     case 0:
     default:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section>
             <h3
               sx={{
@@ -135,7 +138,7 @@ const SectionFigma = ({ ...props }) => {
     case 1:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section>
             <div sx={{ borderBottom: "1px solid", borderColor: "inherit" }}>
               <div sx={{ display: "flex", flexWrap: ["wrap", "nowrap"], p: 3 }}>
@@ -206,7 +209,7 @@ const SectionFigma = ({ ...props }) => {
     case 2:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section {...props}></section>
         </>
       );

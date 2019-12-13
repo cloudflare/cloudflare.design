@@ -1,6 +1,7 @@
 /** @jsx jsx */
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "theme-ui";
+import { GlobalHotKeys } from "react-hotkeys";
 import theme from "./theme";
 import data from "./data";
 import { ConfigProvider, useConfig, jsx } from "./config";
@@ -30,15 +31,19 @@ import useInterval from "./useInterval";
 
 const Site = () => {
   const [versionId, setVersionId] = useState();
+  const [showUI, toggleShowUI] = useState(true);
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const { config, setConfig } = useConfig();
+
+  console.log(config);
 
   // Load remote config and replace when ready
   useEffect(() => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        setConfig(json.config);
+        console.log(json[0]);
+        setConfig(json[0].config);
       });
   }, []);
 
@@ -47,13 +52,23 @@ const Site = () => {
       .then(res => res.json())
       .then(json => {
         if (!versionId) {
-          setVersionId(json.id);
+          setVersionId(json[0].id);
         }
-        if (versionId && versionId !== json.id) {
+        if (versionId && versionId !== json[0].id) {
           setUpdateAvailable(true);
         }
       });
   }, 10000);
+
+  const keyMap = {
+    TOGGLE_CONFIG_UI: ";"
+  };
+
+  const handlers = {
+    TOGGLE_CONFIG_UI: () => {
+      toggleShowUI(prev => !prev);
+    }
+  };
 
   const handleDeployConfig = () => {
     fetch("https://cloudflare-design-write.cloudflare-ui.workers.dev", {
@@ -79,29 +94,34 @@ const Site = () => {
       }}
     >
       <NewConfigNotification show={updateAvailable} />
-      <SectionHeader variant={1} />
-      <SectionColor />
-      <SectionFigma variant={1} />
-      <SectionLocations variant={1} />
-      <SectionFooter variant={1} />
-      <div sx={{ bg: '#000', textAlign: 'center' }}>
-        <button onClick={handleDeployConfig} sx={{
-          width: '100%',
-          border: 0, 
-          textAlign: 'center',
-          py: 3, 
-          px: 3,
-          bg: 'black',
-          color: 'white',
-          fontSize: 4, 
-          fontWeight: 800,
-          cursor: 'pointer',
-          transition: 'background-color .2s ease-in',
-          ":hover": {
-            bg: 'blue.4',
-            transition: 'background-color .2s ease-in'
-          }
-        }}>Deploy config</button>
+      <SectionHeader showUI={showUI} />
+      <SectionColor showUI={showUI} />
+      <SectionFigma showUI={showUI} />
+      <SectionLocations showUI={showUI} />
+      <SectionFooter showUI={showUI} />
+      <div sx={{ bg: "#000", textAlign: "center" }}>
+        <button
+          onClick={handleDeployConfig}
+          sx={{
+            width: "100%",
+            border: 0,
+            textAlign: "center",
+            py: 3,
+            px: 3,
+            bg: "black",
+            color: "white",
+            fontSize: 4,
+            fontWeight: 800,
+            cursor: "pointer",
+            transition: "background-color .2s ease-in",
+            ":hover": {
+              bg: "blue.4",
+              transition: "background-color .2s ease-in"
+            }
+          }}
+        >
+          Deploy config
+        </button>
       </div>
     </div>
   );
@@ -111,12 +131,11 @@ function App() {
   return (
     <ConfigProvider
       initialConfig={{
-        colorPrimary: "white",
-        colorSecondary: "gray.0",
-        variants: {
-          colorSection: 0,
-          headerSection: 0
-        }
+        colorSection: 1,
+        figmaSection: 1,
+        headerSection: 1,
+        locationSection: 1,
+        variants: {}
       }}
     >
       {config => (

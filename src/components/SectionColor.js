@@ -2,9 +2,10 @@
 import React from "react";
 import { jsx, useVariant } from "../config";
 import Card from "./Card";
-import VariantPicker from "./VariantPicker";
+import PickerUIs from "./PickerUIs";
+import useColorMode from "../useColorMode";
 
-const variantKey = "colorSection";
+const sectionKey = "colorSection";
 
 const variants = [
   {
@@ -21,18 +22,24 @@ const variants = [
   }
 ];
 
-const SectionHeader = ({ ...props }) => {
-  const { variant } = useVariant(variantKey);
+const SectionHeader = ({ showUI, ...props }) => {
+  const { variant } = useVariant(sectionKey);
+  const { background, text } = useColorMode(sectionKey);
 
   switch (variant) {
     case 0:
     default:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
-          <section sx={{ pb: [5, 6], px: [4, 0, 0] }}>
+          <section
+            sx={{ pb: [5, 6], px: [4, 0, 0], backgroundColor: background }}
+          >
+            {showUI && (
+              <PickerUIs variants={variants} sectionKey={sectionKey} />
+            )}
             <h3
               sx={{
+                color: text,
                 fontSize: [3, 5, 6],
                 textAlign: "center",
                 mb: 5
@@ -66,19 +73,22 @@ const SectionHeader = ({ ...props }) => {
     case 1:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
           <section
             sx={{
               py: 3,
               px: [4, 3, 3],
               borderBottom: "1px solid",
-              borderColor: "inherit"
+              borderColor: "inherit",
+              backgroundColor: background
             }}
           >
+            {showUI && (
+              <PickerUIs variants={variants} sectionKey={sectionKey} />
+            )}
             <div>
               <div sx={{ display: "flex", flexWrap: ["wrap", "nowrap"] }}>
                 <div sx={{ px: 3, width: "33%" }}>
-                  <h3 sx={{ fontSize: [3, 5, 6] }}>Color</h3>
+                  <h3 sx={{ fontSize: [3, 5, 6], color: text }}>Color</h3>
                 </div>
                 <div sx={{ width: ["100%", "50%"], mb: [4, 0], p: 3 }}>
                   <a
@@ -114,7 +124,7 @@ const SectionHeader = ({ ...props }) => {
     case 2:
       return (
         <>
-          <VariantPicker variants={variants} variantKey={variantKey} />
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section {...props}></section>
         </>
       );
