@@ -166,6 +166,11 @@ const theme = {
         background: '#1d1f20',
         primary: '#9f5bb0',
       },
+      5: {
+        text: '#ffffff',
+        background: '#9f5bb0',
+        primary: '#1d1f20',
+      },
     }
   }
 };
