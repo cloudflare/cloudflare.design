@@ -29,7 +29,7 @@ import Frame from "./components/Frame";
 // const initialConfig = window.__CONFIG__.config;
 // delete window.__CONFIG__;
 
-const SitePreview = ({ config }) => {
+const SitePreview = ({ config, setConfig }) => {
   const previewRef = useRef();
   const [dimensions, setDimensions] = useState({
     width: "100vw",
@@ -49,7 +49,9 @@ const SitePreview = ({ config }) => {
   return (
     <div>
       <div
+        onClick={setConfig}
         sx={{
+          cursor: 'pointer',
           position: "relative",
           height: dimensions.height * scale,
           width: dimensions.width * scale,
@@ -100,11 +102,12 @@ const SitePreview = ({ config }) => {
   );
 };
 
-const VersionPicker = ({ configs }) => {
+const VersionPicker = ({ configs, setConfig }) => {
   return (
     <section
       sx={{
         display: "flex",
+        zIndex: 9,
         overflow: "auto",
         flexWrap: "nowrap",
         alignItems: "center",
@@ -119,19 +122,19 @@ const VersionPicker = ({ configs }) => {
         fontFamily: "system-ui, sans-serif"
       }}
     >
-      {configs.map(config => (
-        <SitePreview key={config.id} config={config} />
+      {configs.map((config, index) => (
+        <SitePreview key={config.id} config={config} setConfig={() => setConfig(config)} />
       ))}
     </section>
   );
 };
 
-const Site = ({ showUI }) => {
+const Site = () => {
   const [versionId, setVersionId] = useState();
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const { config, setConfig } = useConfig();
-
-  console.log(config);
+  const [showUI, toggleShowUI] = useState(true);
+  const [showVersions, setShowVersions] = useState(false);
 
   // Load remote config and replace when ready
   useEffect(() => {
@@ -189,6 +192,20 @@ const Site = ({ showUI }) => {
       });
   };
 
+  const keyMap = {
+    TOGGLE_CONFIG_UI: ";",
+    TOGGLE_VERSIONS_UI: "ESC"
+  };
+
+  const handlers = {
+    TOGGLE_CONFIG_UI: () => {
+      toggleShowUI(prev => !prev);
+    },
+    TOGGLE_VERSIONS_UI: () => {
+      setShowVersions(prev => !prev);
+    }
+  };
+
   return (
     <div
       sx={{
@@ -196,6 +213,11 @@ const Site = ({ showUI }) => {
         color: "black"
       }}
     >
+      <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
+      {showVersions && <VersionPicker setConfig={(newConfig) => {
+        setConfig({ ...newConfig.config, history: config.history});
+        setShowVersions(false);
+      }} configs={config.history.slice(0, 7)} />}
       <NewConfigNotification show={updateAvailable} />
       <div sx={{ position: "relative" }}>
         <SectionHeader showUI={showUI} />
@@ -261,33 +283,6 @@ const Site = ({ showUI }) => {
 };
 
 function App() {
-  const [configs, setConfigs] = useState([]);
-
-  const [showUI, toggleShowUI] = useState(true);
-  const [showVersions, setShowVersions] = useState(false);
-
-  useEffect(() => {
-    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
-      .then(res => res.json())
-      .then(json => {
-        setConfigs(json);
-      });
-  }, []);
-
-  const keyMap = {
-    TOGGLE_CONFIG_UI: ";",
-    TOGGLE_VERSIONS_UI: "ESC"
-  };
-
-  const handlers = {
-    TOGGLE_CONFIG_UI: () => {
-      toggleShowUI(prev => !prev);
-    },
-    TOGGLE_VERSIONS_UI: () => {
-      setShowVersions(prev => !prev);
-    }
-  };
-
   return (
     <ConfigProvider
       initialConfig={{
@@ -309,9 +304,7 @@ function App() {
       }}
     >
       <ThemeProvider theme={theme}>
-        <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
-        <Site showUI={showUI} />
-        {showVersions && <VersionPicker configs={configs.slice(0, 7)} />}
+        <Site />
       </ThemeProvider>
     </ConfigProvider>
   );
