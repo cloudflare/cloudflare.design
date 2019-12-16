@@ -85,6 +85,21 @@ const Site = () => {
       .then(res => res.json())
       .then(data => {
         setVersionId(data.id);
+        const newConfig = {
+          colorModes: config.colorModes,
+          variants: config.variants,
+          history: [
+            {
+              id: data.id,
+              config: {
+                colorModes: config.colorModes,
+                variants: config.variants
+              }
+            },
+            ...config.history
+          ]
+        };
+        setConfig(newConfig);
       });
   };
 
