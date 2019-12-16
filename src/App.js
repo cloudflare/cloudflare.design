@@ -135,9 +135,9 @@ const Site = ({ showUI }) => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        const history = drop(json);
+        const current = json[0];
 
-        setConfig({ ...json[0].config, history });
+        setConfig({ ...current.config, history: json });
       });
   }, []);
 
@@ -145,7 +145,6 @@ const Site = ({ showUI }) => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        console.log(json);
         if (!versionId) {
           setVersionId(json[0].id);
         }
@@ -161,11 +160,29 @@ const Site = ({ showUI }) => {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(config)
+      body: JSON.stringify({
+        colorModes: config.colorModes,
+        variants: config.variants
+      })
     })
       .then(res => res.json())
       .then(data => {
         setVersionId(data.id);
+        const newConfig = {
+          colorModes: config.colorModes,
+          variants: config.variants,
+          history: [
+            {
+              id: data.id,
+              config: {
+                colorModes: config.colorModes,
+                variants: config.variants
+              }
+            },
+            ...config.history
+          ]
+        };
+        setConfig(newConfig);
       });
   };
 
@@ -173,9 +190,7 @@ const Site = ({ showUI }) => {
     <div
       sx={{
         fontFamily: "system-ui, sans-serif",
-        // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
-        color: "c.colorPrimary",
-        bg: "c.colorSecondary"
+        color: "black"
       }}
     >
       <NewConfigNotification show={updateAvailable} />
