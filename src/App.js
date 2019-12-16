@@ -113,6 +113,7 @@ const Site = () => {
         <SectionFooter showUI={showUI} />
       </div>
       <ConfigHistory history={config.history} />
+    <div sx={{ display: 'none'}}>
       <Frame>
         <div
           sx={{
@@ -129,6 +130,7 @@ const Site = () => {
           <SectionFooter showUI={false} />
         </div>
       </Frame>
+    </div>
 
       <div sx={{ bg: "#000", textAlign: "center" }}>
         <button

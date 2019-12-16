@@ -32,7 +32,7 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           <section
-            sx={{ pb: [5, 6], pt: 5, px: [4, 0, 0], backgroundColor: background }}
+            sx={{ pb: [5, 6], pt: 5, px: [4, 0, 0], backgroundColor: background, color: text }}
           >
             {showUI && (
               <PickerUIs variants={variants} sectionKey={sectionKey} />

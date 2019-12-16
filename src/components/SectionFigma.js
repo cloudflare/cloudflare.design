@@ -33,7 +33,7 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section>
+          <section sx={{py: [5,6], color: text, bg: background }}>
             <h3
               sx={{
                 fontSize: [3, 5, 6],
@@ -139,7 +139,7 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section>
+          <section sx={{ color: text, bg: background }} >
             <div sx={{ borderBottom: "1px solid", borderColor: "inherit" }}>
               <div sx={{ display: "flex", flexWrap: ["wrap", "nowrap"], p: 3 }}>
                 <div sx={{ width: "100%", p: 3 }}>
@@ -210,7 +210,9 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section {...props}></section>
+          <section {...props}>
+            <h3 sx={{my: 0}}>FIGMA</h3>
+          </section>
         </>
       );
   }
