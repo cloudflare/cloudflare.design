@@ -42,11 +42,9 @@ const Site = () => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        console.log(json);
-        const history = drop(json);
         const current = json[0];
 
-        setConfig({ ...current.config, history });
+        setConfig({ ...current.config, history: json });
       });
   }, []);
 
