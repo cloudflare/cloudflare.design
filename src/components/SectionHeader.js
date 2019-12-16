@@ -22,6 +22,10 @@ const variants = [
   {
     label: "variant 2",
     value: 2
+  },
+  {
+    label: "variant 3",
+    value: 3
   }
 ];
 
@@ -35,8 +39,8 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <header sx={{ bg: background, color: text }} {...props}>
-            <SiteTitle text={data.title} />
+          <header sx={{ display: 'flex', justifyContent: 'center', px: 3, bg: background, color: text, py: [5,6,7] }} {...props}>
+            <Logo variant='mark' sx={{ width: 128, mr: 4 }}/><SiteTitle text={data.title} />
           </header>
         </>
       );
@@ -61,6 +65,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                   my: 0,
                   fontSize: [7, 7, 96],
                   borderLeft: "1px solid",
+                  lineHeight: 1,
                   py: 0
                 }}
               >
@@ -74,17 +79,31 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <header sx={{ bg: background, color: text }} {...props}>
+          <header sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid', py: 4, px: 3, bg: background, color: text }} {...props}>
+            <Logo variant='mark' sx={{ width: 48, mr: 3 }} />
             <h1
               sx={{
                 my: 0,
                 fontSize: [3, 3, 4],
-                borderBottom: "1px solid",
-                borderColor: "inherit",
                 textAlign: "center",
-                //textTransform: 'uppercase',
-                //letterSpacing: '0.05em',
-                py: 4
+              }}
+            >
+              Cloudflare Design
+            </h1>
+          </header>
+        </>
+      );
+    case 3:
+      return (
+        <>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <header sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', borderBottom: '1px solid', py: 4, px: 3, bg: background, color: text }} {...props}>
+            <Logo variant='mark' sx={{ width: 48, mr: 3 }} />
+            <h1
+              sx={{
+                my: 0,
+                fontSize: [3, 3, 4],
+                textAlign: "center",
               }}
             >
               Cloudflare Design

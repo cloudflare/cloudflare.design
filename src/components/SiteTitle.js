@@ -8,9 +8,8 @@ const SiteTitle = ({ text, variant, ...props }) => {
         <h1
           sx={{
             fontSize: [6, 7, 9],
-            textAlign: "center",
+            lineHeight: 1,
             my: 0,
-            py: [5, 6, 7]
           }}
         >
           {text}

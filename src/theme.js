@@ -183,7 +183,32 @@ const theme = {
       },
       8: {
         text: '#ffffff',
+        background: '#276d9b',
+        primary: '#1d1f20',
+      },
+      9: {
+        text: '#ffffff',
+        background: '#1f567a',
+        primary: '#1d1f20',
+      },
+      10: {
+        text: '#ffffff',
+        background: '#1f567a',
+        primary: '#1d1f20',
+      },
+      11: {
+        text: '#ffffff',
+        background: '#163d57',
+        primary: '#1d1f20',
+      },
+      12: {
+        text: '#ffffff',
         background: '#6373b6',
+        primary: '#1d1f20',
+      },
+      13: {
+        text: '#e0e3f0',
+        background: '#181e34',
         primary: '#1d1f20',
       },
     }
