@@ -29,14 +29,14 @@ export const useColorMode = (key, fixed) => {
       })
     );
   };
-  const mode = fixed || config.colorModes[key];
+  const mode = typeof fixed !== 'undefined' ? fixed : config.colorModes[key];
   const values = theme.colors.modes[mode];
   return { ...values, mode, setColorMode };
 };
 
 export const useVariant = (key, fixed) => {
   const { config, setConfig } = useContext(ConfigContext);
-  const variant = fixed || get(config, `variants[${key}]`);
+  const variant = typeof fixed !== 'undefined' ? fixed : get(config, `variants[${key}]`);
 
   const setVariant = value => {
     setConfig(
