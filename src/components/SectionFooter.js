@@ -1,12 +1,10 @@
 /** @jsx jsx */
 import React from "react";
-import { jsx, useVariant } from "../config";
+import { jsx } from "theme-ui";
+import { useVariant, useColorMode } from "../config";
 import data from "../data";
-import Card from "./Card";
-import Text from "./Text";
 import IconLink from "./IconLink";
 import PickerUIs from "./PickerUIs";
-import useColorMode from "../useColorMode";
 
 const sectionKey = "footerSection";
 
@@ -35,7 +33,9 @@ const SectionFooter = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <footer sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}>
+          <footer
+            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}
+          >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
@@ -49,7 +49,9 @@ const SectionFooter = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <footer sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}>
+          <footer
+            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}
+          >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
@@ -101,7 +103,9 @@ const SectionFooter = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <footer sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}>
+          <footer
+            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}
+          >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>

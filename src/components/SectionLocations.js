@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import React from "react";
-import { jsx, useVariant } from "../config";
+import { jsx } from "theme-ui";
+import { useVariant, useColorMode } from "../config";
 import Text from "./Text";
 import data from "../data";
 import PickerUIs from "./PickerUIs";
-import useColorMode from "../useColorMode";
 
 const sectionKey = "locationSection";
 
@@ -44,7 +44,8 @@ const SectionLocations = ({ showUI, ...props }) => {
               Locations
             </h3>
             <Text>
-              We're currently growing our Design teams in San Francisco, Austin, London, and Lisbon.
+              We're currently growing our Design teams in San Francisco, Austin,
+              London, and Lisbon.
             </Text>
             <div sx={{ mx: "auto", maxWidth: "64em", width: "100%" }}>
               <div

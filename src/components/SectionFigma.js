@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import React from "react";
-import { jsx, useVariant } from "../config";
+import { jsx } from "theme-ui";
+import { useVariant, useColorMode } from "../config";
 import Card from "./Card";
 import Text from "./Text";
 import PickerUIs from "./PickerUIs";
-import useColorMode from "../useColorMode";
 
 const sectionKey = "figmaSection";
 

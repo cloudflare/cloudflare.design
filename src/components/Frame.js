@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "../config";
+import { jsx } from "theme-ui";
 import React, { useState } from "react";
 import { createPortal } from "react-dom";
 

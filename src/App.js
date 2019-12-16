@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "theme-ui";
+import { ThemeProvider, jsx } from "theme-ui";
 import { GlobalHotKeys } from "react-hotkeys";
 import drop from "lodash/drop";
 import theme from "./theme";
-import data from "./data";
-import { ConfigProvider, useConfig, jsx } from "./config";
+import { ConfigProvider, useConfig } from "./config";
 import NewConfigNotification from "./components/NewConfigNotification";
 import SectionHeader from "./components/SectionHeader";
 import SectionColor from "./components/SectionColor";
@@ -13,7 +12,6 @@ import SectionFigma from "./components/SectionFigma";
 import SectionFooter from "./components/SectionFooter";
 import SectionLocations from "./components/SectionLocations";
 import ConfigHistory from "./components/ConfigHistory";
-import IconLink from "./components/IconLink";
 import useInterval from "./useInterval";
 import Frame from "./components/Frame";
 // This is the current config from the worker
@@ -45,6 +43,7 @@ const Site = () => {
       .then(res => res.json())
       .then(json => {
         const history = drop(json);
+
         setConfig({ ...json[0].config, history });
       });
   }, []);
@@ -53,6 +52,7 @@ const Site = () => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
+        console.log(json);
         if (!versionId) {
           setVersionId(json[0].id);
         }
@@ -97,19 +97,19 @@ const Site = () => {
     >
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
       <NewConfigNotification show={updateAvailable} />
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionHeader showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionColor showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionFigma showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionLocations showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionFooter showUI={showUI} />
       </div>
       <ConfigHistory history={config.history} />
@@ -164,20 +164,26 @@ function App() {
   return (
     <ConfigProvider
       initialConfig={{
-        colorSection: 1,
-        figmaSection: 1,
-        headerSection: 1,
-        locationSection: 1,
-        footerSection: 1,
-        history: [],
-        variants: {}
+        colorModes: {
+          colorSection: 1,
+          figmaSection: 1,
+          headerSection: 1,
+          locationSection: 1,
+          footerSection: 1
+        },
+        variants: {
+          colorSection: 1,
+          figmaSection: 1,
+          headerSection: 1,
+          locationSection: 1,
+          footerSection: 1
+        },
+        history: []
       }}
     >
-      {config => (
-        <ThemeProvider theme={{ ...theme, c: { ...config } }}>
-          <Site />
-        </ThemeProvider>
-      )}
+      <ThemeProvider theme={theme}>
+        <Site />
+      </ThemeProvider>
     </ConfigProvider>
   );
 }

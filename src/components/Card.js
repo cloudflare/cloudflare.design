@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx, useVariant } from "../config";
+import { jsx } from "theme-ui";
+import { useVariant } from "../config";
 
 const Card = ({ height, href, title, text, image, ...props }) => {
   const { variant } = useVariant("card");
@@ -16,7 +17,7 @@ const Card = ({ height, href, title, text, image, ...props }) => {
         >
           <div
             sx={{
-              borderRadius: props.borderRadius? props.borderRadius: 5,
+              borderRadius: props.borderRadius ? props.borderRadius : 5,
               backgroundSize: "cover",
               backgroundImage: "url(" + image + ")",
               height: height
@@ -27,8 +28,7 @@ const Card = ({ height, href, title, text, image, ...props }) => {
         </a>
       );
     case "test":
-      test:
-      return (
+      test: return (
         <a
           sx={{
             color: "inherit",
@@ -44,8 +44,8 @@ const Card = ({ height, href, title, text, image, ...props }) => {
               height: height
             }}
           ></div>
-          <h4 sx={{ mt: 3, mb: 2, fontSize: [5,6,7] }}>{title}</h4>
-          <span sx={{ fontSize: [3,4,5]}}>{text}</span>
+          <h4 sx={{ mt: 3, mb: 2, fontSize: [5, 6, 7] }}>{title}</h4>
+          <span sx={{ fontSize: [3, 4, 5] }}>{text}</span>
         </a>
       );
   }

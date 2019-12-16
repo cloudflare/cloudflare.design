@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import React from "react";
-import { jsx, useVariant } from "../config";
+import { jsx } from "theme-ui";
+import { useVariant } from "../config";
 import SiteTitle from "./SiteTitle";
 import data from "../data";
 import PickerUIs from "./PickerUIs";
-import useColorMode from "../useColorMode";
-import Logo from './Logo'
+import { useColorMode } from "../config";
+import Logo from "./Logo";
 
 const sectionKey = "headerSection";
 
@@ -34,7 +35,7 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <header sx={{bg: background, color: text }} {...props}>
+          <header sx={{ bg: background, color: text }} {...props}>
             <SiteTitle text={data.title} />
           </header>
         </>
@@ -44,14 +45,22 @@ const SectionHeader = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header {...props}>
-              <div sx={{ bg: background, color: text, display: 'flex', alignItems: 'center', borderBottom: '1px solid' }}>
-              <Logo variant='mark' sx={{ mx: 3, width: 160 }} />
+            <div
+              sx={{
+                bg: background,
+                color: text,
+                display: "flex",
+                alignItems: "center",
+                borderBottom: "1px solid"
+              }}
+            >
+              <Logo variant="mark" sx={{ mx: 3, width: 160 }} />
               <h1
                 sx={{
                   pl: 3,
                   my: 0,
                   fontSize: [7, 7, 96],
-                  borderLeft: '1px solid',
+                  borderLeft: "1px solid",
                   py: 0
                 }}
               >

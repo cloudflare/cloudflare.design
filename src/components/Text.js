@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "../config";
+import { jsx } from "theme-ui";
 
 const Text = ({ variant, ...props }) => {
   switch (variant) {
@@ -11,7 +11,7 @@ const Text = ({ variant, ...props }) => {
             fontWeight: 800,
             maxWidth: "20em",
             mx: "auto",
-            lineHeight: 1.25,
+            lineHeight: 1.25
           }}
         >
           {props.children}

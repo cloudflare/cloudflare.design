@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "../config";
+import { jsx } from "theme-ui";
 
 const NewConfigNotification = ({ show }) => {
   if (!show) return null;

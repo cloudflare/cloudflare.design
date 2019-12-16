@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import React from "react";
-import { jsx, useVariant } from "../config";
+import { jsx } from "theme-ui";
+import { useVariant, useColorMode } from "../config";
 import Card from "./Card";
 import PickerUIs from "./PickerUIs";
-import useColorMode from "../useColorMode";
 
 const sectionKey = "colorSection";
 
@@ -32,7 +32,13 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           <section
-            sx={{ pb: [5, 6], pt: 5, px: [4, 0, 0], backgroundColor: background, color: text }}
+            sx={{
+              pb: [5, 6],
+              pt: 5,
+              px: [4, 0, 0],
+              backgroundColor: background,
+              color: text
+            }}
           >
             {showUI && (
               <PickerUIs variants={variants} sectionKey={sectionKey} />
@@ -43,7 +49,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                 fontSize: [3, 5, 6],
                 textAlign: "center",
                 mt: 0,
-                mb: 5,
+                mb: 5
               }}
             >
               Color

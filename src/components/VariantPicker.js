@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx, useVariant } from "../config";
+import { jsx } from "theme-ui";
+import { useVariant } from "../config";
 import toNumber from "lodash/toNumber";
 
 const VariantPicker = ({ variants, variantKey }) => {

@@ -1,5 +1,6 @@
 /** @jsx jsx */
-import { jsx, useConfig } from "../config";
+import { jsx } from "theme-ui";
+import { useConfig } from "../config";
 
 const ConfigHistory = ({ history }) => {
   const { config, setConfig } = useConfig();
