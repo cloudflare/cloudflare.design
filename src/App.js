@@ -47,52 +47,55 @@ const SitePreview = ({ config }) => {
   }, [previewRef]);
 
   return (
-    <div
-      sx={{
-        position: "relative",
-        height: dimensions.height * scale,
-        width: dimensions.width * scale,
-        mx: 3,
-        boxShadow: "0 0 15px 5px rgba(0,0,0,0.10)"
-      }}
-    >
+    <div>
       <div
-        ref={previewRef}
         sx={{
-          width: dimensions.width,
           position: "relative",
-          transform: `scale(${scale})`,
-          transformOrigin: "0px 0px",
-          backgroundColor: "white",
-          pointerEvents: "none"
+          height: dimensions.height * scale,
+          width: dimensions.width * scale,
+          mx: 3,
+          boxShadow: "0 0 15px 5px rgba(0,0,0,0.10)"
         }}
       >
-        <SectionHeader
-          colorMode={config.config.colorModes.headerSection}
-          variant={config.config.variants.headerSection}
-          showUI={false}
-        />
-        <SectionColor
-          colorMode={config.config.colorModes.colorSection}
-          variant={config.config.variants.colorSection}
-          showUI={false}
-        />
-        <SectionFigma
-          colorMode={config.config.colorModes.figmaSection}
-          variant={config.config.variants.figmaSection}
-          showUI={false}
-        />
-        <SectionLocations
-          colorMode={config.config.colorModes.locationSection}
-          variant={config.config.variants.locationSection}
-          showUI={false}
-        />
-        <SectionFooter
-          colorMode={config.config.colorModes.footerSection}
-          variant={config.config.variants.footerSection}
-          showUI={false}
-        />
+        <div
+          ref={previewRef}
+          sx={{
+            width: dimensions.width,
+            position: "relative",
+            transform: `scale(${scale})`,
+            transformOrigin: "0px 0px",
+            backgroundColor: "white",
+            pointerEvents: "none"
+          }}
+        >
+          <SectionHeader
+            colorMode={config.config.colorModes.headerSection}
+            variant={config.config.variants.headerSection}
+            showUI={false}
+          />
+          <SectionColor
+            colorMode={config.config.colorModes.colorSection}
+            variant={config.config.variants.colorSection}
+            showUI={false}
+          />
+          <SectionFigma
+            colorMode={config.config.colorModes.figmaSection}
+            variant={config.config.variants.figmaSection}
+            showUI={false}
+          />
+          <SectionLocations
+            colorMode={config.config.colorModes.locationSection}
+            variant={config.config.variants.locationSection}
+            showUI={false}
+          />
+          <SectionFooter
+            colorMode={config.config.colorModes.footerSection}
+            variant={config.config.variants.footerSection}
+            showUI={false}
+          />
+        </div>
       </div>
+      <div sx={{fontSize: 1, fontWeight: 600, textAlign: 'center', mt: 3}}>{new Date(config.timestamp).toLocaleString()}</div>
     </div>
   );
 };
