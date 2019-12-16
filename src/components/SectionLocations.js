@@ -24,8 +24,8 @@ const variants = [
 ];
 
 const SectionLocations = ({ showUI, ...props }) => {
-  const { variant } = useVariant(sectionKey);
-  const { background, text } = useColorMode(sectionKey);
+  const { variant } = useVariant(sectionKey, props.variant);
+  const { background, text } = useColorMode(sectionKey, props.colorMode);
 
   switch (variant) {
     case 0:
