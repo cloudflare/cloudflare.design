@@ -11,11 +11,9 @@ const PickerUIs = ({ variants, sectionKey }) => {
 
   const handleSetBorders = e => {
     const checkboxValue = e.target.checked;
-    console.log(checkboxValue);
     setBorders(checkboxValue);
   };
 
-  console.log(borders);
   return (
     <div
       sx={{

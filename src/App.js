@@ -277,7 +277,8 @@ const Site = () => {
       <div sx={{ position: "relative" }}>
         <SectionFooter showUI={showUI} />
       </div>
-      {config.history > 0 && (
+
+      {config.history.length > 0 && (
         <ConfigHistory
           onPreviewClick={() => setShowVersions(prev => !prev)}
           history={config.history}
