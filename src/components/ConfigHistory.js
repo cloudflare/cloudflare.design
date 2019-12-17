@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import reverse from "lodash/reverse";
 import { useConfig } from "../config";
 
-const ConfigHistory = ({ history }) => {
+const ConfigHistory = ({ history, onPreviewClick }) => {
   const { config, setConfig } = useConfig();
 
   const handleSetConfig = i => () => {
@@ -20,7 +20,25 @@ const ConfigHistory = ({ history }) => {
 
   return (
     <div sx={{ p: 4 }}>
-      <h4 sx={{ mt: 0, mb: 3 }}>Versions</h4>
+      <div sx={{ display: "flex", alignItems: "center", mb: 3 }}>
+        <h4 sx={{ m: 0, mr: "auto" }}>Versions</h4>
+        <button
+          onClick={onPreviewClick}
+          sx={{
+            appearance: "none",
+            bg: "black",
+            color: "white",
+            border: "none",
+            borderRadius: 2,
+            px: 3,
+            py: 2,
+            fontSize: 2,
+            cursor: "pointer"
+          }}
+        >
+          Preview last 7 designs
+        </button>
+      </div>
       <div sx={{ flexWrap: "wrap", display: "flex", mx: -3 }}>
         {history.map((h, i) => (
           <div key={i} sx={{ width: "12.5%", px: 3 }}>

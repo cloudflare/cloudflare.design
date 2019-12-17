@@ -10,15 +10,15 @@ const sectionKey = "colorSection";
 
 const variants = [
   {
-    label: "default variant",
+    label: "0",
     value: 0
   },
   {
-    label: "variant 1",
+    label: "1",
     value: 1
   },
   {
-    label: "variant 2",
+    label: "2",
     value: 2
   }
 ];
@@ -35,7 +35,7 @@ const SectionHeader = ({ showUI, ...props }) => {
           <section
             sx={{
               pb: [5, 6],
-              py: [5,5,6,],
+              py: [5, 5, 6],
               px: 4,
               backgroundColor: background,
               color: text
@@ -49,17 +49,21 @@ const SectionHeader = ({ showUI, ...props }) => {
                 color: text,
                 fontSize: [3, 5, 6],
                 textAlign: "center",
-                mb: [4,4,5]
+                mb: [4, 4, 5]
               }}
             >
               Color
             </h3>
-        <Text>
-          Tools, experiments, and documentation from our work with color.
-        </Text>
+            <Text>
+              Tools, experiments, and documentation from our work with color.
+            </Text>
             <div sx={{ mt: 5, mx: "auto", maxWidth: "64em" }}>
               <div
-                sx={{ display: "flex", flexWrap: ["wrap", "nowrap"], px:[3,3] }}
+                sx={{
+                  display: "flex",
+                  flexWrap: ["wrap", "nowrap"],
+                  px: [3, 3]
+                }}
               >
                 <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
                   <Card
@@ -90,25 +94,36 @@ const SectionHeader = ({ showUI, ...props }) => {
               borderBottom: "1px solid",
               borderColor: "inherit",
               backgroundColor: background,
-              color: text,
+              color: text
             }}
           >
             {showUI && (
               <PickerUIs variants={variants} sectionKey={sectionKey} />
             )}
-            <div sx={{ maxWidth: '96em', mx: 'auto', py: [4,5,6] }}>
-                <div sx={{ px: 3, maxWidth: '32em', fontSize: [5, 6, 6], mx: 'auto' }}>
-                  <h3 sx={{ mt: 0, fontSize: [5, 7, 96], mb: 3, color: text }}>Color</h3>
-                  <p sx={{ 
-                    fontSize: [4,6,6],
-                    maxWidth: '32em',
+            <div sx={{ maxWidth: "96em", mx: "auto", py: [4, 5, 6] }}>
+              <div
+                sx={{
+                  px: 3,
+                  maxWidth: "32em",
+                  fontSize: [5, 6, 6],
+                  mx: "auto"
+                }}
+              >
+                <h3 sx={{ mt: 0, fontSize: [5, 7, 96], mb: 3, color: text }}>
+                  Color
+                </h3>
+                <p
+                  sx={{
+                    fontSize: [4, 6, 6],
+                    maxWidth: "32em",
                     lineHeight: 1.5,
-                    fontWeight: [400,600,600]
-                  }}>
-                    Tools, experiments, and documentation from our work around designing an
-                    accessible color system for flexible theming.
-                  </p>
-                </div>
+                    fontWeight: [400, 600, 600]
+                  }}
+                >
+                  Tools, experiments, and documentation from our work around
+                  designing an accessible color system for flexible theming.
+                </p>
+              </div>
               <div sx={{ display: "flex", flexWrap: ["wrap", "nowrap"] }}>
                 <div sx={{ width: ["100%", "50%"], mb: [4, 0], p: 3 }}>
                   <a
@@ -145,16 +160,39 @@ const SectionHeader = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{
-            py: [5,6,7],
-            px: 4,
-            bg: background,
-            color: text,
-          }} {...props}>
-            <div sx={{mx: 'auto', maxWidth: '96em', display: 'flex'}}> 
+          <section
+            sx={{
+              py: [5, 6, 7],
+              px: 4,
+              bg: background,
+              color: text
+            }}
+            {...props}
+          >
+            <div sx={{ mx: "auto", maxWidth: "96em", display: "flex" }}>
               <div>
-                   <h1 sx={{borderTop: '8px solid', pt: 4, mt: 0, mb: 3, fontSize: 8}}>Color</h1> 
-                   <p sx={{maxWidth: '18em', fontSize: 5, lineHeight: 1.25, fontWeight: 500 }}>Tools, experiments, and documentation from our work with color.</p>
+                <h1
+                  sx={{
+                    borderTop: "8px solid",
+                    pt: 4,
+                    mt: 0,
+                    mb: 3,
+                    fontSize: 8
+                  }}
+                >
+                  Color
+                </h1>
+                <p
+                  sx={{
+                    maxWidth: "18em",
+                    fontSize: 5,
+                    lineHeight: 1.25,
+                    fontWeight: 500
+                  }}
+                >
+                  Tools, experiments, and documentation from our work with
+                  color.
+                </p>
               </div>
             </div>
           </section>

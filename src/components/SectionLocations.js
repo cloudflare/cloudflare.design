@@ -10,15 +10,15 @@ const sectionKey = "locationSection";
 
 const variants = [
   {
-    label: "default variant",
+    label: "0",
     value: 0
   },
   {
-    label: "variant 1",
+    label: "1",
     value: 1
   },
   {
-    label: "variant 2",
+    label: "2",
     value: 2
   }
 ];
@@ -103,49 +103,64 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ color: text, bg: background, px: [4, 3, 3], py: [4,5,6] }}>
-            <div sx={{maxWidth: '96em', mx: 'auto'}}>
-                <div sx={{px: 3, maxWidth: '32em', fontSize: [4,6,6], mx: 'auto'}}>
-                  <h3
-                    sx={{
-                      fontSize: [5,7,96],
-                      mb: 3,
-                      mt: 0,
-                    }}
-                  >
-                    Locations
-                  </h3>
-                  <p sx={{ my: 0, lineHeight: 1.5, fontSize: [4,6,6], fontWeight: [400,600,600] }}>
-                     We're currently
-                    growing our Design teams in our San Francisco, Austin, London,
-                    and Lisbon offices.
-                  </p>
-                  <h4 sx={{ fontWeight: 400, fontSize: [4], mt: [4,5] }}>
-                    Want to come work with us? We'd love to hear from you.
-                  </h4>
-                  <a
-                    sx={{
-                      display: ["block", "inline-block"],
-                      textAlign: 'center',
-                      borderRadius: "5px",
-                      border: "1px solid",
-                      color: "inherit",
-                      fontWeight: 700,
-                      textDecoration: "none",
-                      px: 4,
-                      py: 3,
-                      fontSize: 3,
-                    }}
-                    href="https://cloudflare.com/careers/departments/design"
-                  >
-                    We're Hiring
-                  </a>
-                </div>
+          <section
+            sx={{ color: text, bg: background, px: [4, 3, 3], py: [4, 5, 6] }}
+          >
+            <div sx={{ maxWidth: "96em", mx: "auto" }}>
               <div
                 sx={{
-                  mt: [5,6,6],
+                  px: 3,
+                  maxWidth: "32em",
+                  fontSize: [4, 6, 6],
+                  mx: "auto"
+                }}
+              >
+                <h3
+                  sx={{
+                    fontSize: [5, 7, 96],
+                    mb: 3,
+                    mt: 0
+                  }}
+                >
+                  Locations
+                </h3>
+                <p
+                  sx={{
+                    my: 0,
+                    lineHeight: 1.5,
+                    fontSize: [4, 6, 6],
+                    fontWeight: [400, 600, 600]
+                  }}
+                >
+                  We're currently growing our Design teams in our San Francisco,
+                  Austin, London, and Lisbon offices.
+                </p>
+                <h4 sx={{ fontWeight: 400, fontSize: [4], mt: [4, 5] }}>
+                  Want to come work with us? We'd love to hear from you.
+                </h4>
+                <a
+                  sx={{
+                    display: ["block", "inline-block"],
+                    textAlign: "center",
+                    borderRadius: "5px",
+                    border: "1px solid",
+                    color: "inherit",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    px: 4,
+                    py: 3,
+                    fontSize: 3
+                  }}
+                  href="https://cloudflare.com/careers/departments/design"
+                >
+                  We're Hiring
+                </a>
+              </div>
+              <div
+                sx={{
+                  mt: [5, 6, 6],
                   display: "flex",
-                  flexWrap: ["wrap", "nowrap"],
+                  flexWrap: ["wrap", "nowrap"]
                 }}
               >
                 {data.locations.map((location, index) => (
@@ -160,7 +175,14 @@ const SectionLocations = ({ showUI, ...props }) => {
                         width: "100%"
                       }}
                     />
-                    <h4 sx={{ mt: 3, fontSize: [3,4,5],fontWeight: 800, textAlign: ["center", "left"] }}>
+                    <h4
+                      sx={{
+                        mt: 3,
+                        fontSize: [3, 4, 5],
+                        fontWeight: 800,
+                        textAlign: ["center", "left"]
+                      }}
+                    >
                       {location.city}
                     </h4>
                   </article>

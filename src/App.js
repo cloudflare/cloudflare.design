@@ -51,7 +51,7 @@ const SitePreview = ({ config, setConfig }) => {
       <div
         onClick={setConfig}
         sx={{
-          cursor: 'pointer',
+          cursor: "pointer",
           position: "relative",
           height: dimensions.height * scale,
           width: dimensions.width * scale,
@@ -97,7 +97,9 @@ const SitePreview = ({ config, setConfig }) => {
           />
         </div>
       </div>
-      <div sx={{fontSize: 1, fontWeight: 600, textAlign: 'center', mt: 3}}>{new Date(config.timestamp).toLocaleString()}</div>
+      <div sx={{ fontSize: 1, fontWeight: 600, textAlign: "center", mt: 3 }}>
+        {new Date(config.timestamp).toLocaleString()}
+      </div>
     </div>
   );
 };
@@ -123,7 +125,11 @@ const VersionPicker = ({ configs, setConfig }) => {
       }}
     >
       {configs.map((config, index) => (
-        <SitePreview key={config.id} config={config} setConfig={() => setConfig(config)} />
+        <SitePreview
+          key={config.id}
+          config={config}
+          setConfig={() => setConfig(config)}
+        />
       ))}
     </section>
   );
@@ -133,7 +139,7 @@ const Site = () => {
   const [versionId, setVersionId] = useState();
   const [updateAvailable, setUpdateAvailable] = useState(false);
   const { config, setConfig } = useConfig();
-  const [showUI, toggleShowUI] = useState(true);
+  const [showUI, toggleShowUI] = useState(false);
   const [showVersions, setShowVersions] = useState(false);
 
   // Load remote config and replace when ready
@@ -214,13 +220,38 @@ const Site = () => {
       }}
     >
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
-      {showVersions && <VersionPicker setConfig={(newConfig) => {
-        setConfig({ ...newConfig.config, history: config.history});
-        setShowVersions(false);
-      }} configs={config.history.slice(0, 7)} />}
+      {showVersions && (
+        <VersionPicker
+          setConfig={newConfig => {
+            setConfig({ ...newConfig.config, history: config.history });
+            setShowVersions(false);
+          }}
+          configs={config.history.slice(0, 7)}
+        />
+      )}
       <NewConfigNotification show={updateAvailable} />
+
       <div sx={{ position: "relative" }}>
         <SectionHeader showUI={showUI} />
+        <button
+          sx={{
+            position: "absolute",
+            top: "8px",
+            left: "8px",
+            appearance: "none",
+            bg: "black",
+            color: "white",
+            border: "none",
+            borderRadius: 2,
+            px: 3,
+            py: 2,
+            fontSize: 2,
+            cursor: "pointer"
+          }}
+          onClick={() => toggleShowUI(prev => !prev)}
+        >
+          Edit design
+        </button>
       </div>
       <div sx={{ position: "relative" }}>
         <SectionColor showUI={showUI} />
@@ -234,7 +265,10 @@ const Site = () => {
       <div sx={{ position: "relative" }}>
         <SectionFooter showUI={showUI} />
       </div>
-      <ConfigHistory history={config.history} />
+      <ConfigHistory
+        onPreviewClick={() => setShowVersions(prev => !prev)}
+        history={config.history}
+      />
       <div sx={{ display: "none" }}>
         <Frame>
           <div

@@ -18,7 +18,7 @@ const ColorModePicker = ({ configKey }) => {
       <select value={mode} onChange={handleSetColorMode}>
         {Object.keys(theme.colors.modes).map((m, i) => (
           <option key={i} value={m}>
-            Color mode: {m}
+            {m}
           </option>
         ))}
       </select>
