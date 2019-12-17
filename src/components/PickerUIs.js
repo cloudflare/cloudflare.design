@@ -1,11 +1,21 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "theme-ui";
+import { useBorders } from "../config";
 
 import VariantPicker from "./VariantPicker";
 import ColorModePicker from "./ColorModePicker";
 
 const PickerUIs = ({ variants, sectionKey }) => {
+  const { borders, setBorders } = useBorders(sectionKey);
+
+  const handleSetBorders = e => {
+    const checkboxValue = e.target.checked;
+    console.log(checkboxValue);
+    setBorders(checkboxValue);
+  };
+
+  console.log(borders);
   return (
     <div
       sx={{
@@ -14,7 +24,8 @@ const PickerUIs = ({ variants, sectionKey }) => {
         borderRadius: 5,
         fontSize: 1,
         position: "absolute",
-        p: 3,
+        px: 3,
+        py: 2,
         bg: "black",
         color: "white",
         boxShadow:
@@ -30,6 +41,16 @@ const PickerUIs = ({ variants, sectionKey }) => {
           <label>
             <span>Color Mode</span>
             <ColorModePicker configKey={sectionKey} />
+          </label>
+        </div>
+        <div sx={{ ml: 3 }}>
+          <label>
+            <span sx={{ mr: 1 }}>Borders</span>
+            <input
+              checked={borders}
+              onChange={handleSetBorders}
+              type="checkbox"
+            />
           </label>
         </div>
       </div>

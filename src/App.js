@@ -166,8 +166,9 @@ const Site = () => {
       .then(res => res.json())
       .then(json => {
         const current = json[0];
-
-        setConfig({ ...current.config, history: json });
+        if (json.length > 0) {
+          setConfig({ ...current.config, history: json });
+        }
       });
   }, []);
 
@@ -175,6 +176,7 @@ const Site = () => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
+        if (json.length === 0) return;
         if (!versionId) {
           setVersionId(json[0].id);
         }
@@ -201,16 +203,7 @@ const Site = () => {
         const newConfig = {
           colorModes: config.colorModes,
           variants: config.variants,
-          history: [
-            {
-              id: data.id,
-              config: {
-                colorModes: config.colorModes,
-                variants: config.variants
-              }
-            },
-            ...config.history
-          ]
+          borders: config.borders
         };
         setConfig(newConfig);
       });
@@ -334,6 +327,12 @@ function App() {
           headerSection: 1,
           locationSection: 1,
           footerSection: 1
+        },
+        borders: {
+          colorSection: true,
+          figmaSection: true,
+          headerSection: true,
+          locationSection: true
         },
         history: []
       }}

@@ -49,3 +49,19 @@ export const useVariant = (key, fixed) => {
 
   return { variant, setVariant };
 };
+
+export const useBorders = (key, fixed) => {
+  const { config, setConfig } = useContext(ConfigContext);
+  const borders =
+    typeof fixed !== "undefined" ? fixed : get(config, `borders[${key}]`);
+  const setBorders = value => {
+    console.log(borders, value);
+    setConfig(
+      produce(draft => {
+        draft.borders[key] = value;
+      })
+    );
+  };
+
+  return { borders, setBorders };
+};

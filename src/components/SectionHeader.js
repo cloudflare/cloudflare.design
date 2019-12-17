@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "theme-ui";
-import { useVariant } from "../config";
 import SiteTitle from "./SiteTitle";
 import data from "../data";
 import PickerUIs from "./PickerUIs";
-import { useColorMode } from "../config";
+import { useColorMode, useBorders, useVariant } from "../config";
 import Logo from "./Logo";
 
 const sectionKey = "headerSection";
@@ -39,6 +38,7 @@ const variants = [
 
 const SectionHeader = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
+  const { borders } = useBorders(sectionKey, props.borders);
   const { background, text, primary } = useColorMode(
     sectionKey,
     props.colorMode
@@ -77,7 +77,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                 color: text,
                 display: "flex",
                 alignItems: "center",
-                borderBottom: "1px solid",
+                borderBottom: borders && "1px solid",
                 overflow: "hidden"
               }}
             >
@@ -87,7 +87,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                   pl: 3,
                   my: 0,
                   fontSize: [7, 7, 96],
-                  borderLeft: "1px solid",
+                  borderLeft: borders && "1px solid",
                   lineHeight: 1,
                   whiteSpace: "nowrap",
                   py: 0
@@ -107,7 +107,7 @@ const SectionHeader = ({ showUI, ...props }) => {
             sx={{
               display: "flex",
               alignItems: "center",
-              borderBottom: "1px solid",
+              borderBottom: borders && "1px solid",
               py: 4,
               px: 3,
               bg: background,
@@ -137,7 +137,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              borderBottom: "1px solid",
+              borderBottom: borders && "1px solid",
               py: 4,
               px: 3,
               bg: background,
@@ -216,7 +216,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                   mx: "auto",
                   mb: 3,
                   borderRadius: 9999,
-                  border: "1px solid",
+                  border: borders && "1px solid",
                   bg: "white",
                   borderColor: text,
                   height: 128,
