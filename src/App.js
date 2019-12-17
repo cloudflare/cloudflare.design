@@ -277,10 +277,12 @@ const Site = () => {
       <div sx={{ position: "relative" }}>
         <SectionFooter showUI={showUI} />
       </div>
-      <ConfigHistory
-        onPreviewClick={() => setShowVersions(prev => !prev)}
-        history={config.history}
-      />
+      {config.history > 0 && (
+        <ConfigHistory
+          onPreviewClick={() => setShowVersions(prev => !prev)}
+          history={config.history}
+        />
+      )}
 
       <div sx={{ bg: "#000", textAlign: "center" }}>
         <button
