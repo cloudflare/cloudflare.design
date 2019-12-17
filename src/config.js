@@ -29,14 +29,15 @@ export const useColorMode = (key, fixed) => {
       })
     );
   };
-  const mode = typeof fixed !== 'undefined' ? fixed : config.colorModes[key];
+  const mode = typeof fixed !== "undefined" ? fixed : config.colorModes[key];
   const values = theme.colors.modes[mode];
   return { ...values, mode, setColorMode };
 };
 
 export const useVariant = (key, fixed) => {
   const { config, setConfig } = useContext(ConfigContext);
-  const variant = typeof fixed !== 'undefined' ? fixed : get(config, `variants[${key}]`);
+  const variant =
+    typeof fixed !== "undefined" ? fixed : get(config, `variants[${key}]`);
 
   const setVariant = value => {
     setConfig(
@@ -47,8 +48,4 @@ export const useVariant = (key, fixed) => {
   };
 
   return { variant, setVariant };
-};
-
-export const useHistory = () => {
-  const { config, setConfig } = useContext(ConfigContext);
 };

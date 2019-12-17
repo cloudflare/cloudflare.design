@@ -104,7 +104,7 @@ const SitePreview = ({ config, setConfig }) => {
   );
 };
 
-const VersionPicker = ({ configs, setConfig }) => {
+const VersionPicker = ({ configs, setConfig, onClose }) => {
   return (
     <section
       sx={{
@@ -124,6 +124,24 @@ const VersionPicker = ({ configs, setConfig }) => {
         fontFamily: "system-ui, sans-serif"
       }}
     >
+      <button
+        sx={{
+          appearance: "none",
+          position: "absolute",
+          top: "32px",
+          right: "32px",
+          background: "transparent",
+          borderRadius: 2,
+          border: "2px solid",
+          py: 1,
+          px: 2,
+          fontSize: 2,
+          cursor: "pointer"
+        }}
+        onClick={onClose}
+      >
+        close
+      </button>
       {configs.map((config, index) => (
         <SitePreview
           key={config.id}
@@ -227,6 +245,7 @@ const Site = () => {
             setShowVersions(false);
           }}
           configs={config.history.slice(0, 7)}
+          onClose={() => setShowVersions(false)}
         />
       )}
       <NewConfigNotification show={updateAvailable} />
@@ -269,24 +288,6 @@ const Site = () => {
         onPreviewClick={() => setShowVersions(prev => !prev)}
         history={config.history}
       />
-      <div sx={{ display: "none" }}>
-        <Frame>
-          <div
-            sx={{
-              fontFamily: "system-ui, sans-serif",
-              // We can then assign those values justt like we would a normal theme value and it gets picked up by theme-ui and converted into a value
-              color: "c.colorPrimary",
-              bg: "c.colorSecondary"
-            }}
-          >
-            <SectionHeader showUI={false} />
-            <SectionColor showUI={false} />
-            <SectionFigma showUI={false} />
-            <SectionLocations showUI={false} />
-            <SectionFooter showUI={false} />
-          </div>
-        </Frame>
-      </div>
 
       <div sx={{ bg: "#000", textAlign: "center" }}>
         <button
