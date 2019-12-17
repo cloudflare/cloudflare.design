@@ -194,7 +194,8 @@ const Site = () => {
       },
       body: JSON.stringify({
         colorModes: config.colorModes,
-        variants: config.variants
+        variants: config.variants,
+        borders: config.borders
       })
     })
       .then(res => res.json())
