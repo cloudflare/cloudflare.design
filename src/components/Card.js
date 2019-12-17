@@ -11,7 +11,8 @@ const Card = ({ height, href, title, text, image, ...props }) => {
         <a
           sx={{
             color: "inherit",
-            textDecoration: "none"
+            textDecoration: "none",
+            display: 'block',
           }}
           href={href}
         >

@@ -75,7 +75,7 @@ const SectionLocations = ({ showUI, ...props }) => {
                   </article>
                 ))}
               </div>
-              <div sx={{ textAlign: "center" }}>
+              <div sx={{ textAlign: "center", px: 4 }}>
                 <h4 sx={{ fontWeight: 700, fontSize: [4, 5, 6], mt: 6 }}>
                   Want to come work with us? We'd love to hear from you.
                 </h4>
@@ -103,50 +103,53 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section>
-            <div>
-              <div
-                sx={{
-                  mt: 4,
-                  display: "flex",
-                  flexWrap: ["wrap", "nowrap"],
-                  px: 4
-                }}
-              >
-                <div>
+          <section sx={{ color: text, bg: background, px: [4, 3, 3], py: [4,5,6] }}>
+            <div sx={{maxWidth: '96em', mx: 'auto'}}>
+                <div sx={{px: 3, maxWidth: '32em', fontSize: [4,6,6], mx: 'auto'}}>
                   <h3
                     sx={{
-                      fontSize: [24]
+                      fontSize: [5,7,96],
+                      mb: 3,
+                      mt: 0,
                     }}
                   >
                     Locations
                   </h3>
-                  <p sx={{ lineHeight: 1.5 }}>
-                    Cloudflare has n offices in y countries. We're currently
-                    growing our Design teams in San Francisco, Austin, London,
-                    and Lisbon.
+                  <p sx={{ my: 0, lineHeight: 1.5, fontSize: [4,6,6], fontWeight: [400,600,600] }}>
+                     We're currently
+                    growing our Design teams in our San Francisco, Austin, London,
+                    and Lisbon offices.
                   </p>
-                  <h4 sx={{ fontWeight: 700, fontSize: [4, 5, 6], mt: 4 }}>
+                  <h4 sx={{ fontWeight: 400, fontSize: [4], mt: [4,5] }}>
                     Want to come work with us? We'd love to hear from you.
                   </h4>
                   <a
                     sx={{
-                      display: "inline-block",
-                      borderRadius: "7px",
+                      display: ["block", "inline-block"],
+                      textAlign: 'center',
+                      borderRadius: "5px",
                       border: "1px solid",
                       color: "inherit",
-                      fontWeight: 800,
+                      fontWeight: 700,
                       textDecoration: "none",
                       px: 4,
-                      py: 3
+                      py: 3,
+                      fontSize: 3,
                     }}
                     href="https://cloudflare.com/careers/departments/design"
                   >
                     We're Hiring
                   </a>
                 </div>
+              <div
+                sx={{
+                  mt: [5,6,6],
+                  display: "flex",
+                  flexWrap: ["wrap", "nowrap"],
+                }}
+              >
                 {data.locations.map((location, index) => (
-                  <article key={index} sx={{ width: ["50%", "25%"], px: 0 }}>
+                  <article key={index} sx={{ width: ["50%", "25%"], px: 3 }}>
                     <div
                       sx={{
                         backgroundSize: "cover",
@@ -154,11 +157,10 @@ const SectionLocations = ({ showUI, ...props }) => {
                         backgroundPosition: "center center",
                         pt: [6, 7],
                         pb: [6, 6],
-                        px: 3,
                         width: "100%"
                       }}
                     />
-                    <h4 sx={{ textAlign: ["center", "left"] }}>
+                    <h4 sx={{ mt: 3, fontSize: [3,4,5],fontWeight: 800, textAlign: ["center", "left"] }}>
                       {location.city}
                     </h4>
                   </article>

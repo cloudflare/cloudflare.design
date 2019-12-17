@@ -25,7 +25,7 @@ const variants = [
 
 const SectionFigma = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text } = useColorMode(sectionKey, props.colorMode);
+  const { background, text, primary } = useColorMode(sectionKey, props.colorMode);
 
   switch (variant) {
     case 0:
@@ -33,12 +33,12 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{py: [5,6], color: text, bg: background }}>
+          <section sx={{px: 4, py: [5, 5,6], color: text, bg: background }}>
             <h3
               sx={{
                 fontSize: [3, 5, 6],
                 textAlign: "center",
-                mb: 5
+                mb: [4,5,5]
               }}
             >
               Figma Plugins
@@ -140,24 +140,35 @@ const SectionFigma = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section sx={{ color: text, bg: background }} >
-            <div sx={{ borderBottom: "1px solid", borderColor: "inherit" }}>
-              <div sx={{ display: "flex", flexWrap: ["wrap", "nowrap"], p: 3 }}>
+            <div sx={{ px: [4,3,3], borderBottom: "1px solid", borderColor: "inherit", py: [4,5,6] }}>
+                <div sx={{ maxWidth: '32em', fontSize: [5,6,6],mx: 'auto', px: 3 }}>
+                  
+                  <h3 sx={{ mt: 0, fontSize: [5, 7, 96], mb: 3, color: text }}>Figma Plugins</h3>
+                  <p sx={{ lineHeight: 1.5, fontWeight: [ 400, 600, 600 ] }}>
+                    As we've been making the transition to Figma, we've been
+                    building some plugins to help us with common workflows.
+                  </p>
+<div sx={{ display: 'flex', flexWrap: 'wrap', mx: -3}}>
                 <div sx={{ width: "100%", p: 3 }}>
                   <a
                     href="https://www.figma.com/c/plugin/733343906244951586/Color-Blind"
                     title="Color Blind"
                     sx={{
                       display: "block",
+                      backgroundColor: 'white',
+                      borderRadius: 7,
                       backgroundImage:
                         "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/color-blind.png)",
-                      backgroundSize: "cover",
-                      minHeight: 192,
+                      backgroundSize: "contain",
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'center center',
+                      minHeight: 320,
                       width: "100%",
                       height: "100%"
                     }}
                   />
                 </div>
-                <div sx={{ width: ["50%", "100%"], p: 3 }}>
+                <div sx={{ width: ["50%", "50%"], p: 3 }}>
                   <a
                     href="https://www.figma.com/c/plugin/733062974250826253/Translate"
                     title="Translate"
@@ -166,13 +177,14 @@ const SectionFigma = ({ showUI, ...props }) => {
                       backgroundImage:
                         "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/translate.png)",
                       backgroundSize: "cover",
-                      minHeight: 192,
+                      borderRadius: 7,
+                      minHeight: 240,
                       width: "100%",
                       height: "100%"
                     }}
                   />
                 </div>
-                <div sx={{ width: ["50%", "100%"], p: 3 }}>
+                <div sx={{ width: ["50%", "50%"], p: 3 }}>
                   <a
                     href="https://www.figma.com/c/plugin/731451122947612104/Charts"
                     title="Color Blind"
@@ -181,27 +193,46 @@ const SectionFigma = ({ showUI, ...props }) => {
                       backgroundImage:
                         "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/charts.png)",
                       backgroundSize: "cover",
-                      minHeight: 192,
+                      borderRadius: 7,
+                      borderRadius: 7,
+                      minHeight: 240,
                       width: "100%",
                       height: "100%"
                     }}
                   />
                 </div>
-
-                <div sx={{ px: 3, width: ["100%", "33%"] }}>
-                  <h3
+                </div>
+                </div>
+              <article sx={{ mt: 5, pt: 4, maxWidth: '32em', fontSize: [3,4,5], mx: 'auto' }}>
+                <a
+                  href="https://www.figma.com/blog/behind-the-plugins-sam-mason-de-caires-cloudflare/"
+                  sx={{ color: "inherit", display: 'block',p: 4, textDecoration: "none" }}
+                >
+                <span sx={{fontWeight: 700, display: 'block',fontSize: [ 4,5,6 ] }}>
+                  An interview with the team at Figma
+                </span>
+                  <span
                     sx={{
-                      fontSize: [3, 4, 5]
+                      display: "block",
+                      lineHeight: 1.5,
+                      fontSize: [3, 4, 4],
+                      fontWeight: 700,
+                      mb: 4,
+                      mt: 3,
                     }}
                   >
-                    Figma Plugins
-                  </h3>
-                  <p sx={{ lineHeight: 1.5 }}>
-                    As we've been making the transition to Figma, we've been
-                    building some plugins to help us with common workflows.
-                  </p>
-                </div>
-              </div>
+                    "I find the idea of a design tool with an API to be an
+                    interesting one. Things that are often tedious and done by
+                    hand can easily be automated if we have access to the
+                    underlying code of the tool, therefore giving designers more
+                    time to work on the meaningful parts of their process, like
+                    designing."
+                    <span sx={{ color: primary, mt: 3, fontSize: 4, display: "block", mb: 0, fontWeight: 700 }}>
+                      Read More
+                    </span>
+                  </span>
+                </a>
+              </article>
             </div>
           </section>
         </>

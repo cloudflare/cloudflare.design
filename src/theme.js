@@ -5,7 +5,7 @@ const theme = {
   lineHeight: [1, 1.25, 1.5],
   measure: ["20em", "28em", "34em"],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
-  fontSizes: [10, 12, 14, 16, 20, 24, 32, 48, 64, 80],
+  fontSizes: [10, 12, 14, 16, 20, 24, 32, 48, 64, 96, 128, 192 ],
   font: {
     sansSerif:
       "-apple-system,system-ui,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,'Helvetica Neue',Arial,sans-serif",
@@ -152,8 +152,8 @@ const theme = {
         primary: '#2c7cb9',
       },
       2: {
-        text: '#1d1f20',
-        background: '#ffffff',
+        text: '#36393a',
+        background: '#eaebeb',
         primary: '#9f5bb0',
       },
       3: {
@@ -197,18 +197,28 @@ const theme = {
         primary: '#1d1f20',
       },
       11: {
-        text: '#ffffff',
-        background: '#163d57',
+        text: '#163d57',
+        background: '#add2eb',
         primary: '#1d1f20',
       },
       12: {
         text: '#ffffff',
-        background: '#6373b6',
+        background: '#163d57',
         primary: '#1d1f20',
       },
       13: {
+        text: '#ffffff',
+        background: '#6373b6',
+        primary: '#1d1f20',
+      },
+      14: {
         text: '#e0e3f0',
         background: '#181e34',
+        primary: '#1d1f20',
+      },
+      15: {
+        background: '#c8cde5',
+        text: '#181e34',
         primary: '#1d1f20',
       },
     }

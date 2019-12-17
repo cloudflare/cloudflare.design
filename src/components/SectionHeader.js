@@ -26,12 +26,20 @@ const variants = [
   {
     label: "variant 3",
     value: 3
+  },
+  {
+    label: "variant 4",
+    value: 4
+  },
+  {
+    label: "variant 5",
+    value: 5
   }
 ];
 
 const SectionHeader = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text } = useColorMode(sectionKey, props.colorMode);
+  const { background, text , primary } = useColorMode(sectionKey, props.colorMode);
 
   switch (variant) {
     case 0:
@@ -40,7 +48,8 @@ const SectionHeader = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header sx={{ display: 'flex', justifyContent: 'center', px: 3, bg: background, color: text, py: [5,6,7] }} {...props}>
-            <Logo variant='mark' sx={{ width: 128, mr: 4 }}/><SiteTitle text={data.title} />
+            <Logo variant='mark' sx={{ width: [64, 96, 128], mr: [3,4] }}/>
+            <SiteTitle text={data.title} />
           </header>
         </>
       );
@@ -55,10 +64,11 @@ const SectionHeader = ({ showUI, ...props }) => {
                 color: text,
                 display: "flex",
                 alignItems: "center",
-                borderBottom: "1px solid"
+                borderBottom: "1px solid",
+                overflow: 'hidden',
               }}
             >
-              <Logo variant="mark" sx={{ mx: 3, width: 160 }} />
+              <Logo variant="mark" sx={{ mx: 3, width: [48, 160] }} />
               <h1
                 sx={{
                   pl: 3,
@@ -66,6 +76,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                   fontSize: [7, 7, 96],
                   borderLeft: "1px solid",
                   lineHeight: 1,
+                  whiteSpace: 'nowrap',
                   py: 0
                 }}
               >
@@ -80,7 +91,7 @@ const SectionHeader = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header sx={{ display: 'flex', alignItems: 'center', borderBottom: '1px solid', py: 4, px: 3, bg: background, color: text }} {...props}>
-            <Logo variant='mark' sx={{ width: 48, mr: 3 }} />
+            <Logo variant='mark' sx={{ width: 48, mr: 2 }} />
             <h1
               sx={{
                 my: 0,
@@ -88,7 +99,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                 textAlign: "center",
               }}
             >
-              Cloudflare Design
+              Design
             </h1>
           </header>
         </>
@@ -108,6 +119,52 @@ const SectionHeader = ({ showUI, ...props }) => {
             >
               Cloudflare Design
             </h1>
+          </header>
+        </>
+      );
+    case 4:
+      return (
+        <>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <header sx={{bg: background, color: text, py: [5,6,7] }} {...props}>
+        <div sx={{maxWidth: '64em', mx: 'auto', display: 'flex', alignItems: 'center', flexWrap: ['wrap', 'nowrap'],justifyContent: 'space-between', px: 4 }}>
+          <h1 sx={{
+            fontSize: [5,7,9],
+              lineHeight: [1,.995],
+              fontWeight: 700,
+              mr: [0,6],
+              mt: 0,
+              mb: [4,0]
+          }}>
+            Cloudflare <br />Design
+          </h1>
+          <h2 sx={{my: 0, lineHeight: 1, fontSize: [3,4,5] }}>San Francisco<br /> Austin<br />London<br />Lisbon</h2>
+        </div>
+          </header>
+        </>
+      );
+    case 5:
+      return (
+        <>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <header sx={{bg: background, color: text, py: [5,6,7] }} {...props}>
+        <div>
+        <div sx={{mx: 'auto', mb: 3, borderRadius: 9999, border: '1px solid', bg: 'white', borderColor: text, height: 128, width: 128, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Logo variant='mark' sx={{ width: 96, position: 'relative', top: '-8px' }} />
+        </div>
+          <h1 sx={{
+            textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+            fontSize: [1,1,1],
+              fontWeight: 400,
+              lineHeight: [1,.995],
+              mt: 0,
+              mb: [4,0],
+              textAlign: 'center'
+          }}>
+            Design
+          </h1>
+        </div>
           </header>
         </>
       );

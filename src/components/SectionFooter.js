@@ -50,14 +50,14 @@ const SectionFooter = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
-            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}
+            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid", borderBottom: '1px solid' }}
           >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
                 <div
                   sx={{
-                    fontSize: 7,
+                    fontSize: [5,6,7],
                     fontWeight: 800,
                     display: "flex",
                     alignItems: "center"
@@ -109,7 +109,7 @@ const SectionFooter = ({ showUI, ...props }) => {
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
               <div sx={{ ml: "auto" }}>
-                <IconLink />
+                <IconLink variant={1} />
               </div>
             </div>
           </footer>

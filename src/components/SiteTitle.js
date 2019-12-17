@@ -7,9 +7,11 @@ const SiteTitle = ({ text, variant, ...props }) => {
       return (
         <h1
           sx={{
-            fontSize: [6, 7, 9],
+            fontSize: [5, 7, 9],
             lineHeight: 1,
             my: 0,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden'
           }}
         >
           {text}
