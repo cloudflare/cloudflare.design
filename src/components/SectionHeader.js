@@ -64,7 +64,8 @@ const SectionHeader = ({ showUI, ...props }) => {
               bg: background,
               color: text,
               py: [5, 6, 7],
-              borderBottom: "1px solid",
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
               borderColor: border
             }}
             {...props}
@@ -86,6 +87,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                 display: "flex",
                 alignItems: "center",
                 borderBottom: borderBottom && "1px solid",
+                borderTop: borderTop && "1px solid",
                 borderColor: border,
                 overflow: "hidden"
               }}
@@ -118,6 +120,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               display: "flex",
               alignItems: "center",
               borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
               borderColor: border,
               py: 4,
               px: 3,
@@ -149,6 +152,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               justifyContent: "center",
               alignItems: "center",
               borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
               borderColor: border,
               py: 4,
               px: 3,
@@ -176,7 +180,8 @@ const SectionHeader = ({ showUI, ...props }) => {
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header
             sx={{
-              borderBottom: "1px solid",
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
               borderColor: border,
               bg: background,
               color: text,
@@ -234,8 +239,8 @@ const SectionHeader = ({ showUI, ...props }) => {
                   mx: "auto",
                   mb: 3,
                   borderRadius: 9999,
+                  borderBottom: borderBottom && "1px solid",
                   borderTop: borderTop && "1px solid",
-                  BorderBottom: borderBottom && "1px solid",
                   borderLeft: "1px solid",
                   borderRight: "1px solid",
                   bg: "white",

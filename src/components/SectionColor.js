@@ -1,7 +1,12 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "theme-ui";
-import { useVariant, useColorMode } from "../config";
+import {
+  useVariant,
+  useColorMode,
+  useBorderTop,
+  useBorderBottom
+} from "../config";
 import Card from "./Card";
 import Text from "./Text";
 import PickerUIs from "./PickerUIs";
@@ -25,7 +30,12 @@ const variants = [
 
 const SectionHeader = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text, border } = useColorMode(sectionKey, props.colorMode);
+  const { borderTop } = useBorderTop(sectionKey, props.borders);
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
+  const { background, text, border } = useColorMode(
+    sectionKey,
+    props.colorMode
+  );
 
   switch (variant) {
     case 0:
@@ -38,7 +48,8 @@ const SectionHeader = ({ showUI, ...props }) => {
               py: [5, 5, 6],
               px: 4,
               backgroundColor: background,
-              borderBottom: '1px solid',
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
               borderColor: border,
               color: text
             }}
@@ -93,7 +104,8 @@ const SectionHeader = ({ showUI, ...props }) => {
             sx={{
               py: 3,
               px: [4, 3, 3],
-              borderBottom: "1px solid",
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
               borderColor: border,
               backgroundColor: background,
               color: text
@@ -168,7 +180,8 @@ const SectionHeader = ({ showUI, ...props }) => {
             sx={{
               py: [5, 6, 7],
               px: 4,
-              borderBottom: '1px solid',
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
               borderColor: border,
               bg: background,
               color: text
