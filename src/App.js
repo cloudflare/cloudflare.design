@@ -133,11 +133,14 @@ const VersionPicker = ({ configs, setConfig, onClose }) => {
           right: "32px",
           background: "transparent",
           borderRadius: 2,
-          border: "2px solid",
+          border: "1px solid",
+          fontWeight: 700,
           py: 1,
           px: 2,
           fontSize: 2,
-          cursor: "pointer"
+          fontWeight: 700,
+          cursor: "pointer",
+          color: "gray.0"
         }}
         onClick={onClose}
       >
@@ -166,10 +169,9 @@ const Site = () => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
+        if (json.length === 0) return;
         const current = json[0];
-        if (json.length > 0) {
-          setConfig({ ...current.config, history: json });
-        }
+        setConfig({ ...config, ...current.config, history: json });
       });
   }, []);
 
@@ -196,7 +198,8 @@ const Site = () => {
       body: JSON.stringify({
         colorModes: config.colorModes,
         variants: config.variants,
-        borders: config.borders
+        borderTop: config.borderTop,
+        borderBottom: config.borderBottom
       })
     })
       .then(res => res.json())
@@ -205,7 +208,8 @@ const Site = () => {
         const newConfig = {
           colorModes: config.colorModes,
           variants: config.variants,
-          borders: config.borders
+          borderTop: config.borderTop,
+          borderBottom: config.borderBottom
         };
         setConfig({
           ...newConfig,
@@ -263,70 +267,70 @@ const Site = () => {
       <div sx={{ position: "relative" }}>
         <SectionLocations showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionAbout showUI={showUI}>
-        <button
-          sx={{
-            appearance: 'none',
-            width: 'auto',
-            border: 0,
-            textalign: 'center',
-            py: 3,
-            px: 4,
-            mr: 4,
-            bg: 'gray.8',
-            color: 'gray.1',
-            fontSize: 3,
-            fontWeight: 700,
-            cursor: 'pointer',
-            borderRadius: 5,
-            transition: 'background-color .2s ease-in, color .2s ease-in',
-            ':hover': {
-              bg: 'gray.9',
-              color: 'gray.0',
-              transition: 'background-color .2s ease-in, color .2s ease-in'
-            }
-          }}
-          onClick={() => toggleShowUI(prev => !prev)}
-        >
-          Edit design
-        </button>
-        <button
-          onClick={handleDeployConfig}
-          sx={{
-            appearance: 'none',
-            width: 'auto',
-            border: 0,
-            borderRadius: 5,
-            textalign: 'center',
-            py: 3,
-            px: 4,
-            bg: 'black',
-            color: 'white',
-            fontSize: 3,
-            fontWeight: 700,
-            cursor: 'pointer',
-            transition: 'background-color .2s ease-in',
-            ':hover': {
-              bg: 'blue.4',
-              transition: 'background-color .2s ease-in'
-            }
-          }}
-    >Publish</button>
+          <button
+            sx={{
+              appearance: "none",
+              width: "auto",
+              border: 0,
+              textalign: "center",
+              py: 3,
+              px: 4,
+              mr: 4,
+              bg: "gray.8",
+              color: "gray.1",
+              fontSize: 3,
+              fontWeight: 700,
+              cursor: "pointer",
+              borderRadius: 5,
+              transition: "background-color .2s ease-in, color .2s ease-in",
+              ":hover": {
+                bg: "gray.9",
+                color: "gray.0",
+                transition: "background-color .2s ease-in, color .2s ease-in"
+              }
+            }}
+            onClick={() => toggleShowUI(prev => !prev)}
+          >
+            Edit design
+          </button>
+          <button
+            onClick={handleDeployConfig}
+            sx={{
+              appearance: "none",
+              width: "auto",
+              border: 0,
+              borderRadius: 5,
+              textalign: "center",
+              py: 3,
+              px: 4,
+              bg: "black",
+              color: "white",
+              fontSize: 3,
+              fontWeight: 700,
+              cursor: "pointer",
+              transition: "background-color .2s ease-in",
+              ":hover": {
+                bg: "blue.4",
+                transition: "background-color .2s ease-in"
+              }
+            }}
+          >
+            Publish
+          </button>
 
-      {config.history.length > 0 && (
-        <ConfigHistory
-          onPreviewClick={() => setShowVersions(prev => !prev)}
-          history={config.history}
-        />
-      )}
-
+          {config.history.length > 0 && (
+            <ConfigHistory
+              onPreviewClick={() => setShowVersions(prev => !prev)}
+              history={config.history}
+            />
+          )}
         </SectionAbout>
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionFooter showUI={showUI} />
       </div>
-
     </div>
   );
 };
@@ -349,7 +353,13 @@ function App() {
           locationSection: 1,
           footerSection: 1
         },
-        borders: {
+        borderTop: {
+          colorSection: true,
+          figmaSection: true,
+          headerSection: true,
+          locationSection: true
+        },
+        borderBottom: {
           colorSection: true,
           figmaSection: true,
           headerSection: true,

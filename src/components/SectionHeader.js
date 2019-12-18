@@ -4,7 +4,12 @@ import { jsx } from "theme-ui";
 import SiteTitle from "./SiteTitle";
 import data from "../data";
 import PickerUIs from "./PickerUIs";
-import { useColorMode, useBorders, useVariant } from "../config";
+import {
+  useColorMode,
+  useBorderTop,
+  useBorderBottom,
+  useVariant
+} from "../config";
 import Logo from "./Logo";
 
 const sectionKey = "headerSection";
@@ -38,7 +43,8 @@ const variants = [
 
 const SectionHeader = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { borders } = useBorders(sectionKey, props.borders);
+  const { borderTop } = useBorderTop(sectionKey, props.borders);
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
   const { background, text, primary, border } = useColorMode(
     sectionKey,
     props.colorMode
@@ -58,7 +64,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               bg: background,
               color: text,
               py: [5, 6, 7],
-              borderBottom: '1px solid',
+              borderBottom: "1px solid",
               borderColor: border
             }}
             {...props}
@@ -79,7 +85,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                 color: text,
                 display: "flex",
                 alignItems: "center",
-                borderBottom: borders && "1px solid",
+                borderBottom: borderBottom && "1px solid",
                 borderColor: border,
                 overflow: "hidden"
               }}
@@ -90,7 +96,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                   pl: 3,
                   my: 0,
                   fontSize: [7, 7, 96],
-                  borderLeft: borders && "1px solid",
+                  borderLeft: "1px solid",
                   borderColor: border,
                   lineHeight: 1,
                   whiteSpace: "nowrap",
@@ -111,7 +117,7 @@ const SectionHeader = ({ showUI, ...props }) => {
             sx={{
               display: "flex",
               alignItems: "center",
-              borderBottom: borders && "1px solid",
+              borderBottom: borderBottom && "1px solid",
               borderColor: border,
               py: 4,
               px: 3,
@@ -142,7 +148,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              borderBottom: borders && "1px solid",
+              borderBottom: borderBottom && "1px solid",
               borderColor: border,
               py: 4,
               px: 3,
@@ -169,7 +175,13 @@ const SectionHeader = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header
-            sx={{ borderBottom: '1px solid', borderColor: border, bg: background, color: text, py: [5, 6, 7] }}
+            sx={{
+              borderBottom: "1px solid",
+              borderColor: border,
+              bg: background,
+              color: text,
+              py: [5, 6, 7]
+            }}
             {...props}
           >
             <div
@@ -222,7 +234,10 @@ const SectionHeader = ({ showUI, ...props }) => {
                   mx: "auto",
                   mb: 3,
                   borderRadius: 9999,
-                  border: borders && "1px solid",
+                  borderTop: borderTop && "1px solid",
+                  BorderBottom: borderBottom && "1px solid",
+                  borderLeft: "1px solid",
+                  borderRight: "1px solid",
                   bg: "white",
                   borderColor: text,
                   height: 128,

@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import get from "lodash/get";
+import set from "lodash/set";
 import { useThemeUI } from "theme-ui";
 import produce from "immer";
 
@@ -25,7 +26,7 @@ export const useColorMode = (key, fixed) => {
   const setColorMode = value => {
     setConfig(
       produce(draft => {
-        draft.colorModes[key] = value;
+        set(draft, ["colorModes", key], value);
       })
     );
   };
@@ -42,7 +43,7 @@ export const useVariant = (key, fixed) => {
   const setVariant = value => {
     setConfig(
       produce(draft => {
-        draft.variants[key] = value;
+        set(draft, ["variants", key], value);
       })
     );
   };
@@ -50,18 +51,32 @@ export const useVariant = (key, fixed) => {
   return { variant, setVariant };
 };
 
-export const useBorders = (key, fixed) => {
+export const useBorderTop = (key, fixed) => {
   const { config, setConfig } = useContext(ConfigContext);
-  const borders =
-    typeof fixed !== "undefined" ? fixed : get(config, `borders[${key}]`);
-  const setBorders = value => {
-    console.log(borders, value);
+  const borderTop =
+    typeof fixed !== "undefined" ? fixed : get(config, `borderTop[${key}]`);
+  const setBorderTop = value => {
     setConfig(
       produce(draft => {
-        draft.borders[key] = value;
+        set(draft, ["borderTop", key], value);
       })
     );
   };
 
-  return { borders, setBorders };
+  return { borderTop, setBorderTop };
+};
+
+export const useBorderBottom = (key, fixed) => {
+  const { config, setConfig } = useContext(ConfigContext);
+  const borderBottom =
+    typeof fixed !== "undefined" ? fixed : get(config, `borderBottom[${key}]`);
+  const setBorderBottom = value => {
+    setConfig(
+      produce(draft => {
+        set(draft, ["borderBottom", key], value);
+      })
+    );
+  };
+
+  return { borderBottom, setBorderBottom };
 };

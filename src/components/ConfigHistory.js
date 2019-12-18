@@ -1,10 +1,13 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import reverse from "lodash/reverse";
-import { useConfig } from "../config";
+import { useConfig, useColorMode } from "../config";
+
+const sectionKey = "aboutSection";
 
 const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
   const { config, setConfig } = useConfig();
+  const { background, text } = useColorMode(sectionKey, props.colorMode);
 
   const handleSetConfig = i => () => {
     const { history } = config;
@@ -33,7 +36,7 @@ const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
                 webkitAppearance: "none",
                 bg: "transparent",
                 width: "100%",
-                color: "black",
+                color: text,
                 borderTop: 0,
                 borderLeft: 0,
                 borderRight: 0,
@@ -54,27 +57,27 @@ const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
           </div>
         ))}
       </div>
-        <button
-          onClick={onPreviewClick}
-          sx={{
-            appearance: "none",
-            bg: "white",
-            color: "gray.0",
-            border: "1px solid",
-            borderRadius: 5,
-            mt: 4,
-            px: 5,
-            py: 3,
-            mx: 'auto',
-            fontSize: 2,
-            fontWeight: 700,
-            cursor: "pointer",
-            width:'auto',
-            display: 'block'
-          }}
-        >
-          View gallery
-        </button>
+      <button
+        onClick={onPreviewClick}
+        sx={{
+          appearance: "none",
+          bg: "white",
+          color: "gray.0",
+          border: "1px solid",
+          borderRadius: 5,
+          mt: 4,
+          px: 5,
+          py: 3,
+          mx: "auto",
+          fontSize: 2,
+          fontWeight: 700,
+          cursor: "pointer",
+          width: "auto",
+          display: "block"
+        }}
+      >
+        View gallery
+      </button>
     </div>
   );
 };

@@ -1,17 +1,23 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "theme-ui";
-import { useBorders } from "../config";
+import { useBorderTop, useBorderBottom } from "../config";
 
 import VariantPicker from "./VariantPicker";
 import ColorModePicker from "./ColorModePicker";
 
 const PickerUIs = ({ variants, sectionKey }) => {
-  const { borders, setBorders } = useBorders(sectionKey);
+  const { borderTop, setBorderTop } = useBorderTop(sectionKey);
+  const { borderBottom, setBorderBottom } = useBorderBottom(sectionKey);
 
-  const handleSetBorders = e => {
+  const handleSetBorderTop = e => {
     const checkboxValue = e.target.checked;
-    setBorders(checkboxValue);
+    setBorderTop(checkboxValue);
+  };
+
+  const handleSetBorderBottom = e => {
+    const checkboxValue = e.target.checked;
+    setBorderBottom(checkboxValue);
   };
 
   return (
@@ -30,19 +36,43 @@ const PickerUIs = ({ variants, sectionKey }) => {
       }}
     >
       <div sx={{ display: "flex" }}>
-        <label sx={{py: 2,pr:3, borderRight: '1px solid rgba(255,255,255,.25)', display: 'flex', alignItems: 'center'}}>
+        <label
+          sx={{
+            py: 2,
+            pr: 3,
+            borderRight: "1px solid rgba(255,255,255,.25)",
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
           <span sx={{ mr: 2 }}>Variant</span>
           <VariantPicker variants={variants} variantKey={sectionKey} />
         </label>
-        <label sx={{py: 2,px:3, borderRight: '1px solid rgba(255,255,255,.25)', display: 'flex', alignItems: 'center'}}>
+        <label
+          sx={{
+            py: 2,
+            px: 3,
+            borderRight: "1px solid rgba(255,255,255,.25)",
+            display: "flex",
+            alignItems: "center"
+          }}
+        >
           <span sx={{ mr: 2 }}>Color Mode</span>
           <ColorModePicker configKey={sectionKey} />
         </label>
-        <label sx={{px: 3, display: 'flex', alignItems: 'center'}}>
-          <span sx={{ mr: 2 }}>Borders</span>
+        <label sx={{ px: 3, display: "flex", alignItems: "center" }}>
+          <span sx={{ mr: 2 }}>Border Top</span>
           <input
-            checked={borders}
-            onChange={handleSetBorders}
+            checked={borderTop}
+            onChange={handleSetBorderTop}
+            type="checkbox"
+          />
+        </label>
+        <label sx={{ px: 3, display: "flex", alignItems: "center" }}>
+          <span sx={{ mr: 2 }}>Border Bottom</span>
+          <input
+            checked={borderBottom}
+            onChange={handleSetBorderBottom}
             type="checkbox"
           />
         </label>
