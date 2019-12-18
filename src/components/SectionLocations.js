@@ -33,7 +33,7 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ py: [5, 6], color: text, bg: background }}>
+          <section sx={{ py: [5, 6], color: text, bg: background, borderBottom: '1px solid', borderColor: border  }}>
             <h3
               sx={{
                 fontSize: [3, 5, 6],
@@ -104,7 +104,7 @@ const SectionLocations = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
-            sx={{ color: text, bg: background, px: [4, 3, 3], py: [4, 5, 6] }}
+            sx={{ color: text, bg: background, px: [4, 3, 3], py: [4, 5, 6], borderColor: border, borderBottom: '1px solid' }}
           >
             <div sx={{ maxWidth: "96em", mx: "auto" }}>
               <div
@@ -196,7 +196,7 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ bg: background, color: text }} {...props}>
+          <section sx={{ bg: background, color: text, borderBottom: '1px solid', borderColor: border }} {...props}>
           <h3>Locations</h3>
         </section>
         </>

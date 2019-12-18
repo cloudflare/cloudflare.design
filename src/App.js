@@ -313,9 +313,6 @@ const Site = () => {
             }
           }}
     >Publish</button>
-      <div sx={{ position: "relative" }}>
-        <SectionFooter showUI={showUI} />
-      </div>
 
       {config.history.length > 0 && (
         <ConfigHistory
@@ -330,9 +327,6 @@ const Site = () => {
         <SectionFooter showUI={showUI} />
       </div>
 
-
-      <div sx={{ bg: '#000', textAlign: 'center' }}>
-      </div>
     </div>
   );
 };
