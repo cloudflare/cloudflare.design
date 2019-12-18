@@ -1,20 +1,20 @@
 /** @jsx jsx */
-import React, { useEffect, useState, useRef } from 'react';
-import { ThemeProvider, jsx } from 'theme-ui';
-import { GlobalHotKeys } from 'react-hotkeys';
-import drop from 'lodash/drop';
-import theme from './theme';
-import { ConfigProvider, useConfig } from './config';
-import NewConfigNotification from './components/NewConfigNotification';
-import SectionHeader from './components/SectionHeader';
-import SectionColor from './components/SectionColor';
-import SectionFigma from './components/SectionFigma';
-import SectionFooter from './components/SectionFooter';
-import SectionAbout from './components/SectionAbout';
-import SectionLocations from './components/SectionLocations';
-import ConfigHistory from './components/ConfigHistory';
-import useInterval from './useInterval';
-import Frame from './components/Frame';
+import React, { useEffect, useState, useRef } from "react";
+import { ThemeProvider, jsx } from "theme-ui";
+import { GlobalHotKeys } from "react-hotkeys";
+import drop from "lodash/drop";
+import theme from "./theme";
+import { ConfigProvider, useConfig } from "./config";
+import NewConfigNotification from "./components/NewConfigNotification";
+import SectionAbout from "./components/SectionAbout";
+import SectionHeader from "./components/SectionHeader";
+import SectionColor from "./components/SectionColor";
+import SectionFigma from "./components/SectionFigma";
+import SectionFooter from "./components/SectionFooter";
+import SectionLocations from "./components/SectionLocations";
+import ConfigHistory from "./components/ConfigHistory";
+import useInterval from "./useInterval";
+import Frame from "./components/Frame";
 // This is the current config from the worker
 // and just maps a key of our choosing to a value from our theme file
 
@@ -33,8 +33,8 @@ import Frame from './components/Frame';
 const SitePreview = ({ config, setConfig }) => {
   const previewRef = useRef();
   const [dimensions, setDimensions] = useState({
-    width: '100vw',
-    height: '100vh'
+    width: "100vw",
+    height: "100vh"
   });
 
   const scale = 0.1;
@@ -52,23 +52,23 @@ const SitePreview = ({ config, setConfig }) => {
       <div
         onClick={setConfig}
         sx={{
-          cursor: 'pointer',
-          position: 'relative',
+          cursor: "pointer",
+          position: "relative",
           height: dimensions.height * scale,
           width: dimensions.width * scale,
           mx: 3,
-          boxShadow: '0 0 15px 5px rgba(0,0,0,0.10)'
+          boxShadow: "0 0 15px 5px rgba(0,0,0,0.10)"
         }}
       >
         <div
           ref={previewRef}
           sx={{
             width: dimensions.width,
-            position: 'relative',
+            position: "relative",
             transform: `scale(${scale})`,
-            transformOrigin: '0px 0px',
-            backgroundColor: 'white',
-            pointerEvents: 'none'
+            transformOrigin: "0px 0px",
+            backgroundColor: "white",
+            pointerEvents: "none"
           }}
         >
           <SectionHeader
@@ -98,7 +98,7 @@ const SitePreview = ({ config, setConfig }) => {
           />
         </div>
       </div>
-      <div sx={{ fontSize: 1, fontWeight: 600, textAlign: 'center', mt: 3 }}>
+      <div sx={{ fontSize: 1, fontWeight: 600, textAlign: "center", mt: 3 }}>
         {new Date(config.timestamp).toLocaleString()}
       </div>
     </div>
@@ -109,35 +109,35 @@ const VersionPicker = ({ configs, setConfig, onClose }) => {
   return (
     <section
       sx={{
-        display: 'flex',
+        display: "flex",
         zIndex: 9,
-        overflow: 'auto',
-        flexWrap: 'nowrap',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'fixed',
+        overflow: "auto",
+        flexWrap: "nowrap",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "fixed",
         left: 0,
         top: 0,
-        height: '100vh',
-        width: '100vw',
-        background: 'rgba(255,255,255,0.8)',
-        backdropFilter: 'blur(6px)',
-        fontFamily: 'system-ui, sans-serif'
+        height: "100vh",
+        width: "100vw",
+        background: "rgba(255,255,255,0.8)",
+        backdropFilter: "blur(6px)",
+        fontFamily: "system-ui, sans-serif"
       }}
     >
       <button
         sx={{
-          appearance: 'none',
-          position: 'absolute',
-          top: '32px',
-          right: '32px',
-          background: 'transparent',
+          appearance: "none",
+          position: "absolute",
+          top: "32px",
+          right: "32px",
+          background: "transparent",
           borderRadius: 2,
-          border: '2px solid',
+          border: "2px solid",
           py: 1,
           px: 2,
           fontSize: 2,
-          cursor: 'pointer'
+          cursor: "pointer"
         }}
         onClick={onClose}
       >
@@ -163,7 +163,7 @@ const Site = () => {
 
   // Load remote config and replace when ready
   useEffect(() => {
-    fetch('https://cloudflare-design-read.cloudflare-ui.workers.dev')
+    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
         const current = json[0];
@@ -174,7 +174,7 @@ const Site = () => {
   }, []);
 
   useInterval(() => {
-    fetch('https://cloudflare-design-read.cloudflare-ui.workers.dev')
+    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
         if (json.length === 0) return;
@@ -188,10 +188,10 @@ const Site = () => {
   }, 10000);
 
   const handleDeployConfig = () => {
-    fetch('https://cloudflare-design-write.cloudflare-ui.workers.dev', {
-      method: 'POST',
+    fetch("https://cloudflare-design-write.cloudflare-ui.workers.dev", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         colorModes: config.colorModes,
@@ -218,8 +218,8 @@ const Site = () => {
   };
 
   const keyMap = {
-    TOGGLE_CONFIG_UI: ';',
-    TOGGLE_VERSIONS_UI: 'ESC'
+    TOGGLE_CONFIG_UI: ";",
+    TOGGLE_VERSIONS_UI: "ESC"
   };
 
   const handlers = {
@@ -234,8 +234,8 @@ const Site = () => {
   return (
     <div
       sx={{
-        fontFamily: 'system-ui, sans-serif',
-        color: 'black'
+        fontFamily: "system-ui, sans-serif",
+        color: "black"
       }}
     >
       <GlobalHotKeys keyMap={keyMap} handlers={handlers} />
@@ -251,16 +251,16 @@ const Site = () => {
       )}
       <NewConfigNotification show={updateAvailable} />
 
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionHeader showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionColor showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionFigma showUI={showUI} />
       </div>
-      <div sx={{ position: 'relative' }}>
+      <div sx={{ position: "relative" }}>
         <SectionLocations showUI={showUI} />
       </div>
       <div sx={{ position: 'relative' }}>
@@ -312,15 +312,18 @@ const Site = () => {
               transition: 'background-color .2s ease-in'
             }
           }}
-        >
-          Publish 
-        </button>
-        {config.history.length > 0 && (
-          <ConfigHistory
-            onPreviewClick={() => setShowVersions(prev => !prev)}
-            history={config.history}
-          />
-        )}
+    >Publish</button>
+      <div sx={{ position: "relative" }}>
+        <SectionFooter showUI={showUI} />
+      </div>
+
+      {config.history.length > 0 && (
+        <ConfigHistory
+          onPreviewClick={() => setShowVersions(prev => !prev)}
+          history={config.history}
+        />
+      )}
+
         </SectionAbout>
       </div>
       <div sx={{ position: 'relative' }}>
