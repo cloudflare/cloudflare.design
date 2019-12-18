@@ -25,7 +25,7 @@ const variants = [
 
 const SectionLocations = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text } = useColorMode(sectionKey, props.colorMode);
+  const { background, text, primary, border } = useColorMode(sectionKey, props.colorMode);
 
   switch (variant) {
     case 0:
@@ -33,7 +33,7 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ py: [5, 6] }}>
+          <section sx={{ py: [5, 6], color: text, bg: background }}>
             <h3
               sx={{
                 fontSize: [3, 5, 6],
@@ -196,7 +196,9 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section {...props}></section>
+          <section sx={{ bg: background, color: text }} {...props}>
+          <h3>Locations</h3>
+        </section>
         </>
       );
   }

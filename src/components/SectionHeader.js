@@ -39,7 +39,7 @@ const variants = [
 const SectionHeader = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
   const { borders } = useBorders(sectionKey, props.borders);
-  const { background, text, primary } = useColorMode(
+  const { background, text, primary, border } = useColorMode(
     sectionKey,
     props.colorMode
   );
@@ -57,7 +57,9 @@ const SectionHeader = ({ showUI, ...props }) => {
               px: 3,
               bg: background,
               color: text,
-              py: [5, 6, 7]
+              py: [5, 6, 7],
+              borderBottom: '1px solid',
+              borderColor: border
             }}
             {...props}
           >
@@ -78,6 +80,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                 display: "flex",
                 alignItems: "center",
                 borderBottom: borders && "1px solid",
+                borderColor: border,
                 overflow: "hidden"
               }}
             >
@@ -88,6 +91,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                   my: 0,
                   fontSize: [7, 7, 96],
                   borderLeft: borders && "1px solid",
+                  borderColor: border,
                   lineHeight: 1,
                   whiteSpace: "nowrap",
                   py: 0
@@ -108,6 +112,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               display: "flex",
               alignItems: "center",
               borderBottom: borders && "1px solid",
+              borderColor: border,
               py: 4,
               px: 3,
               bg: background,
@@ -138,6 +143,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               justifyContent: "center",
               alignItems: "center",
               borderBottom: borders && "1px solid",
+              borderColor: border,
               py: 4,
               px: 3,
               bg: background,
@@ -163,7 +169,7 @@ const SectionHeader = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header
-            sx={{ bg: background, color: text, py: [5, 6, 7] }}
+            sx={{ borderBottom: '1px solid', borderColor: border, bg: background, color: text, py: [5, 6, 7] }}
             {...props}
           >
             <div

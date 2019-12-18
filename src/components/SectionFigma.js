@@ -25,7 +25,7 @@ const variants = [
 
 const SectionFigma = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text, primary } = useColorMode(
+  const { background, text, border, primary } = useColorMode(
     sectionKey,
     props.colorMode
   );
@@ -36,7 +36,7 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ px: 4, py: [5, 5, 6], color: text, bg: background }}>
+          <section sx={{ px: 4, py: [5, 5, 6], color: text, bg: background, borderBottom: '1px solid', borderColor: border  }}>
             <h3
               sx={{
                 fontSize: [3, 5, 6],
@@ -142,7 +142,7 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ color: text, bg: background }}>
+          <section sx={{ color: text, bg: background, borderBottom: '1px solid', borderColor: border }}>
             <div
               sx={{
                 px: [4, 3, 3],
@@ -287,7 +287,7 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section {...props}>
+          <section sx={{ bg: background, color: text, borderColor: border, borderBottom: '1px solid' }} {...props}>
             <h3 sx={{ my: 0 }}>FIGMA</h3>
           </section>
         </>

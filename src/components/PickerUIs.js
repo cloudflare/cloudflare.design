@@ -23,7 +23,6 @@ const PickerUIs = ({ variants, sectionKey }) => {
         fontSize: 1,
         position: "absolute",
         px: 3,
-        py: 2,
         bg: "black",
         color: "white",
         boxShadow:
@@ -31,26 +30,22 @@ const PickerUIs = ({ variants, sectionKey }) => {
       }}
     >
       <div sx={{ display: "flex" }}>
-        <label>
-          <span>Variant</span>
+        <label sx={{py: 2,pr:3, borderRight: '1px solid rgba(255,255,255,.25)', display: 'flex', alignItems: 'center'}}>
+          <span sx={{ mr: 2 }}>Variant</span>
           <VariantPicker variants={variants} variantKey={sectionKey} />
         </label>
-        <div sx={{ ml: 3 }}>
-          <label>
-            <span>Color Mode</span>
-            <ColorModePicker configKey={sectionKey} />
-          </label>
-        </div>
-        <div sx={{ ml: 3 }}>
-          <label>
-            <span sx={{ mr: 1 }}>Borders</span>
-            <input
-              checked={borders}
-              onChange={handleSetBorders}
-              type="checkbox"
-            />
-          </label>
-        </div>
+        <label sx={{py: 2,px:3, borderRight: '1px solid rgba(255,255,255,.25)', display: 'flex', alignItems: 'center'}}>
+          <span sx={{ mr: 2 }}>Color Mode</span>
+          <ColorModePicker configKey={sectionKey} />
+        </label>
+        <label sx={{px: 3, display: 'flex', alignItems: 'center'}}>
+          <span sx={{ mr: 2 }}>Borders</span>
+          <input
+            checked={borders}
+            onChange={handleSetBorders}
+            type="checkbox"
+          />
+        </label>
       </div>
     </div>
   );

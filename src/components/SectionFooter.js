@@ -20,12 +20,16 @@ const variants = [
   {
     label: "2",
     value: 2
+  },
+  {
+    label: "3",
+    value: 3
   }
 ];
 
 const SectionFooter = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text } = useColorMode(sectionKey, props.colorMode);
+  const { background, text, border } = useColorMode(sectionKey, props.colorMode);
 
   switch (variant) {
     case 0:
@@ -34,7 +38,7 @@ const SectionFooter = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
-            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}
+            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid", borderColor: border }}
           >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
@@ -55,7 +59,7 @@ const SectionFooter = ({ showUI, ...props }) => {
               bg: background,
               py: 4,
               borderTop: "1px solid",
-              borderBottom: "1px solid"
+              borderColor: border,
             }}
           >
             <div sx={{ display: "flex", alignItems: "center" }}>
@@ -110,7 +114,7 @@ const SectionFooter = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
-            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid" }}
+            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid", borderColor: border }}
           >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
@@ -118,6 +122,20 @@ const SectionFooter = ({ showUI, ...props }) => {
                 <IconLink variant={1} />
               </div>
             </div>
+          </footer>
+        </>
+      );
+    case 3:
+      return (
+        <>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <footer
+            sx={{ color: text, bg: background, py: [4,5,6], borderTop: "1px solid", borderColor: border }}
+          >
+              <small sx={{ display: 'block', textAlign: 'center', fontSize: 0, mb: 4 }}>{data.copyright}</small>
+              <div sx={{ display: 'flex', justifyContent: 'center'}}>
+                <IconLink variant={2} />
+              </div>
           </footer>
         </>
       );

@@ -3,7 +3,7 @@ import { jsx } from "theme-ui";
 import reverse from "lodash/reverse";
 import { useConfig } from "../config";
 
-const ConfigHistory = ({ history, onPreviewClick }) => {
+const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
   const { config, setConfig } = useConfig();
 
   const handleSetConfig = i => () => {
@@ -19,25 +19,9 @@ const ConfigHistory = ({ history, onPreviewClick }) => {
   };
 
   return (
-    <div sx={{ p: 4 }}>
+    <div {...props}>
       <div sx={{ display: "flex", alignItems: "center", mb: 3 }}>
-        <h4 sx={{ m: 0, mr: "auto" }}>Versions</h4>
-        <button
-          onClick={onPreviewClick}
-          sx={{
-            appearance: "none",
-            bg: "black",
-            color: "white",
-            border: "none",
-            borderRadius: 2,
-            px: 3,
-            py: 2,
-            fontSize: 2,
-            cursor: "pointer"
-          }}
-        >
-          Preview last 7 designs
-        </button>
+        <h4 sx={{ mb: 0, mt: 5, mr: "auto" }}>Versions</h4>
       </div>
       <div sx={{ flexWrap: "wrap", display: "flex", mx: -3 }}>
         {history.map((h, i) => (
@@ -70,6 +54,27 @@ const ConfigHistory = ({ history, onPreviewClick }) => {
           </div>
         ))}
       </div>
+        <button
+          onClick={onPreviewClick}
+          sx={{
+            appearance: "none",
+            bg: "white",
+            color: "gray.0",
+            border: "1px solid",
+            borderRadius: 5,
+            mt: 4,
+            px: 5,
+            py: 3,
+            mx: 'auto',
+            fontSize: 2,
+            fontWeight: 700,
+            cursor: "pointer",
+            width:'auto',
+            display: 'block'
+          }}
+        >
+          View gallery
+        </button>
     </div>
   );
 };

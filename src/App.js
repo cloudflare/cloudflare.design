@@ -10,6 +10,7 @@ import SectionHeader from './components/SectionHeader';
 import SectionColor from './components/SectionColor';
 import SectionFigma from './components/SectionFigma';
 import SectionFooter from './components/SectionFooter';
+import SectionAbout from './components/SectionAbout';
 import SectionLocations from './components/SectionLocations';
 import ConfigHistory from './components/ConfigHistory';
 import useInterval from './useInterval';
@@ -140,7 +141,7 @@ const VersionPicker = ({ configs, setConfig, onClose }) => {
         }}
         onClick={onClose}
       >
-        close
+        Close
       </button>
       {configs.map((config, index) => (
         <SitePreview
@@ -252,25 +253,6 @@ const Site = () => {
 
       <div sx={{ position: 'relative' }}>
         <SectionHeader showUI={showUI} />
-        <button
-          sx={{
-            position: 'absolute',
-            top: '8px',
-            left: '8px',
-            appearance: 'none',
-            bg: 'black',
-            color: 'white',
-            border: 'none',
-            borderRadius: 2,
-            px: 3,
-            py: 2,
-            fontSize: 2,
-            cursor: 'pointer'
-          }}
-          onClick={() => toggleShowUI(prev => !prev)}
-        >
-          Edit design
-        </button>
       </div>
       <div sx={{ position: 'relative' }}>
         <SectionColor showUI={showUI} />
@@ -282,29 +264,47 @@ const Site = () => {
         <SectionLocations showUI={showUI} />
       </div>
       <div sx={{ position: 'relative' }}>
-        <SectionFooter showUI={showUI} />
-      </div>
-
-      {config.history.length > 0 && (
-        <ConfigHistory
-          onPreviewClick={() => setShowVersions(prev => !prev)}
-          history={config.history}
-        />
-      )}
-
-      <div sx={{ bg: '#000', textAlign: 'center' }}>
+        <SectionAbout showUI={showUI}>
+        <button
+          sx={{
+            appearance: 'none',
+            width: 'auto',
+            border: 0,
+            textalign: 'center',
+            py: 3,
+            px: 4,
+            mr: 4,
+            bg: 'gray.8',
+            color: 'gray.1',
+            fontSize: 3,
+            fontWeight: 700,
+            cursor: 'pointer',
+            borderRadius: 5,
+            transition: 'background-color .2s ease-in, color .2s ease-in',
+            ':hover': {
+              bg: 'gray.9',
+              color: 'gray.0',
+              transition: 'background-color .2s ease-in, color .2s ease-in'
+            }
+          }}
+          onClick={() => toggleShowUI(prev => !prev)}
+        >
+          Edit design
+        </button>
         <button
           onClick={handleDeployConfig}
           sx={{
-            width: '100%',
+            appearance: 'none',
+            width: 'auto',
             border: 0,
-            textAlign: 'center',
+            borderRadius: 5,
+            textalign: 'center',
             py: 3,
-            px: 3,
+            px: 4,
             bg: 'black',
             color: 'white',
-            fontSize: 4,
-            fontWeight: 800,
+            fontSize: 3,
+            fontWeight: 700,
             cursor: 'pointer',
             transition: 'background-color .2s ease-in',
             ':hover': {
@@ -313,8 +313,22 @@ const Site = () => {
             }
           }}
         >
-          Deploy config
+          Publish 
         </button>
+        {config.history.length > 0 && (
+          <ConfigHistory
+            onPreviewClick={() => setShowVersions(prev => !prev)}
+            history={config.history}
+          />
+        )}
+        </SectionAbout>
+      </div>
+      <div sx={{ position: 'relative' }}>
+        <SectionFooter showUI={showUI} />
+      </div>
+
+
+      <div sx={{ bg: '#000', textAlign: 'center' }}>
       </div>
     </div>
   );
