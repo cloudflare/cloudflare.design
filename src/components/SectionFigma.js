@@ -1,7 +1,12 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "theme-ui";
-import { useVariant, useColorMode } from "../config";
+import {
+  useVariant,
+  useColorMode,
+  useBorderBottom,
+  useBorderTop
+} from "../config";
 import Card from "./Card";
 import Text from "./Text";
 import PickerUIs from "./PickerUIs";
@@ -25,6 +30,8 @@ const variants = [
 
 const SectionFigma = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
+  const { borderTop } = useBorderTop(sectionKey, props.borders);
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
   const { background, text, border, primary } = useColorMode(
     sectionKey,
     props.colorMode
@@ -36,7 +43,17 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ px: 4, py: [5, 5, 6], color: text, bg: background, borderBottom: '1px solid', borderColor: border  }}>
+          <section
+            sx={{
+              px: 4,
+              py: [5, 5, 6],
+              color: text,
+              bg: background,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
+            }}
+          >
             <h3
               sx={{
                 fontSize: [3, 5, 6],
@@ -142,12 +159,18 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ color: text, bg: background, borderBottom: '1px solid', borderColor: border }}>
+          <section
+            sx={{
+              color: text,
+              bg: background,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
+            }}
+          >
             <div
               sx={{
                 px: [4, 3, 3],
-                borderBottom: "1px solid",
-                borderColor: "inherit",
                 py: [4, 5, 6]
               }}
             >
@@ -287,7 +310,16 @@ const SectionFigma = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ bg: background, color: text, borderColor: border, borderBottom: '1px solid' }} {...props}>
+          <section
+            sx={{
+              bg: background,
+              color: text,
+              borderColor: border,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid"
+            }}
+            {...props}
+          >
             <h3 sx={{ my: 0 }}>FIGMA</h3>
           </section>
         </>

@@ -1,12 +1,17 @@
 /** @jsx jsx */
-import React from "react";
-import { jsx } from "theme-ui";
-import { useVariant, useColorMode } from "../config";
-import data from "../data";
-import IconLink from "./IconLink";
-import PickerUIs from "./PickerUIs";
+import React from "react"
+import { jsx } from "theme-ui"
+import {
+  useVariant,
+  useColorMode,
+  useBorderBottom,
+  useBorderTop
+} from "../config"
+import data from "../data"
+import IconLink from "./IconLink"
+import PickerUIs from "./PickerUIs"
 
-const sectionKey = "footerSection";
+const sectionKey = "footerSection"
 
 const variants = [
   {
@@ -25,11 +30,13 @@ const variants = [
     label: "3",
     value: 3
   }
-];
+]
 
 const SectionFooter = ({ showUI, ...props }) => {
-  const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text, border } = useColorMode(sectionKey, props.colorMode);
+  const { variant } = useVariant(sectionKey, props.variant)
+  const { borderTop } = useBorderTop(sectionKey, props.borders)
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders)
+  const { background, text, border } = useColorMode(sectionKey, props.colorMode)
 
   switch (variant) {
     case 0:
@@ -38,7 +45,14 @@ const SectionFooter = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
-            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid", borderColor: border }}
+            sx={{
+              color: text,
+              bg: background,
+              py: 4,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
+            }}
           >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
@@ -48,7 +62,7 @@ const SectionFooter = ({ showUI, ...props }) => {
             </div>
           </footer>
         </>
-      );
+      )
     case 1:
       return (
         <>
@@ -58,8 +72,9 @@ const SectionFooter = ({ showUI, ...props }) => {
               color: text,
               bg: background,
               py: 4,
-              borderTop: "1px solid",
-              borderColor: border,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
             }}
           >
             <div sx={{ display: "flex", alignItems: "center" }}>
@@ -108,13 +123,20 @@ const SectionFooter = ({ showUI, ...props }) => {
             </div>
           </footer>
         </>
-      );
+      )
     case 2:
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
-            sx={{ color: text, bg: background, py: 4, borderTop: "1px solid", borderColor: border }}
+            sx={{
+              color: text,
+              bg: background,
+              py: 4,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
+            }}
           >
             <div sx={{ display: "flex", alignItems: "center" }}>
               <small sx={{ ml: 3, fontSize: 0 }}>{data.copyright}</small>
@@ -124,22 +146,33 @@ const SectionFooter = ({ showUI, ...props }) => {
             </div>
           </footer>
         </>
-      );
+      )
     case 3:
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
-            sx={{ color: text, bg: background, py: [4,5,6], borderTop: "1px solid", borderColor: border }}
+            sx={{
+              color: text,
+              bg: background,
+              py: [4, 5, 6],
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
+            }}
           >
-              <small sx={{ display: 'block', textAlign: 'center', fontSize: 0, mb: 4 }}>{data.copyright}</small>
-              <div sx={{ display: 'flex', justifyContent: 'center'}}>
-                <IconLink variant={2} />
-              </div>
+            <small
+              sx={{ display: "block", textAlign: "center", fontSize: 0, mb: 4 }}
+            >
+              {data.copyright}
+            </small>
+            <div sx={{ display: "flex", justifyContent: "center" }}>
+              <IconLink variant={2} />
+            </div>
           </footer>
         </>
-      );
+      )
   }
-};
+}
 
-export default SectionFooter;
+export default SectionFooter

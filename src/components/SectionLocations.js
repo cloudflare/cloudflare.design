@@ -1,7 +1,12 @@
 /** @jsx jsx */
 import React from "react";
 import { jsx } from "theme-ui";
-import { useVariant, useColorMode } from "../config";
+import {
+  useVariant,
+  useColorMode,
+  useBorderBottom,
+  useBorderTop
+} from "../config";
 import Text from "./Text";
 import data from "../data";
 import PickerUIs from "./PickerUIs";
@@ -25,7 +30,12 @@ const variants = [
 
 const SectionLocations = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text, primary, border } = useColorMode(sectionKey, props.colorMode);
+  const { borderTop } = useBorderTop(sectionKey, props.borders);
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
+  const { background, text, primary, border } = useColorMode(
+    sectionKey,
+    props.colorMode
+  );
 
   switch (variant) {
     case 0:
@@ -33,7 +43,16 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ py: [5, 6], color: text, bg: background, borderBottom: '1px solid', borderColor: border  }}>
+          <section
+            sx={{
+              py: [5, 6],
+              color: text,
+              bg: background,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
+            }}
+          >
             <h3
               sx={{
                 fontSize: [3, 5, 6],
@@ -104,7 +123,15 @@ const SectionLocations = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
-            sx={{ color: text, bg: background, px: [4, 3, 3], py: [4, 5, 6], borderColor: border, borderBottom: '1px solid' }}
+            sx={{
+              color: text,
+              bg: background,
+              px: [4, 3, 3],
+              py: [4, 5, 6],
+              borderColor: border,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid"
+            }}
           >
             <div sx={{ maxWidth: "96em", mx: "auto" }}>
               <div
@@ -196,9 +223,18 @@ const SectionLocations = ({ showUI, ...props }) => {
       return (
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section sx={{ bg: background, color: text, borderBottom: '1px solid', borderColor: border }} {...props}>
-          <h3>Locations</h3>
-        </section>
+          <section
+            sx={{
+              bg: background,
+              color: text,
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border
+            }}
+            {...props}
+          >
+            <h3>Locations</h3>
+          </section>
         </>
       );
   }
