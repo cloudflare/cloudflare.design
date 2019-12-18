@@ -21,6 +21,7 @@ const Card = ({ height, href, title, text, image, ...props }) => {
               borderRadius: props.borderRadius ? props.borderRadius : 5,
               backgroundSize: "cover",
               backgroundImage: "url(" + image + ")",
+              backgroundPosition: 'center center',
               height: height
             }}
           ></div>
@@ -42,6 +43,7 @@ const Card = ({ height, href, title, text, image, ...props }) => {
               borderRadius: 0,
               backgroundSize: "cover",
               backgroundImage: "url(" + image + ")",
+              backgroundPosition: 'center center',
               height: height
             }}
           ></div>

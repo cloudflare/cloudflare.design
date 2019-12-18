@@ -71,14 +71,14 @@ const SectionHeader = ({ showUI, ...props }) => {
                   <Card
                     title="Color"
                     text="Our open source app for building and previewing accessible color palettes"
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/palette-docs-2.png"
+                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg"
                   />
                 </div>
                 <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
                   <Card
                     title="Thinking about color"
                     text="Notes and documentation from our journey exploring color systems"
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/new-scales.png"
+                    image="https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg"
                   />
                 </div>
               </div>
@@ -132,8 +132,9 @@ const SectionHeader = ({ showUI, ...props }) => {
                     href="https://cloudflare.design/color"
                     sx={{
                       backgroundImage:
-                        "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/palette-docs-2.png)",
+                        "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg)",
                       backgroundSize: "cover",
+                      backgroundPosition: 'center center',
                       display: "block",
                       height: "100%",
                       minHeight: [256, 320, 480]
@@ -145,7 +146,8 @@ const SectionHeader = ({ showUI, ...props }) => {
                     href="https://cloudflare.design/color/thinking"
                     sx={{
                       backgroundImage:
-                        "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/new-scales.png)",
+                        "url(https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg)",
+                      backgroundPosition: 'center center',
                       backgroundSize: "cover",
                       display: "block",
                       height: "100%",

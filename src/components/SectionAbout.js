@@ -21,7 +21,7 @@ const variants = [
 
 const SectionAbout = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant);
-  const { background, text } = useColorMode(sectionKey, props.colorMode);
+  const { border, background, text } = useColorMode(sectionKey, props.colorMode);
 
   switch (variant) {
     case 0:
@@ -30,7 +30,7 @@ const SectionAbout = ({ showUI, ...props }) => {
         <>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
-            sx={{ color: text, bg: background, py: [5,5,6], borderTop: "1px solid" }}
+            sx={{ color: text, bg: background, py: [5,5,6] }}
           >
         <div sx={{px: 4, maxWidth: '64em', mx: 'auto'}}>
             <h3 sx={{my: 0, fontSize: [5,6,6]}}>About this page</h3>
@@ -68,8 +68,6 @@ const SectionAbout = ({ showUI, ...props }) => {
               color: text,
               bg: background,
               py: 4,
-              borderTop: "1px solid",
-              borderBottom: "1px solid"
             }}
           >
             <h3>About</h3>
