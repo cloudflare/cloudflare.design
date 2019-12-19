@@ -5,7 +5,7 @@ import { useConfig, useColorMode } from "../config"
 
 const sectionKey = "aboutSection"
 
-const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
+const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
   const { config, setConfig } = useConfig()
   const { background, text } = useColorMode(sectionKey, props.colorMode)
 
@@ -43,6 +43,7 @@ const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
                 borderBottom: "0px solid",
                 textAlign: "left",
                 fontSize: 1,
+                fontWeight: myVersions.includes(h.id) && 700,
                 mb: 3,
                 cursor: "pointer",
                 transition: "color .2s ease-in",

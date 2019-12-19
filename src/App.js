@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from "react"
 import { ThemeProvider, jsx } from "theme-ui"
 import { GlobalHotKeys } from "react-hotkeys"
+import { set, get } from "idb-keyval"
 import theme from "./theme"
 import { ConfigProvider, useConfig } from "./config"
 import NewConfigNotification from "./components/NewConfigNotification"
@@ -160,8 +161,9 @@ const Site = () => {
   const { config, setConfig } = useConfig()
   const [showUI, toggleShowUI] = useState(false)
   const [showVersions, setShowVersions] = useState(false)
+  const [myVersions, setMyVersions] = useState([])
 
-  console.log(config)
+  console.log(config, myVersions)
 
   // Load remote config and replace when ready
   useEffect(() => {
@@ -188,6 +190,15 @@ const Site = () => {
       })
   }, 10000)
 
+  const getMyVersions = async () => {
+    const myVersions = await get("myVersions")
+    myVersions && setMyVersions(myVersions)
+  }
+
+  useEffect(() => {
+    getMyVersions()
+  }, [config])
+
   const handleDeployConfig = () => {
     fetch("https://cloudflare-design-write.cloudflare-ui.workers.dev", {
       method: "POST",
@@ -202,7 +213,7 @@ const Site = () => {
       })
     })
       .then(res => res.json())
-      .then(data => {
+      .then(async data => {
         setVersionId(data.id)
         const newConfig = {
           colorModes: config.colorModes,
@@ -210,6 +221,7 @@ const Site = () => {
           borderTop: config.borderTop,
           borderBottom: config.borderBottom
         }
+
         setConfig({
           ...newConfig,
           history: [
@@ -217,6 +229,9 @@ const Site = () => {
             ...config.history
           ]
         })
+
+        const myVersions = await get("myVersions")
+        await set("myVersions", [...(myVersions || []), data.id])
       })
   }
 
@@ -323,6 +338,7 @@ const Site = () => {
             <ConfigHistory
               onPreviewClick={() => setShowVersions(prev => !prev)}
               history={config.history}
+              myVersions={myVersions}
             />
           )}
         </SectionAbout>
