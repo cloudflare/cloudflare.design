@@ -1,20 +1,20 @@
 /** @jsx jsx */
-import React, { useEffect, useState, useRef } from "react";
-import { ThemeProvider, jsx } from "theme-ui";
-import { GlobalHotKeys } from "react-hotkeys";
-import drop from "lodash/drop";
-import theme from "./theme";
-import { ConfigProvider, useConfig } from "./config";
-import NewConfigNotification from "./components/NewConfigNotification";
-import SectionAbout from "./components/SectionAbout";
-import SectionHeader from "./components/SectionHeader";
-import SectionColor from "./components/SectionColor";
-import SectionFigma from "./components/SectionFigma";
-import SectionFooter from "./components/SectionFooter";
-import SectionLocations from "./components/SectionLocations";
-import ConfigHistory from "./components/ConfigHistory";
-import useInterval from "./useInterval";
-import Frame from "./components/Frame";
+import React, { useEffect, useState, useRef } from "react"
+import { ThemeProvider, jsx } from "theme-ui"
+import { GlobalHotKeys } from "react-hotkeys"
+import drop from "lodash/drop"
+import theme from "./theme"
+import { ConfigProvider, useConfig } from "./config"
+import NewConfigNotification from "./components/NewConfigNotification"
+import SectionAbout from "./components/SectionAbout"
+import SectionHeader from "./components/SectionHeader"
+import SectionColor from "./components/SectionColor"
+import SectionFigma from "./components/SectionFigma"
+import SectionFooter from "./components/SectionFooter"
+import SectionLocations from "./components/SectionLocations"
+import ConfigHistory from "./components/ConfigHistory"
+import useInterval from "./useInterval"
+import Frame from "./components/Frame"
 // This is the current config from the worker
 // and just maps a key of our choosing to a value from our theme file
 
@@ -31,21 +31,21 @@ import Frame from "./components/Frame";
 // delete window.__CONFIG__;
 
 const SitePreview = ({ config, setConfig }) => {
-  const previewRef = useRef();
+  const previewRef = useRef()
   const [dimensions, setDimensions] = useState({
     width: "100vw",
     height: "100vh"
-  });
+  })
 
-  const scale = 0.1;
+  const scale = 0.1
 
   useEffect(() => {
-    const previewEl = previewRef.current;
+    const previewEl = previewRef.current
     setDimensions({
       width: previewEl.scrollWidth,
       height: previewEl.scrollHeight
-    });
-  }, [previewRef]);
+    })
+  }, [previewRef])
 
   return (
     <div>
@@ -102,8 +102,8 @@ const SitePreview = ({ config, setConfig }) => {
         {new Date(config.timestamp).toLocaleString()}
       </div>
     </div>
-  );
-};
+  )
+}
 
 const VersionPicker = ({ configs, setConfig, onClose }) => {
   return (
@@ -154,40 +154,42 @@ const VersionPicker = ({ configs, setConfig, onClose }) => {
         />
       ))}
     </section>
-  );
-};
+  )
+}
 
 const Site = () => {
-  const [versionId, setVersionId] = useState();
-  const [updateAvailable, setUpdateAvailable] = useState(false);
-  const { config, setConfig } = useConfig();
-  const [showUI, toggleShowUI] = useState(false);
-  const [showVersions, setShowVersions] = useState(false);
+  const [versionId, setVersionId] = useState()
+  const [updateAvailable, setUpdateAvailable] = useState(false)
+  const { config, setConfig } = useConfig()
+  const [showUI, toggleShowUI] = useState(false)
+  const [showVersions, setShowVersions] = useState(false)
+
+  console.log(config)
 
   // Load remote config and replace when ready
   useEffect(() => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        if (json.length === 0) return;
-        const current = json[0];
-        setConfig({ ...config, ...current.config, history: json });
-      });
-  }, []);
+        if (json.length === 0) return
+        const current = json[0]
+        setConfig({ ...config, ...current.config, history: json })
+      })
+  }, [])
 
   useInterval(() => {
     fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
-        if (json.length === 0) return;
+        if (json.length === 0) return
         if (!versionId) {
-          setVersionId(json[0].id);
+          setVersionId(json[0].id)
         }
         if (versionId && versionId !== json[0].id) {
-          setUpdateAvailable(true);
+          setUpdateAvailable(true)
         }
-      });
-  }, 10000);
+      })
+  }, 10000)
 
   const handleDeployConfig = () => {
     fetch("https://cloudflare-design-write.cloudflare-ui.workers.dev", {
@@ -204,36 +206,36 @@ const Site = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setVersionId(data.id);
+        setVersionId(data.id)
         const newConfig = {
           colorModes: config.colorModes,
           variants: config.variants,
           borderTop: config.borderTop,
           borderBottom: config.borderBottom
-        };
+        }
         setConfig({
           ...newConfig,
           history: [
             { id: data.id, timestamp: new Date().getTime(), config: newConfig },
             ...config.history
           ]
-        });
-      });
-  };
+        })
+      })
+  }
 
   const keyMap = {
     TOGGLE_CONFIG_UI: ";",
     TOGGLE_VERSIONS_UI: "ESC"
-  };
+  }
 
   const handlers = {
     TOGGLE_CONFIG_UI: () => {
-      toggleShowUI(prev => !prev);
+      toggleShowUI(prev => !prev)
     },
     TOGGLE_VERSIONS_UI: () => {
-      setShowVersions(prev => !prev);
+      setShowVersions(prev => !prev)
     }
-  };
+  }
 
   return (
     <div
@@ -246,8 +248,8 @@ const Site = () => {
       {showVersions && (
         <VersionPicker
           setConfig={newConfig => {
-            setConfig({ ...newConfig.config, history: config.history });
-            setShowVersions(false);
+            setConfig({ ...newConfig.config, history: config.history })
+            setShowVersions(false)
           }}
           configs={config.history.slice(0, 7)}
           onClose={() => setShowVersions(false)}
@@ -332,8 +334,8 @@ const Site = () => {
         <SectionFooter showUI={showUI} />
       </div>
     </div>
-  );
-};
+  )
+}
 
 function App() {
   return (
@@ -372,7 +374,7 @@ function App() {
         <Site />
       </ThemeProvider>
     </ConfigProvider>
-  );
+  )
 }
 
-export default App;
+export default App

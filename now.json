@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "cloudflare.design",
-  "builds": [{ "src": "site/**", "use": "@now/static" }],
   "routes": [
     {
       "src": "/color([/]*)",
@@ -11,6 +10,6 @@
       "src": "/color/(.*)",
       "dest": "https://color.cloudflare.design/$1"
     },
-    { "src": "/(.*)", "dest": "site/$1" }
+    { "src": "/(.*)", "dest": "build/$1" }
   ]
 }
