@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
-import { useVariant } from "../config";
+import { jsx } from "theme-ui"
+import { useVariant } from "../config"
 
 const Card = ({ height, href, title, text, image, ...props }) => {
-  const { variant } = useVariant("card");
+  const { variant } = useVariant("card")
   switch (variant) {
     case "default":
     default:
@@ -12,7 +12,7 @@ const Card = ({ height, href, title, text, image, ...props }) => {
           sx={{
             color: "inherit",
             textDecoration: "none",
-            display: 'block',
+            display: "block"
           }}
           href={href}
         >
@@ -21,16 +21,16 @@ const Card = ({ height, href, title, text, image, ...props }) => {
               borderRadius: props.borderRadius ? props.borderRadius : 5,
               backgroundSize: "cover",
               backgroundImage: "url(" + image + ")",
-              backgroundPosition: 'center center',
+              backgroundPosition: "center center",
               height: height
             }}
           ></div>
           <h4 sx={{ mt: 3, mb: 2 }}>{title}</h4>
           <span>{text}</span>
         </a>
-      );
+      )
     case "test":
-      test: return (
+      return (
         <a
           sx={{
             color: "inherit",
@@ -43,16 +43,16 @@ const Card = ({ height, href, title, text, image, ...props }) => {
               borderRadius: 0,
               backgroundSize: "cover",
               backgroundImage: "url(" + image + ")",
-              backgroundPosition: 'center center',
+              backgroundPosition: "center center",
               height: height
             }}
           ></div>
           <h4 sx={{ mt: 3, mb: 2, fontSize: [5, 6, 7] }}>{title}</h4>
           <span sx={{ fontSize: [3, 4, 5] }}>{text}</span>
         </a>
-      );
+      )
   }
-};
+}
 
 Card.defaultProps = {
   variant: "default",
@@ -62,6 +62,6 @@ Card.defaultProps = {
   text: "Some default text",
   height: 256,
   href: "#0"
-};
+}
 
-export default Card;
+export default Card
