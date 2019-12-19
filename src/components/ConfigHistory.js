@@ -1,25 +1,25 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
-import reverse from "lodash/reverse";
-import { useConfig, useColorMode } from "../config";
+import { jsx } from "theme-ui"
+import reverse from "lodash/reverse"
+import { useConfig, useColorMode } from "../config"
 
-const sectionKey = "aboutSection";
+const sectionKey = "aboutSection"
 
 const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
-  const { config, setConfig } = useConfig();
-  const { background, text } = useColorMode(sectionKey, props.colorMode);
+  const { config, setConfig } = useConfig()
+  const { background, text } = useColorMode(sectionKey, props.colorMode)
 
   const handleSetConfig = i => () => {
-    const { history } = config;
+    const { history } = config
 
-    const reversed = reverse([...history]);
+    const reversed = reverse([...history])
 
     setConfig(prev => ({
       colorModes: reversed[i].config.colorModes,
       variants: reversed[i].config.variants,
       history: prev.history
-    }));
-  };
+    }))
+  }
 
   return (
     <div {...props}>
@@ -52,7 +52,7 @@ const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
               }}
               onClick={handleSetConfig(i)}
             >
-              v0.0.{i}
+              v0.{h.id}.0
             </button>
           </div>
         ))}
@@ -79,7 +79,7 @@ const ConfigHistory = ({ history, onPreviewClick, ...props }) => {
         View gallery
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default ConfigHistory;
+export default ConfigHistory
