@@ -1,17 +1,15 @@
 /** @jsx jsx */
-import React from "react";
-import { jsx } from "theme-ui";
+import React from "react"
+import { jsx } from "theme-ui"
 import {
   useVariant,
   useColorMode,
   useBorderBottom,
   useBorderTop
-} from "../config";
-import data from "../data";
-import IconLink from "./IconLink";
-import PickerUIs from "./PickerUIs";
+} from "../config"
+import PickerUIs from "./PickerUIs"
 
-const sectionKey = "aboutSection";
+const sectionKey = "aboutSection"
 
 const variants = [
   {
@@ -22,13 +20,13 @@ const variants = [
     label: "1",
     value: 1
   }
-];
+]
 
 const SectionAbout = ({ showUI, ...props }) => {
-  const { variant } = useVariant(sectionKey, props.variant);
-  const { borderTop } = useBorderTop(sectionKey, props.borders);
-  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
-  const { border, background, text } = useColorMode(sectionKey, props.colorMode);
+  const { variant } = useVariant(sectionKey, props.variant)
+  const { borderTop } = useBorderTop(sectionKey, props.borders)
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders)
+  const { border, background, text } = useColorMode(sectionKey, props.colorMode)
 
   switch (variant) {
     case 0:
@@ -74,7 +72,7 @@ const SectionAbout = ({ showUI, ...props }) => {
             </div>
           </section>
         </>
-      );
+      )
     case 1:
       return (
         <>
@@ -92,8 +90,8 @@ const SectionAbout = ({ showUI, ...props }) => {
             {props.children}
           </section>
         </>
-      );
+      )
   }
-};
+}
 
-export default SectionAbout;
+export default SectionAbout

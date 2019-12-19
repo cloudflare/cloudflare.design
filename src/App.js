@@ -2,7 +2,6 @@
 import React, { useEffect, useState, useRef } from "react"
 import { ThemeProvider, jsx } from "theme-ui"
 import { GlobalHotKeys } from "react-hotkeys"
-import drop from "lodash/drop"
 import theme from "./theme"
 import { ConfigProvider, useConfig } from "./config"
 import NewConfigNotification from "./components/NewConfigNotification"
@@ -14,7 +13,6 @@ import SectionFooter from "./components/SectionFooter"
 import SectionLocations from "./components/SectionLocations"
 import ConfigHistory from "./components/ConfigHistory"
 import useInterval from "./useInterval"
-import Frame from "./components/Frame"
 // This is the current config from the worker
 // and just maps a key of our choosing to a value from our theme file
 
@@ -138,7 +136,6 @@ const VersionPicker = ({ configs, setConfig, onClose }) => {
           py: 1,
           px: 2,
           fontSize: 2,
-          fontWeight: 700,
           cursor: "pointer",
           color: "gray.0"
         }}

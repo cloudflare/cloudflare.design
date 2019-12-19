@@ -1,17 +1,17 @@
 /** @jsx jsx */
-import React from "react";
-import { jsx } from "theme-ui";
+import React from "react"
+import { jsx } from "theme-ui"
 import {
   useVariant,
   useColorMode,
   useBorderTop,
   useBorderBottom
-} from "../config";
-import Card from "./Card";
-import Text from "./Text";
-import PickerUIs from "./PickerUIs";
+} from "../config"
+import Card from "./Card"
+import Text from "./Text"
+import PickerUIs from "./PickerUIs"
 
-const sectionKey = "colorSection";
+const sectionKey = "colorSection"
 
 const variants = [
   {
@@ -26,16 +26,13 @@ const variants = [
     label: "2",
     value: 2
   }
-];
+]
 
 const SectionHeader = ({ showUI, ...props }) => {
-  const { variant } = useVariant(sectionKey, props.variant);
-  const { borderTop } = useBorderTop(sectionKey, props.borders);
-  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
-  const { background, text, border } = useColorMode(
-    sectionKey,
-    props.colorMode
-  );
+  const { variant } = useVariant(sectionKey, props.variant)
+  const { borderTop } = useBorderTop(sectionKey, props.borders)
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders)
+  const { background, text, border } = useColorMode(sectionKey, props.colorMode)
 
   switch (variant) {
     case 0:
@@ -96,7 +93,7 @@ const SectionHeader = ({ showUI, ...props }) => {
             </div>
           </section>
         </>
-      );
+      )
     case 1:
       return (
         <>
@@ -146,12 +143,12 @@ const SectionHeader = ({ showUI, ...props }) => {
                       backgroundImage:
                         "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg)",
                       backgroundSize: "cover",
-                      backgroundPosition: 'center center',
+                      backgroundPosition: "center center",
                       display: "block",
                       height: "100%",
                       minHeight: [256, 320, 480]
                     }}
-                  ></a>
+                  />
                 </div>
                 <div sx={{ width: ["100%", "50%"], mb: [4, 0], p: 3 }}>
                   <a
@@ -159,7 +156,7 @@ const SectionHeader = ({ showUI, ...props }) => {
                     sx={{
                       backgroundImage:
                         "url(https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg)",
-                      backgroundPosition: 'center center',
+                      backgroundPosition: "center center",
                       backgroundSize: "cover",
                       display: "block",
                       height: "100%",
@@ -171,7 +168,7 @@ const SectionHeader = ({ showUI, ...props }) => {
             </div>
           </section>
         </>
-      );
+      )
     case 2:
       return (
         <>
@@ -216,8 +213,8 @@ const SectionHeader = ({ showUI, ...props }) => {
             </div>
           </section>
         </>
-      );
+      )
   }
-};
+}
 
-export default SectionHeader;
+export default SectionHeader

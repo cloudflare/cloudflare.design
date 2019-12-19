@@ -1,17 +1,17 @@
 /** @jsx jsx */
-import React from "react";
-import { jsx } from "theme-ui";
+import React from "react"
+import { jsx } from "theme-ui"
 import {
   useVariant,
   useColorMode,
   useBorderBottom,
   useBorderTop
-} from "../config";
-import Card from "./Card";
-import Text from "./Text";
-import PickerUIs from "./PickerUIs";
+} from "../config"
+import Card from "./Card"
+import Text from "./Text"
+import PickerUIs from "./PickerUIs"
 
-const sectionKey = "figmaSection";
+const sectionKey = "figmaSection"
 
 const variants = [
   {
@@ -26,16 +26,16 @@ const variants = [
     label: "2",
     value: 2
   }
-];
+]
 
 const SectionFigma = ({ showUI, ...props }) => {
-  const { variant } = useVariant(sectionKey, props.variant);
-  const { borderTop } = useBorderTop(sectionKey, props.borders);
-  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
+  const { variant } = useVariant(sectionKey, props.variant)
+  const { borderTop } = useBorderTop(sectionKey, props.borders)
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders)
   const { background, text, border, primary } = useColorMode(
     sectionKey,
     props.colorMode
-  );
+  )
 
   switch (variant) {
     case 0:
@@ -154,7 +154,7 @@ const SectionFigma = ({ showUI, ...props }) => {
             </div>
           </section>
         </>
-      );
+      )
     case 1:
       return (
         <>
@@ -235,7 +235,6 @@ const SectionFigma = ({ showUI, ...props }) => {
                           "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/charts.png)",
                         backgroundSize: "cover",
                         borderRadius: 7,
-                        borderRadius: 7,
                         minHeight: 240,
                         width: "100%",
                         height: "100%"
@@ -305,7 +304,7 @@ const SectionFigma = ({ showUI, ...props }) => {
             </div>
           </section>
         </>
-      );
+      )
     case 2:
       return (
         <>
@@ -323,8 +322,8 @@ const SectionFigma = ({ showUI, ...props }) => {
             <h3 sx={{ my: 0 }}>FIGMA</h3>
           </section>
         </>
-      );
+      )
   }
-};
+}
 
-export default SectionFigma;
+export default SectionFigma
