@@ -10,6 +10,6 @@
       "src": "/color/(.*)",
       "dest": "https://color.cloudflare.design/$1"
     },
-    { "src": "/(.*)", "dest": "build/$1" }
+    { "src": "/(.*)", "dest": "$1" }
   ]
 }
