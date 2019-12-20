@@ -50,24 +50,23 @@ const variants = [
   }
 ]
 
-const clouds = [...Array(20).keys()].map((index) => (
+const clouds = [...Array(10).keys()].map((index) => (
+   <div sx={{display: 'block',
+      position: 'absolute',
+      pointerEvents: 'none',
+      animationTimingFunction: 'linear',
+      animationIterationCount: 'infinite',left: (Math.random() * window.outerWidth) - 100,
+      bottom: `-${Math.random() * 100}px`,animationName: Math.random() > 0.5 ? 'cloud-left' : 'cloud-right',
+      animationDuration: `${(Math.random() * 40) + 100}s`, opacity: 0.5 - Math.random()/2,}}>
   <img
     key={index}
     className="cloud"
     src="cloud.png"
     sx={{
-      position: 'absolute',
-      pointerEvents: 'none',
-      animationTimingFunction: 'linear',
-      animationIterationCount: 'infinite',
-      left: (Math.random() * window.outerWidth) - 100,
-      bottom: `-${Math.random() * 100}px`,
-      transform: `rotate(${Math.random()*360}deg) scale(${Math.random() + 2})`,
-      opacity: 1 - Math.random(),
-      animationName: Math.random() > 0.5 ? 'cloud-left' : 'cloud-right',
-      animationDuration: `${(Math.random() * 40) + 100}s`
+      transform: `rotate(${Math.random()*360}deg) scale(${Math.random() + 1})`
     }}
   />
+  </div>
 ));
 
 const SectionHeader = ({ showUI, ...props }) => {
