@@ -39,6 +39,10 @@ const variants = [
   {
     label: "6",
     value: 6
+  },
+  {
+    label: "7",
+    value: 7
   }
 ]
 
@@ -269,6 +273,53 @@ const SectionHeader = ({ showUI, ...props }) => {
         </div>
         <div sx={{width: '50%'}}>
             <CF01 /> 
+        </div>
+            </div>
+          </header>
+        </Fragment>
+      )
+    case 7:
+      return (
+        <Fragment>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <header
+            sx={{
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border,
+              bg: background,
+              color: text,
+              py: [5, 6, 7]
+            }}
+            {...props}
+          >
+            <div
+              sx={{
+                maxWidth: "64em",
+                mx: "auto",
+                display: "flex",
+                alignItems: "center",
+                flexWrap: ["wrap", "nowrap"],
+                justifyContent: "space-between",
+                px: 4
+              }}
+            >
+        <div sx={{width: '33.33%'}}>
+          <Logo variant='lego' /> 
+        </div>
+        <div sx={{pl: [0,6], width: '66.66%'}}>
+              <h1
+                sx={{
+                  fontSize: [5, 8, 8],
+                  lineHeight: [1, 0.995],
+                  fontWeight: 700,
+                  mt: 0,
+                  mb: [4, 0]
+                }}
+              >
+                Cloudflare <br />
+                Design
+              </h1>
         </div>
             </div>
           </header>
