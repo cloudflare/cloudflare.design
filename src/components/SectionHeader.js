@@ -11,6 +11,7 @@ import {
   useVariant
 } from "../config"
 import Logo from "./Logo"
+import CF01 from "./CF01"
 
 const sectionKey = "headerSection"
 
@@ -34,6 +35,10 @@ const variants = [
   {
     label: "4",
     value: 4
+  },
+  {
+    label: "6",
+    value: 6
   }
 ]
 
@@ -217,6 +222,54 @@ const SectionHeader = ({ showUI, ...props }) => {
                 <br />
                 Lisbon
               </h2>
+            </div>
+          </header>
+        </Fragment>
+      )
+    case 6:
+      return (
+        <Fragment>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <header
+            sx={{
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border,
+              bg: background,
+              color: text,
+              py: [5, 6, 7]
+            }}
+            {...props}
+          >
+            <div
+              sx={{
+                maxWidth: "64em",
+                mx: "auto",
+                display: "flex",
+                alignItems: "center",
+                flexWrap: ["wrap", "nowrap"],
+                justifyContent: "space-between",
+                px: 4
+              }}
+            >
+        <div sx={{width: '50%'}}>
+              <h1
+                sx={{
+                  fontSize: [5, 7, 9],
+                  lineHeight: [1, 0.995],
+                  fontWeight: 700,
+                  mt: 0,
+                  mr: [0, 6],
+                  mb: [4, 0]
+                }}
+              >
+                Cloudflare <br />
+                Design
+              </h1>
+        </div>
+        <div sx={{width: '50%'}}>
+            <CF01 /> 
+        </div>
             </div>
           </header>
         </Fragment>

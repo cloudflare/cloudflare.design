@@ -216,7 +216,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               </div>
                 <div sx={{ width: ["100%", "50%", "33.33%"], mb: [4, 0], p: [0,3] }}>
                   <a
-                    href="https://cloudflare.design/color/thinking"
+                    href="https://cloudflare.design/color"
         sx={{
           textDecoration: 'none',
           fontWeight: 700,
