@@ -78,6 +78,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     text="Preview your designs in 8 different types of color vision deficiency."
                     image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/color-blind.png"
                     height={192}
+                border={border}
                   />
                 </div>
                 <div sx={{ px: [4, 3], mb: [4, 0] }}>
@@ -87,6 +88,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     text="Test your UI against different languages to see what may break."
                     image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/translate.png"
                     height={192}
+                border={border}
                   />
                 </div>
                 <div sx={{ px: [4, 3], mb: [4, 0] }}>
@@ -96,6 +98,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     text="Preview your designs in 8 different types of color vision deficiency."
                     image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/charts.png"
                     height={192}
+                border={border}
                   />
                 </div>
               </div>
