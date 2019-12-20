@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import reverse from "lodash/reverse"
 import { useConfig, useColorMode } from "../config"
 
 const sectionKey = "aboutSection"
@@ -12,11 +11,11 @@ const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
   const handleSetConfig = i => () => {
     const { history } = config
 
-    const reversed = reverse([...history])
-
     setConfig(prev => ({
-      colorModes: reversed[i].config.colorModes,
-      variants: reversed[i].config.variants,
+      colorModes: history[i].config.colorModes,
+      variants: history[i].config.variants,
+      borderTop: history[i].config.borderTop,
+      borderBottom: history[i].config.borderBottom,
       history: prev.history
     }))
   }

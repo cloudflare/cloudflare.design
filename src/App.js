@@ -25,6 +25,8 @@ const Site = () => {
   const [showVersions, setShowVersions] = useState(false)
   const [myVersions, setMyVersions] = useState([])
 
+  console.log(config)
+
   useEffect(() => {
     ReactGA.initialize("UA-10218544-27")
     ReactGA.set({ page: window.location.pathname })
