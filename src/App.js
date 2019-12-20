@@ -231,7 +231,9 @@ const Site = () => {
         })
 
         const myVersions = await get("myVersions")
-        await set("myVersions", [...(myVersions || []), data.id])
+        const newMyVersions = [...(myVersions || []), data.id]
+        await set("myVersions", newMyVersions)
+        setMyVersions(newMyVersions)
       })
   }
 
