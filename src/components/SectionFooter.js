@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from "react"
+import { Fragment } from "react"
 import { jsx } from "theme-ui"
 import {
   useVariant,
@@ -42,7 +42,7 @@ const SectionFooter = ({ showUI, ...props }) => {
     case 0:
     default:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
             sx={{
@@ -61,11 +61,11 @@ const SectionFooter = ({ showUI, ...props }) => {
               </div>
             </div>
           </footer>
-        </>
+        </Fragment>
       )
     case 1:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
             sx={{
@@ -122,11 +122,11 @@ const SectionFooter = ({ showUI, ...props }) => {
               </div>
             </div>
           </footer>
-        </>
+        </Fragment>
       )
     case 2:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
             sx={{
@@ -145,11 +145,11 @@ const SectionFooter = ({ showUI, ...props }) => {
               </div>
             </div>
           </footer>
-        </>
+        </Fragment>
       )
     case 3:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <footer
             sx={{
@@ -170,7 +170,7 @@ const SectionFooter = ({ showUI, ...props }) => {
               <IconLink variant={2} />
             </div>
           </footer>
-        </>
+        </Fragment>
       )
   }
 }

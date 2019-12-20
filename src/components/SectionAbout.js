@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from "react"
+import { Fragment } from "react"
 import { jsx } from "theme-ui"
 import {
   useVariant,
@@ -32,7 +32,7 @@ const SectionAbout = ({ showUI, ...props }) => {
     case 0:
     default:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -52,15 +52,62 @@ const SectionAbout = ({ showUI, ...props }) => {
                   fontSize: [4, 5, 6]
                 }}
               >
-                With the power of Cloudflare Workers and KV - we've allowed the
-                design of this page to be configured and updated by anyone.
-                That's right, anyone can update the design of this page.{" "}
+                With the power of{" "}
+                <a
+                  sx={{ color: "currentColor" }}
+                  href="https://www.cloudflare.com/products/cloudflare-workers/"
+                >
+                  Cloudflare Workers
+                </a>{" "}
+                and{" "}
+                <a
+                  sx={{ color: "currentColor" }}
+                  href="https://www.cloudflare.com/products/workers-kv/"
+                >
+                  KV
+                </a>{" "}
+                - we've allowed the design of this page to be configured and
+                updated by anyone. That's right, anyone can update the design of
+                this page.{" "}
               </p>
 
               <p sx={{ lineHeight: 1.5, fontSize: [4, 5, 5] }}>
                 Press
-                <code>;</code> to launch the editor controls. <br />
-                Press <code>esc</code> to visually preview past designs.
+                <code
+                  sx={{
+                    px: 2,
+                    pt: 0,
+                    pb: 1,
+                    borderRadius: 2,
+                    mx: 2,
+                    border: "1px solid",
+                    borderColor: "gray.6",
+                    lineHeight: 0,
+                    verticalAlign: "middle"
+                  }}
+                >
+                  ;
+                </code>
+                to launch the editor controls.{" "}
+              </p>
+              <p sx={{ lineHeight: 1.5, fontSize: [4, 5, 5] }}>
+                Press
+                <code
+                  sx={{
+                    px: 2,
+                    pt: 0,
+                    pb: 1,
+                    borderRadius: 2,
+                    mx: 2,
+                    border: "1px solid",
+                    borderColor: "gray.6",
+                    lineHeight: 0,
+                    verticalAlign: "middle"
+                  }}
+                >
+                  esc
+                </code>{" "}
+                to visually preview past designs.
               </p>
               <p sx={{ lineHeight: 1.5, fontSize: [4, 5, 5] }}>
                 Each section comes with multiple design variants that can be
@@ -71,11 +118,11 @@ const SectionAbout = ({ showUI, ...props }) => {
               {props.children}
             </div>
           </section>
-        </>
+        </Fragment>
       )
     case 1:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -89,7 +136,7 @@ const SectionAbout = ({ showUI, ...props }) => {
             <h3>About</h3>
             {props.children}
           </section>
-        </>
+        </Fragment>
       )
   }
 }

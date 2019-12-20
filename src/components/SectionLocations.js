@@ -1,17 +1,17 @@
 /** @jsx jsx */
-import React from "react";
-import { jsx } from "theme-ui";
+import { Fragment } from "react"
+import { jsx } from "theme-ui"
 import {
   useVariant,
   useColorMode,
   useBorderBottom,
   useBorderTop
-} from "../config";
-import Text from "./Text";
-import data from "../data";
-import PickerUIs from "./PickerUIs";
+} from "../config"
+import Text from "./Text"
+import data from "../data"
+import PickerUIs from "./PickerUIs"
 
-const sectionKey = "locationSection";
+const sectionKey = "locationSection"
 
 const variants = [
   {
@@ -26,22 +26,22 @@ const variants = [
     label: "2",
     value: 2
   }
-];
+]
 
 const SectionLocations = ({ showUI, ...props }) => {
-  const { variant } = useVariant(sectionKey, props.variant);
-  const { borderTop } = useBorderTop(sectionKey, props.borders);
-  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
+  const { variant } = useVariant(sectionKey, props.variant)
+  const { borderTop } = useBorderTop(sectionKey, props.borders)
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders)
   const { background, text, primary, border } = useColorMode(
     sectionKey,
     props.colorMode
-  );
+  )
 
   switch (variant) {
     case 0:
     default:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -116,11 +116,11 @@ const SectionLocations = ({ showUI, ...props }) => {
               </div>
             </div>
           </section>
-        </>
-      );
+        </Fragment>
+      )
     case 1:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -217,11 +217,11 @@ const SectionLocations = ({ showUI, ...props }) => {
               </div>
             </div>
           </section>
-        </>
-      );
+        </Fragment>
+      )
     case 2:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -235,9 +235,9 @@ const SectionLocations = ({ showUI, ...props }) => {
           >
             <h3>Locations</h3>
           </section>
-        </>
-      );
+        </Fragment>
+      )
   }
-};
+}
 
-export default SectionLocations;
+export default SectionLocations

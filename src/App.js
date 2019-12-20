@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from "react"
 import { ThemeProvider, jsx } from "theme-ui"
 import { GlobalHotKeys } from "react-hotkeys"
 import { set, get } from "idb-keyval"
@@ -14,20 +14,7 @@ import SectionFooter from "./components/SectionFooter"
 import SectionLocations from "./components/SectionLocations"
 import ConfigHistory from "./components/ConfigHistory"
 import useInterval from "./useInterval"
-// This is the current config from the worker
-// and just maps a key of our choosing to a value from our theme file
-
-// window.__CONFIG__ = {
-//   colorPrimary: 'white',
-//   colorSecondary: 'gray.2',
-//   variants: {
-//     card: 'default',
-//     header: 'new'
-//   }
-// };
-//
-// const initialConfig = window.__CONFIG__.config;
-// delete window.__CONFIG__;
+import isDev from "./isDev"
 
 const SitePreview = ({ config, setConfig }) => {
   const previewRef = useRef()
@@ -144,7 +131,7 @@ const VersionPicker = ({ configs, setConfig, onClose }) => {
       >
         Close
       </button>
-      {configs.map((config, index) => (
+      {configs.map(config => (
         <SitePreview
           key={config.id}
           config={config}
@@ -163,17 +150,21 @@ const Site = () => {
   const [showVersions, setShowVersions] = useState(false)
   const [myVersions, setMyVersions] = useState([])
 
-  console.log(config, myVersions)
-
-  // Load remote config and replace when ready
   useEffect(() => {
-    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
-      .then(res => res.json())
-      .then(json => {
-        if (json.length === 0) return
-        const current = json[0]
-        setConfig({ ...config, ...current.config, history: json })
-      })
+    // Load remote config via endpoint if in dev mode
+    if (!isDev) {
+      return fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
+        .then(res => res.json())
+        .then(json => {
+          if (json.length === 0) return
+          const current = json[0]
+          setConfig({ ...config, ...current.config, history: json })
+        })
+    }
+    // Load crrent config from global variable set by KV in prod
+    const configFromKV = window.__CONFIG__ ?? []
+    delete window.__CONFIG__
+    setConfig({ ...config, ...configFromKV[0]?.config, history: configFromKV })
   }, [])
 
   useInterval(() => {
@@ -231,7 +222,7 @@ const Site = () => {
         })
 
         const myVersions = await get("myVersions")
-        const newMyVersions = [...(myVersions || []), data.id]
+        const newMyVersions = [...(myVersions ?? []), data.id]
         await set("myVersions", newMyVersions)
         setMyVersions(newMyVersions)
       })

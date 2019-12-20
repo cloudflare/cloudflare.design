@@ -1,18 +1,18 @@
 /** @jsx jsx */
-import React from "react";
-import { jsx } from "theme-ui";
-import SiteTitle from "./SiteTitle";
-import data from "../data";
-import PickerUIs from "./PickerUIs";
+import { Fragment } from "react"
+import { jsx } from "theme-ui"
+import SiteTitle from "./SiteTitle"
+import data from "../data"
+import PickerUIs from "./PickerUIs"
 import {
   useColorMode,
   useBorderTop,
   useBorderBottom,
   useVariant
-} from "../config";
-import Logo from "./Logo";
+} from "../config"
+import Logo from "./Logo"
 
-const sectionKey = "headerSection";
+const sectionKey = "headerSection"
 
 const variants = [
   {
@@ -35,22 +35,22 @@ const variants = [
     label: "4",
     value: 4
   }
-];
+]
 
 const SectionHeader = ({ showUI, ...props }) => {
-  const { variant } = useVariant(sectionKey, props.variant);
-  const { borderTop } = useBorderTop(sectionKey, props.borders);
-  const { borderBottom } = useBorderBottom(sectionKey, props.borders);
+  const { variant } = useVariant(sectionKey, props.variant)
+  const { borderTop } = useBorderTop(sectionKey, props.borders)
+  const { borderBottom } = useBorderBottom(sectionKey, props.borders)
   const { background, text, primary, border } = useColorMode(
     sectionKey,
     props.colorMode
-  );
+  )
 
   switch (variant) {
     case 0:
     default:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header
             sx={{
@@ -69,11 +69,11 @@ const SectionHeader = ({ showUI, ...props }) => {
             <Logo variant="mark" sx={{ width: [64, 96, 128], mr: [3, 4] }} />
             <SiteTitle text={data.title} />
           </header>
-        </>
-      );
+        </Fragment>
+      )
     case 1:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header {...props}>
             <div
@@ -105,11 +105,11 @@ const SectionHeader = ({ showUI, ...props }) => {
               </h1>
             </div>
           </header>
-        </>
-      );
+        </Fragment>
+      )
     case 2:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header
             sx={{
@@ -136,11 +136,11 @@ const SectionHeader = ({ showUI, ...props }) => {
               Design
             </h1>
           </header>
-        </>
-      );
+        </Fragment>
+      )
     case 3:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header
             sx={{
@@ -168,11 +168,11 @@ const SectionHeader = ({ showUI, ...props }) => {
               Cloudflare Design
             </h1>
           </header>
-        </>
-      );
+        </Fragment>
+      )
     case 4:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <header
             sx={{
@@ -219,9 +219,9 @@ const SectionHeader = ({ showUI, ...props }) => {
               </h2>
             </div>
           </header>
-        </>
-      );
+        </Fragment>
+      )
   }
-};
+}
 
-export default SectionHeader;
+export default SectionHeader

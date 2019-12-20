@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from "react"
+import { Fragment } from "react"
 import { jsx } from "theme-ui"
 import {
   useVariant,
@@ -21,11 +21,11 @@ const variants = [
   {
     label: "1",
     value: 1
-  },
-//  {
-//    label: "2",
-//    value: 2
-//  }
+  }
+  //  {
+  //    label: "2",
+  //    value: 2
+  //  }
 ]
 
 const SectionFigma = ({ showUI, ...props }) => {
@@ -41,7 +41,7 @@ const SectionFigma = ({ showUI, ...props }) => {
     case 0:
     default:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -153,11 +153,11 @@ const SectionFigma = ({ showUI, ...props }) => {
               </article>
             </div>
           </section>
-        </>
+        </Fragment>
       )
     case 1:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -303,7 +303,7 @@ const SectionFigma = ({ showUI, ...props }) => {
               </article>
             </div>
           </section>
-        </>
+        </Fragment>
       )
   }
 }

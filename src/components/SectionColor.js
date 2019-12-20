@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React from "react"
+import { Fragment } from "react"
 import { jsx } from "theme-ui"
 import {
   useVariant,
@@ -38,7 +38,7 @@ const SectionHeader = ({ showUI, ...props }) => {
     case 0:
     default:
       return (
-        <>
+        <Fragment>
           <section
             sx={{
               pb: [5, 6],
@@ -92,11 +92,11 @@ const SectionHeader = ({ showUI, ...props }) => {
               </div>
             </div>
           </section>
-        </>
+        </Fragment>
       )
     case 1:
       return (
-        <>
+        <Fragment>
           <section
             sx={{
               py: 3,
@@ -169,11 +169,11 @@ const SectionHeader = ({ showUI, ...props }) => {
               </div>
             </div>
           </section>
-        </>
+        </Fragment>
       )
     case 2:
       return (
-        <>
+        <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
@@ -267,7 +267,7 @@ const SectionHeader = ({ showUI, ...props }) => {
 
             </div>
           </section>
-        </>
+        </Fragment>
       )
   }
 }
