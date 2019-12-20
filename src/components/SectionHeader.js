@@ -254,11 +254,7 @@ const SectionHeader = ({ showUI, ...props }) => {
           </header>
         </Fragment>
       )
-<<<<<<< HEAD
     case 5:
-=======
-    case 6:
->>>>>>> cf379b40dd5a7690eb0fb1bdf22f9000ad7c4c63
       return (
         <Fragment>
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
@@ -269,8 +265,7 @@ const SectionHeader = ({ showUI, ...props }) => {
               borderColor: border,
               bg: background,
               color: text,
-<<<<<<< HEAD
-              position: 'relative'
+                            position: 'relative'
             }}
             {...props}
           >
@@ -332,7 +327,21 @@ const SectionHeader = ({ showUI, ...props }) => {
             >
               Cloudflare Design
             </h1>
-=======
+            </div>
+          </header>
+        </Fragment>
+      )
+    case 6:
+      return (
+        <Fragment>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <header
+            sx={{
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border,
+              bg: background,
+              color: text,
               py: [5, 6, 7]
             }}
             {...props}
@@ -413,7 +422,6 @@ const SectionHeader = ({ showUI, ...props }) => {
                 Design
               </h1>
         </div>
->>>>>>> cf379b40dd5a7690eb0fb1bdf22f9000ad7c4c63
             </div>
           </header>
         </Fragment>
