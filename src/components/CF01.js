@@ -139,7 +139,7 @@ const Logo = ({ variant, ...props }) => {
           <g
             id="Page-1"
             stroke="none"
-            stroke-width="1"
+            strokeWidth="1"
             fill="none"
             fillRule="evenodd"
           >
@@ -864,8 +864,8 @@ const Logo = ({ variant, ...props }) => {
                       d=""
                       id="Path-4"
                       stroke="#6A6A6A"
-                      stroke-width="0.793575815"
-                      stroke-linecap="square"
+                      strokeWidth="0.793575815"
+                      strokeLinecap="square"
                     ></path>
                     <rect
                       id="Rectangle-13"
