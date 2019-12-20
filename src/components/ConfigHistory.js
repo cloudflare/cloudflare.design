@@ -24,7 +24,12 @@ const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
   return (
     <div {...props}>
       <div sx={{ display: "flex", alignItems: "center", mb: 3 }}>
-        <h4 sx={{ mb: 0, mt: 5, mr: "auto" }}>Versions</h4>
+        <h4 sx={{ mb: 0, mt: 5, mr: "auto" }}>
+          Previous designs{" "}
+          <span sx={{ fontSize: 1, fontWeight: 400, ml: 1 }}>
+            (versions in bold are ones you created)
+          </span>
+        </h4>
       </div>
       <div sx={{ flexWrap: "wrap", display: "flex", mx: -3 }}>
         {history.map((h, i) => (
@@ -77,7 +82,7 @@ const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
           display: "block"
         }}
       >
-        View gallery
+        Preview previous designs
       </button>
     </div>
   )

@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState } from "react"
 import { ThemeProvider, jsx } from "theme-ui"
 import { GlobalHotKeys } from "react-hotkeys"
 import { set, get } from "idb-keyval"
@@ -13,134 +13,9 @@ import SectionFigma from "./components/SectionFigma"
 import SectionFooter from "./components/SectionFooter"
 import SectionLocations from "./components/SectionLocations"
 import ConfigHistory from "./components/ConfigHistory"
+import VersionPicker from "./components/VersionPicker"
 import useInterval from "./useInterval"
 import isDev from "./isDev"
-
-const SitePreview = ({ config, setConfig }) => {
-  const previewRef = useRef()
-  const [dimensions, setDimensions] = useState({
-    width: "100vw",
-    height: "100vh"
-  })
-
-  const scale = 0.1
-
-  useEffect(() => {
-    const previewEl = previewRef.current
-    setDimensions({
-      width: previewEl.scrollWidth,
-      height: previewEl.scrollHeight
-    })
-  }, [previewRef])
-
-  return (
-    <div>
-      <div
-        onClick={setConfig}
-        sx={{
-          cursor: "pointer",
-          position: "relative",
-          height: dimensions.height * scale,
-          width: dimensions.width * scale,
-          mx: 3,
-          boxShadow: "0 0 15px 5px rgba(0,0,0,0.10)"
-        }}
-      >
-        <div
-          ref={previewRef}
-          sx={{
-            width: dimensions.width,
-            position: "relative",
-            transform: `scale(${scale})`,
-            transformOrigin: "0px 0px",
-            backgroundColor: "white",
-            pointerEvents: "none"
-          }}
-        >
-          <SectionHeader
-            colorMode={config.config.colorModes.headerSection}
-            variant={config.config.variants.headerSection}
-            showUI={false}
-          />
-          <SectionColor
-            colorMode={config.config.colorModes.colorSection}
-            variant={config.config.variants.colorSection}
-            showUI={false}
-          />
-          <SectionFigma
-            colorMode={config.config.colorModes.figmaSection}
-            variant={config.config.variants.figmaSection}
-            showUI={false}
-          />
-          <SectionLocations
-            colorMode={config.config.colorModes.locationSection}
-            variant={config.config.variants.locationSection}
-            showUI={false}
-          />
-          <SectionFooter
-            colorMode={config.config.colorModes.footerSection}
-            variant={config.config.variants.footerSection}
-            showUI={false}
-          />
-        </div>
-      </div>
-      <div sx={{ fontSize: 1, fontWeight: 600, textAlign: "center", mt: 3 }}>
-        {new Date(config.timestamp).toLocaleString()}
-      </div>
-    </div>
-  )
-}
-
-const VersionPicker = ({ configs, setConfig, onClose }) => {
-  return (
-    <section
-      sx={{
-        display: "flex",
-        zIndex: 9,
-        overflow: "auto",
-        flexWrap: "nowrap",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "fixed",
-        left: 0,
-        top: 0,
-        height: "100vh",
-        width: "100vw",
-        background: "rgba(255,255,255,0.8)",
-        backdropFilter: "blur(6px)",
-        fontFamily: "system-ui, sans-serif"
-      }}
-    >
-      <button
-        sx={{
-          appearance: "none",
-          position: "absolute",
-          top: "32px",
-          right: "32px",
-          background: "transparent",
-          borderRadius: 2,
-          border: "1px solid",
-          fontWeight: 700,
-          py: 1,
-          px: 2,
-          fontSize: 2,
-          cursor: "pointer",
-          color: "gray.0"
-        }}
-        onClick={onClose}
-      >
-        Close
-      </button>
-      {configs.map(config => (
-        <SitePreview
-          key={config.id}
-          config={config}
-          setConfig={() => setConfig(config)}
-        />
-      ))}
-    </section>
-  )
-}
 
 const Site = () => {
   const [versionId, setVersionId] = useState()
@@ -256,6 +131,7 @@ const Site = () => {
             setConfig({ ...newConfig.config, history: config.history })
             setShowVersions(false)
           }}
+          myVersions={myVersions}
           configs={config.history.slice(0, 7)}
           onClose={() => setShowVersions(false)}
         />
@@ -324,7 +200,7 @@ const Site = () => {
               }
             }}
           >
-            Publish
+            Publish design
           </button>
 
           {config.history.length > 0 && (
