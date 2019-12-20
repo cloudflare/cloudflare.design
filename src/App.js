@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { ThemeProvider, jsx } from "theme-ui"
 import { GlobalHotKeys } from "react-hotkeys"
 import { set, get } from "idb-keyval"
+import ReactGA from "react-ga"
 import theme from "./theme"
 import { ConfigProvider, useConfig } from "./config"
 import NewConfigNotification from "./components/NewConfigNotification"
@@ -23,6 +24,12 @@ const Site = () => {
   const [showUI, toggleShowUI] = useState(false)
   const [showVersions, setShowVersions] = useState(false)
   const [myVersions, setMyVersions] = useState([])
+
+  useEffect(() => {
+    ReactGA.initialize("UA-10218544-27")
+    ReactGA.set({ page: window.location.pathname })
+    ReactGA.pageview(window.location.pathname)
+  }, [])
 
   useEffect(() => {
     // Load current config from global variable set by KV in prod
