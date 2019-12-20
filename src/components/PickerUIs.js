@@ -23,6 +23,7 @@ const PickerUIs = ({ variants, sectionKey }) => {
   return (
     <div
       sx={{
+        zIndex: 1,
         top: "8px",
         right: "8px",
         borderRadius: 5,
