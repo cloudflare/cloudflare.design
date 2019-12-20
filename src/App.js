@@ -38,7 +38,7 @@ const Site = () => {
     }
 
     // If the global variable isnt available then fallback to using the fetch
-    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
+    fetch("https://cloudflare-design-config.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
         if (json.length === 0) return
@@ -48,7 +48,7 @@ const Site = () => {
   }, [])
 
   useInterval(() => {
-    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
+    fetch("https://cloudflare-design-config.cloudflare-ui.workers.dev")
       .then(res => res.json())
       .then(json => {
         if (json.length === 0) return
@@ -71,7 +71,7 @@ const Site = () => {
   }, [config])
 
   const handleDeployConfig = () => {
-    fetch("https://cloudflare-design-write.cloudflare-ui.workers.dev", {
+    fetch("https://cloudflare-design-config.cloudflare-ui.workers.dev", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
