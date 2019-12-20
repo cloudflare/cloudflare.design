@@ -117,13 +117,6 @@ const SectionAbout = ({ showUI, ...props }) => {
               </p>
 
               <p sx={{ lineHeight: 1.5, fontSize: [4, 5, 5] }}>
-                Each section has an accompanying configuration object that when
-                published is sent as JSON to a Cloudflare Worker that accesses
-                the history of configurations array from a Cloudflare Worker KV,
-                then prepends the latest configuration object and saves it back
-                to the KV.
-              </p>
-              <p sx={{ lineHeight: 1.5, fontSize: [4, 5, 5] }}>
                 When cloudflare.design loads it gets proxied through a
                 Cloudflare Worker that fetches the configuration history from KV
                 and uses the HTML Rewriter within the worker to write the
@@ -131,6 +124,15 @@ const SectionAbout = ({ showUI, ...props }) => {
                 the site, the react app then reads the history into its own
                 state to be used within the app.
               </p>
+
+              <p sx={{ lineHeight: 1.5, fontSize: [4, 5, 5] }}>
+                Each section has an accompanying configuration object that when
+                published is sent as JSON to a Cloudflare Worker that accesses
+                the history of configurations array from a Cloudflare Worker KV,
+                then prepends the latest configuration object and saves it back
+                to the KV.
+              </p>
+
               {props.children}
             </div>
           </section>
