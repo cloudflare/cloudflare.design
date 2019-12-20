@@ -22,7 +22,7 @@
         <path d="M5.55555556,265.00627 L550.793651,265.00627 L550.793651,296.736306 L550.793651,296.736306 C550.793651,297.612866 550.083059,298.323458 549.206499,298.323458 C549.204186,298.323458 549.201873,298.323453 549.19956,298.323443 L7.88940669,295.95685 L7.88940669,295.95685 C7.03140153,295.953099 6.33171493,295.268139 6.30971575,294.410407 L5.55555556,265.00627 Z" id="path-33"></path>
         <polygon id="path-34" points="2.60776331 0 485.147446 0 486.683694 21.8855044 483.560144 45.225621 3.4014141 45.225621 0.0118419192 21.0312288"></polygon>
     </defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fillRule="evenodd">
         <g id="Desktop-HD" transform="translate(-390.000000, -357.000000)">
             <g id="kl10" transform="translate(390.000000, 357.000000)">
                 <g id="cf-01">
@@ -38,11 +38,11 @@
                                     <mask id="mask-4" fill="white">
                                         <use xlink:href="#path-3"></use>
                                     </mask>
-                                    <g id="Rectangle-20" stroke="none" fill="none" fill-rule="evenodd">
+                                    <g id="Rectangle-20" stroke="none" fill="none" fillRule="evenodd">
                                         <use fill="#F4F1F5" xlink:href="#path-3"></use>
-                                        <use fill-opacity="0.17" fill="#000000" xlink:href="#path-3"></use>
+                                        <use fillOpacity="0.17" fill="#000000" xlink:href="#path-3"></use>
                                     </g>
-                                    <rect id="Rectangle-21" stroke="none" fill="#FFFFFF" fill-rule="evenodd" opacity="0.5" mask="url(#mask-4)" x="0" y="0" width="555.555556" height="3.96715973"></rect>
+                                    <rect id="Rectangle-21" stroke="none" fill="#FFFFFF" fillRule="evenodd" opacity="0.5" mask="url(#mask-4)" x="0" y="0" width="555.555556" height="3.96715973"></rect>
                                 </g>
                             </g>
                             <g id="inner-bevel" mask="url(#mask-2)">
@@ -50,8 +50,8 @@
                                     <mask id="mask-6" fill="white">
                                         <use xlink:href="#path-5"></use>
                                     </mask>
-                                    <use id="Rectangle-5-Copy" stroke="none" fill="#585040" fill-rule="evenodd" xlink:href="#path-5"></use>
-                                    <polygon id="Path-2" stroke="none" fill="#FFFFFF" fill-rule="evenodd" opacity="0.200000003" mask="url(#mask-6)" points="26.1904762 177.728756 5.55555556 207.085738 544.444444 213.433194 524.603175 183.28278"></polygon>
+                                    <use id="Rectangle-5-Copy" stroke="none" fill="#585040" fillRule="evenodd" xlink:href="#path-5"></use>
+                                    <polygon id="Path-2" stroke="none" fill="#FFFFFF" fillRule="evenodd" opacity="0.200000003" mask="url(#mask-6)" points="26.1904762 177.728756 5.55555556 207.085738 544.444444 213.433194 524.603175 183.28278"></polygon>
                                 </g>
                             </g>
                         </g>
@@ -202,7 +202,7 @@
                         <rect id="Rectangle-13-Copy-2" fill="#C8B8A8" x="371.428571" y="240.40988" width="2.38095238" height="1.58686389"></rect>
                         <g id="Rectangle-19">
                             <use fill="#F4F1F5" xlink:href="#path-33"></use>
-                            <use fill-opacity="0.12" fill="#1D1E31" xlink:href="#path-33"></use>
+                            <use fillOpacity="0.12" fill="#1D1E31" xlink:href="#path-33"></use>
                         </g>
                         <path d="M519.047619,218.987217 L527.452793,243.43189 L527.452793,243.43189 C527.660662,244.036433 527.616665,244.699175 527.330706,245.270936 L518.253968,263.419406 L519.047619,218.987217 Z" id="corner-right" fill="#1D1E31"></path>
                         <path d="M29.814604,218.193785 L37.9799257,243.465836 L37.9799257,243.465836 C38.1688425,244.050542 38.1243685,244.685649 37.8558056,245.238319 L29.0209532,263.419406 L29.814604,218.193785 Z" id="corner-left" fill="#1D1E31" transform="translate(33.558096, 240.806596) scale(-1, 1) translate(-33.558096, -240.806596) "></path>

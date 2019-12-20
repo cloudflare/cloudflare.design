@@ -37,22 +37,26 @@ const PickerUIs = ({ variants, sectionKey }) => {
       }}
     >
       <div sx={{ display: "flex" }}>
+        {variants.length > 1 && (
+          <label
+            sx={{
+              py: 2,
+              pr: 3,
+              borderRight: "1px solid rgba(255,255,255,.25)",
+              display: "flex",
+              alignItems: "center"
+            }}
+          >
+            <span sx={{ mr: 2 }}>Variant</span>
+            <VariantPicker variants={variants} variantKey={sectionKey} />
+          </label>
+        )}
+
         <label
           sx={{
             py: 2,
             pr: 3,
-            borderRight: "1px solid rgba(255,255,255,.25)",
-            display: "flex",
-            alignItems: "center"
-          }}
-        >
-          <span sx={{ mr: 2 }}>Variant</span>
-          <VariantPicker variants={variants} variantKey={sectionKey} />
-        </label>
-        <label
-          sx={{
-            py: 2,
-            px: 3,
+            pl: variants.length > 1 ? 3 : 0,
             borderRight: "1px solid rgba(255,255,255,.25)",
             display: "flex",
             alignItems: "center"
@@ -61,7 +65,14 @@ const PickerUIs = ({ variants, sectionKey }) => {
           <span sx={{ mr: 2 }}>Color Mode</span>
           <ColorModePicker configKey={sectionKey} />
         </label>
-        <label sx={{ px: 3, display: "flex", alignItems: "center" }}>
+        <label
+          sx={{
+            px: 3,
+            display: "flex",
+            alignItems: "center",
+            borderRight: "1px solid rgba(255,255,255,.25)"
+          }}
+        >
           <span sx={{ mr: 2 }}>Border Top</span>
           <input
             checked={borderTop}

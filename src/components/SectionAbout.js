@@ -15,10 +15,6 @@ const variants = [
   {
     label: "0",
     value: 0
-  },
-  {
-    label: "1",
-    value: 1
   }
 ]
 
@@ -39,6 +35,7 @@ const SectionAbout = ({ showUI, ...props }) => {
               color: text,
               bg: background,
               py: [5, 5, 6],
+              borderColor: border,
               borderBottom: borderBottom && "1px solid",
               borderTop: borderTop && "1px solid"
             }}
@@ -121,7 +118,7 @@ const SectionAbout = ({ showUI, ...props }) => {
                 Cloudflare Worker that fetches the configuration history from KV
                 and uses the HTML Rewriter within the worker to write the
                 configuration history as a global variable within the html of
-                the site, the react app then reads the history into its own
+                the site. The React app then reads the history into its own
                 state to be used within the app.
               </p>
 
@@ -135,24 +132,6 @@ const SectionAbout = ({ showUI, ...props }) => {
 
               {props.children}
             </div>
-          </section>
-        </Fragment>
-      )
-    case 1:
-      return (
-        <Fragment>
-          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section
-            sx={{
-              color: text,
-              bg: background,
-              py: 4,
-              borderBottom: borderBottom && "1px solid",
-              borderTop: borderTop && "1px solid"
-            }}
-          >
-            <h3>About</h3>
-            {props.children}
           </section>
         </Fragment>
       )
