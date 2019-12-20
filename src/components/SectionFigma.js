@@ -22,10 +22,6 @@ const variants = [
     label: "1",
     value: 1
   }
-  //  {
-  //    label: "2",
-  //    value: 2
-  //  }
 ]
 
 const SectionFigma = ({ showUI, ...props }) => {
