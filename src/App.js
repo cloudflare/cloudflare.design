@@ -15,7 +15,6 @@ import SectionLocations from "./components/SectionLocations"
 import ConfigHistory from "./components/ConfigHistory"
 import VersionPicker from "./components/VersionPicker"
 import useInterval from "./useInterval"
-import isDev from "./isDev"
 
 const Site = () => {
   const [versionId, setVersionId] = useState()
@@ -26,20 +25,26 @@ const Site = () => {
   const [myVersions, setMyVersions] = useState([])
 
   useEffect(() => {
-    // Load remote config via endpoint if in dev mode
-    if (isDev) {
-      return fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
-        .then(res => res.json())
-        .then(json => {
-          if (json.length === 0) return
-          const current = json[0]
-          setConfig({ ...config, ...current.config, history: json })
-        })
+    // Load current config from global variable set by KV in prod
+    const configFromKV = window.__CONFIG__
+
+    if (configFromKV) {
+      delete window.__CONFIG__
+      return setConfig({
+        ...config,
+        ...configFromKV[0]?.config,
+        history: configFromKV
+      })
     }
-    // Load crrent config from global variable set by KV in prod
-    const configFromKV = window.__CONFIG__ ?? []
-    delete window.__CONFIG__
-    setConfig({ ...config, ...configFromKV[0]?.config, history: configFromKV })
+
+    // If the global variable isnt available then fallback to using the fetch
+    fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
+      .then(res => res.json())
+      .then(json => {
+        if (json.length === 0) return
+        const current = json[0]
+        setConfig({ ...config, ...current.config, history: json })
+      })
   }, [])
 
   useInterval(() => {
