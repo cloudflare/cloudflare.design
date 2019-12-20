@@ -50,25 +50,26 @@ const variants = [
   }
 ]
 
-const clouds = [...Array(20).keys()].map((index) => (
+const clouds = [...Array(20).keys()].map(index => (
   <img
     key={index}
     className="cloud"
     src="cloud.png"
     sx={{
-      position: 'absolute',
-      pointerEvents: 'none',
-      animationTimingFunction: 'linear',
-      animationIterationCount: 'infinite',
-      left: (Math.random() * window.outerWidth) - 100,
+      position: "absolute",
+      pointerEvents: "none",
+      animationTimingFunction: "linear",
+      animationIterationCount: "infinite",
+      left: Math.random() * window.outerWidth - 100,
       bottom: `-${Math.random() * 100}px`,
-      transform: `rotate(${Math.random()*360}deg) scale(${Math.random() + 2})`,
+      transform: `rotate(${Math.random() * 360}deg) scale(${Math.random() +
+        2})`,
       opacity: 1 - Math.random(),
-      animationName: Math.random() > 0.5 ? 'cloud-left' : 'cloud-right',
-      animationDuration: `${(Math.random() * 40) + 100}s`
+      animationName: Math.random() > 0.5 ? "cloud-left" : "cloud-right",
+      animationDuration: `${Math.random() * 40 + 100}s`
     }}
   />
-));
+))
 
 const SectionHeader = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant)
@@ -97,7 +98,6 @@ const SectionHeader = ({ showUI, ...props }) => {
               borderTop: borderTop && "1px solid",
               borderColor: border
             }}
-            {...props}
           >
             <Logo variant="mark" sx={{ width: [64, 96, 128], mr: [3, 4] }} />
             <SiteTitle text={data.title} />
@@ -156,7 +156,6 @@ const SectionHeader = ({ showUI, ...props }) => {
               bg: background,
               color: text
             }}
-            {...props}
           >
             <Logo variant="mark" sx={{ width: 48, mr: 2 }} />
             <h1
@@ -188,7 +187,6 @@ const SectionHeader = ({ showUI, ...props }) => {
               bg: background,
               color: text
             }}
-            {...props}
           >
             <Logo variant="mark" sx={{ width: 48, mr: 3 }} />
             <h1
@@ -216,7 +214,6 @@ const SectionHeader = ({ showUI, ...props }) => {
               color: text,
               py: [5, 6, 7]
             }}
-            {...props}
           >
             <div
               sx={{
@@ -265,9 +262,8 @@ const SectionHeader = ({ showUI, ...props }) => {
               borderColor: border,
               bg: background,
               color: text,
-                            position: 'relative'
+              position: "relative"
             }}
-            {...props}
           >
             <style>{`
               @keyframes cloud-left {
@@ -298,35 +294,40 @@ const SectionHeader = ({ showUI, ...props }) => {
             }
             `}</style>
 
-            
-
-            <div sx={{
-              position: 'absolute',
-              top: 0,
-              overflow: 'hidden',
-              width: '100%',
-              height: '100%'
-            }}>
-              {clouds}
-            </div>
-            <div sx={{
-              display: 'flex',
-              alignItems: 'center',
-              px: 4
-            }}>
-            <Logo variant="mark" sx={{ width: [32, 64, 96], mr: 3, position:'relative' }} />
-            <h1
+            <div
               sx={{
-                position: 'relative',
-                fontSize: [4, 6, 8],
-                lineHeight: [1, 0.995],
-                fontWeight: 700,
-                mx: 3,
-                my: 4
+                position: "absolute",
+                top: 0,
+                overflow: "hidden",
+                width: "100%",
+                height: "100%"
               }}
             >
-              Cloudflare Design
-            </h1>
+              {clouds}
+            </div>
+            <div
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                px: 4
+              }}
+            >
+              <Logo
+                variant="mark"
+                sx={{ width: [32, 64, 96], mr: 3, position: "relative" }}
+              />
+              <h1
+                sx={{
+                  position: "relative",
+                  fontSize: [4, 6, 8],
+                  lineHeight: [1, 0.995],
+                  fontWeight: 700,
+                  mx: 3,
+                  my: 4
+                }}
+              >
+                Cloudflare Design
+              </h1>
             </div>
           </header>
         </Fragment>
@@ -344,7 +345,6 @@ const SectionHeader = ({ showUI, ...props }) => {
               color: text,
               py: [5, 6, 7]
             }}
-            {...props}
           >
             <div
               sx={{
@@ -357,24 +357,24 @@ const SectionHeader = ({ showUI, ...props }) => {
                 px: 4
               }}
             >
-        <div sx={{width: '50%'}}>
-              <h1
-                sx={{
-                  fontSize: [5, 7, 9],
-                  lineHeight: [1, 0.995],
-                  fontWeight: 700,
-                  mt: 0,
-                  mr: [0, 6],
-                  mb: [4, 0]
-                }}
-              >
-                Cloudflare <br />
-                Design
-              </h1>
-        </div>
-        <div sx={{width: '50%'}}>
-            <CF01 /> 
-        </div>
+              <div sx={{ width: "50%" }}>
+                <h1
+                  sx={{
+                    fontSize: [5, 7, 9],
+                    lineHeight: [1, 0.995],
+                    fontWeight: 700,
+                    mt: 0,
+                    mr: [0, 6],
+                    mb: [4, 0]
+                  }}
+                >
+                  Cloudflare <br />
+                  Design
+                </h1>
+              </div>
+              <div sx={{ width: "50%" }}>
+                <CF01 />
+              </div>
             </div>
           </header>
         </Fragment>
@@ -392,7 +392,6 @@ const SectionHeader = ({ showUI, ...props }) => {
               color: text,
               py: [5, 6, 7]
             }}
-            {...props}
           >
             <div
               sx={{
@@ -405,23 +404,23 @@ const SectionHeader = ({ showUI, ...props }) => {
                 px: 4
               }}
             >
-        <div sx={{width: '33.33%'}}>
-          <Logo variant='lego' /> 
-        </div>
-        <div sx={{pl: [4,5,6], width: '66.66%'}}>
-              <h1
-                sx={{
-                  fontSize: [6, 8, 8],
-                  lineHeight: [1, 0.995],
-                  fontWeight: 700,
-                  mt: 0,
-                  mb: [4, 0]
-                }}
-              >
-                Cloudflare <br />
-                Design
-              </h1>
-        </div>
+              <div sx={{ width: "33.33%" }}>
+                <Logo variant="lego" />
+              </div>
+              <div sx={{ pl: [4, 5, 6], width: "66.66%" }}>
+                <h1
+                  sx={{
+                    fontSize: [6, 8, 8],
+                    lineHeight: [1, 0.995],
+                    fontWeight: 700,
+                    mt: 0,
+                    mb: [4, 0]
+                  }}
+                >
+                  Cloudflare <br />
+                  Design
+                </h1>
+              </div>
             </div>
           </header>
         </Fragment>
