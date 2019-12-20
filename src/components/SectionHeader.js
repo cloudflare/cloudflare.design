@@ -96,6 +96,7 @@ const SectionHeader = ({ showUI, ...props }) => {
             sx={{
               display: "flex",
               justifyContent: "center",
+              alignItems: "center",
               px: 3,
               bg: background,
               color: text,
