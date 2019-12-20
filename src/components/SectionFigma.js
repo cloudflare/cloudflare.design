@@ -76,7 +76,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     href="https://www.figma.com/c/plugin/733343906244951586/Color-Blind"
                     title="Color Blind"
                     text="Preview your designs in 8 different types of color vision deficiency."
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/color-blind.png"
+                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/eye-transparent.png"
                     height={192}
                 border={border}
                   />
@@ -86,7 +86,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     href="https://www.figma.com/c/plugin/733062974250826253/Translate"
                     title="Translate"
                     text="Test your UI against different languages to see what may break."
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/translate.png"
+                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/translate.png"
                     height={192}
                 border={border}
                   />
@@ -96,7 +96,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     href="https://www.figma.com/c/plugin/731451122947612104/Charts"
                     title="Charts"
                     text="Preview your designs in 8 different types of color vision deficiency."
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/charts.png"
+                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/charts.png"
                     height={192}
                 border={border}
                   />
@@ -198,10 +198,11 @@ const SectionFigma = ({ showUI, ...props }) => {
                         backgroundColor: "white",
                         borderRadius: 7,
                         backgroundImage:
-                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/color-blind.png)",
+                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/eye-transparent.png)",
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center center",
+                        boxShadow: '0px 0 12px rgba(0,0,0,.1)',
                         minHeight: 320,
                         width: "100%",
                         height: "100%"
@@ -214,9 +215,12 @@ const SectionFigma = ({ showUI, ...props }) => {
                       title="Translate"
                       sx={{
                         display: "block",
+                        boxShadow: '0px 0 12px rgba(0,0,0,.1)',
+                        backgroundColor: 'white',
                         backgroundImage:
-                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/translate.png)",
+                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/translate.png)",
                         backgroundSize: "cover",
+                        backgroundPosition: "center center",
                         borderRadius: 7,
                         minHeight: 240,
                         width: "100%",
@@ -227,12 +231,15 @@ const SectionFigma = ({ showUI, ...props }) => {
                   <div sx={{ width: ["50%", "50%"], p: 3 }}>
                     <a
                       href="https://www.figma.com/c/plugin/731451122947612104/Charts"
-                      title="Color Blind"
+                      title="Charts Blind"
                       sx={{
                         display: "block",
+                        boxShadow: '0px 0 12px rgba(0,0,0,.1)',
+                        backgroundColor: 'white',
                         backgroundImage:
-                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/charts.png)",
-                        backgroundSize: "cover",
+                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/charts.png)",
+                        backgroundSize: "contain",
+                        backgroundPosition: "center center",
                         borderRadius: 7,
                         minHeight: 240,
                         width: "100%",

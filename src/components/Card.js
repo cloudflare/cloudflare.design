@@ -34,10 +34,11 @@ const Card = ({ height, href, title, text, image,border, ...props }) => {
               borderRadius: props.borderRadius ? props.borderRadius : 5,
               borderBottomLeftRadius: 0,
               borderBottomRightRadius: 0,
-              backgroundSize: "cover",
+              backgroundSize: "contain",
               backgroundImage: "url(" + image + ")",
               backgroundPosition: "center center",
               height: height,
+              bg: 'white',
             }}
           ></div>
         <div sx={{p: 3, borderTop: '1px solid', borderColor: border}}>

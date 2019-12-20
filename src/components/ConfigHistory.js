@@ -32,7 +32,7 @@ const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
       </div>
       <div sx={{ flexWrap: "wrap", display: "flex", mx: -3 }}>
         {history.map((h, i) => (
-          <div key={i} sx={{ width: "12.5%", px: 3 }}>
+          <div key={i} sx={{ width: ["25%", "20%", "12.5%"], px: 3 }}>
             <button
               sx={{
                 px: 0,
@@ -49,7 +49,6 @@ const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
                 fontSize: 1,
                 fontWeight: myVersions.includes(h.id) && 700,
                 mb: 3,
-                textDecoration: "underline",
                 cursor: "pointer",
                 transition: "color .2s ease-in",
                 ":hover": {

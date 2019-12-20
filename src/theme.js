@@ -227,7 +227,7 @@ const theme = {
       14: {
         text: '#e0e3f0',
         background: '#181e34',
-        border: 'rgba(0,0,0,.15)',
+        border: 'rgba(255,255,255,.15)',
         primary: '#1d1f20',
       },
       15: {
@@ -235,6 +235,18 @@ const theme = {
         text: '#181e34',
         border: 'rgba(0,0,0,.15)',
         primary: '#1d1f20',
+      },
+      16: {
+        text: '#0c2231',
+        background: '#ebf4fa',
+        border: 'rgba(0,0,0,.15)',
+        primary: '#479ad1',
+      },
+      17: {
+        text: '#0c2427',
+        background: '#d0edf1',
+        border: 'rgba(0,0,0,.15)',
+        primary: '#2b818e',
       },
     }
   }

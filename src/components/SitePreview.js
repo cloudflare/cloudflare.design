@@ -35,8 +35,8 @@ const SitePreview = ({ config, myVersions, setConfig }) => {
           position: "relative",
           height: dimensions.height * scale,
           width: dimensions.width * scale,
-          mx: 3,
-          boxShadow: "0 0 15px 5px rgba(0,0,0,0.10)"
+          mx: [2,3],
+          boxShadow: "0 0 16px 4px rgba(0,0,0,0.10)"
         }}
       >
         <div
@@ -87,7 +87,7 @@ const SitePreview = ({ config, myVersions, setConfig }) => {
       >
         v0.{config.id}.0
       </div>
-      <div sx={{ fontSize: 1, fontWeight: 600, textAlign: "center", mt: 1 }}>
+      <div sx={{ display: ['none', 'block'], fontSize: 1, fontWeight: 600, textAlign: "center", mt: 1 }}>
         {new Date(config.timestamp).toLocaleString()}
       </div>
     </div>

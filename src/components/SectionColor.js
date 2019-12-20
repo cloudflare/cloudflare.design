@@ -80,6 +80,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     title="Color"
                     text="Our open source app for building and previewing accessible color palettes"
                     image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg"
+        border={border}
                   />
                 </div>
                 <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
@@ -87,6 +88,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     title="Thinking about color"
                     text="Notes and documentation from our journey exploring color systems"
                     image="https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg"
+        border={border}
                   />
                 </div>
               </div>

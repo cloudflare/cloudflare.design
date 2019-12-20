@@ -9,8 +9,6 @@ const VersionPicker = ({ configs, myVersions, setConfig, onClose }) => {
         display: "flex",
         zIndex: 9,
         overflow: "auto",
-        flexWrap: "nowrap",
-        alignItems: "center",
         justifyContent: "center",
         position: "fixed",
         left: 0,
@@ -42,6 +40,10 @@ const VersionPicker = ({ configs, myVersions, setConfig, onClose }) => {
       >
         Close
       </button>
+    <div sx={{pt: 6, display: 'flex', 
+        flexWrap: ["wrap", "nowrap"],
+        alignItems: "top",
+    }}>
       {configs.map(config => (
         <SitePreview
           key={config.id}
@@ -50,6 +52,7 @@ const VersionPicker = ({ configs, myVersions, setConfig, onClose }) => {
           setConfig={() => setConfig(config)}
         />
       ))}
+    </div>
     </section>
   )
 }
