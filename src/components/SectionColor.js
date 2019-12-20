@@ -125,6 +125,8 @@ const SectionHeader = ({ showUI, ...props }) => {
                 </h3>
                 <p
                   sx={{
+                    mt: 0,
+                    mb: [5,6,6],
                     fontSize: [4, 6, 6],
                     maxWidth: "32em",
                     lineHeight: 1.5,
@@ -144,9 +146,9 @@ const SectionHeader = ({ showUI, ...props }) => {
                         "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg)",
                       backgroundSize: "cover",
                       backgroundPosition: "center center",
+                      borderRadius: 5,
                       display: "block",
-                      height: "100%",
-                      minHeight: [256, 320, 480]
+                      height: [256,320,480],
                     }}
                   />
                 </div>
@@ -157,10 +159,10 @@ const SectionHeader = ({ showUI, ...props }) => {
                       backgroundImage:
                         "url(https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg)",
                       backgroundPosition: "center center",
+                      borderRadius: 5,
                       backgroundSize: "cover",
                       display: "block",
-                      height: "100%",
-                      minHeight: [256, 320, 480]
+                      height: [256,320,480],
                     }}
                   ></a>
                 </div>
@@ -185,11 +187,12 @@ const SectionHeader = ({ showUI, ...props }) => {
             }}
             {...props}
           >
-            <div sx={{ mx: "auto", maxWidth: "96em", display: "flex" }}>
-              <div>
+            <div sx={{ mx: "auto", maxWidth: "96em", display: "flex", flexWrap: 'wrap' }}>
+              <div sx={{
+                px: [0,3,0],
+                width: ['100%', '100%', '33.33%']}}>
                 <h1
                   sx={{
-                    borderTop: "8px solid",
                     pt: 4,
                     mt: 0,
                     mb: 3,
@@ -203,13 +206,65 @@ const SectionHeader = ({ showUI, ...props }) => {
                     maxWidth: "18em",
                     fontSize: 5,
                     lineHeight: 1.25,
-                    fontWeight: 500
+                    fontWeight: 500,
+                    mb: [4,0,0]
                   }}
                 >
                   Tools, experiments, and documentation from our work with
                   color.
                 </p>
               </div>
+                <div sx={{ width: ["100%", "50%", "33.33%"], mb: [4, 0], p: [0,3] }}>
+                  <a
+                    href="https://cloudflare.design/color/thinking"
+        sx={{
+          textDecoration: 'none',
+          fontWeight: 700,
+          color: text
+        }}
+                  >
+                  <div 
+                    sx={{
+                      backgroundImage:
+                        "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg)",
+                      backgroundPosition: "center center",
+                      borderRadius: 5,
+                      backgroundSize: "cover",
+                      display: "block",
+                      height: [192],
+                      mb: 2, 
+                    }}>
+                </div>
+                <span sx={{fontSize: 4}}>Color</span>
+                <span sx={{fontSize: 3, display: 'block', mt: 2, fontWeight: 400 }}>Build, edit, and preview color palettes</span>
+        </a>
+                </div>
+                <div sx={{ width: ["100%", "50%", "33.33%"], mb: [4, 0], p: [0,3] }}>
+                  <a
+                    href="https://cloudflare.design/color/thinking"
+        sx={{
+          textDecoration: 'none',
+          fontWeight: 700,
+          color: text
+        }}
+                  >
+                  <div 
+                    sx={{
+                      backgroundImage:
+                        "url(https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg)",
+                      backgroundPosition: "center center",
+                      borderRadius: 5,
+                      backgroundSize: "cover",
+                      display: "block",
+                      height: [192],
+                      mb: 2, 
+                    }}>
+                </div>
+                <span sx={{fontSize: 4}}>Thinking about color</span>
+                <span sx={{fontSize: 3, display: 'block', mt: 2, fontWeight: 400 }}>How we turned our color palette into a color system</span>
+        </a>
+                </div>
+
             </div>
           </section>
         </>
