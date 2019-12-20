@@ -37,6 +37,10 @@ const variants = [
     value: 4
   },
   {
+    label: "5",
+    value: 5
+  },
+  {
     label: "6",
     value: 6
   },
@@ -45,6 +49,26 @@ const variants = [
     value: 7
   }
 ]
+
+const clouds = [...Array(20).keys()].map((index) => (
+  <img
+    key={index}
+    className="cloud"
+    src="cloud.png"
+    sx={{
+      position: 'absolute',
+      pointerEvents: 'none',
+      animationTimingFunction: 'linear',
+      animationIterationCount: 'infinite',
+      left: (Math.random() * window.outerWidth) - 100,
+      bottom: `-${Math.random() * 100}px`,
+      transform: `rotate(${Math.random()*360}deg) scale(${Math.random() + 2})`,
+      opacity: 1 - Math.random(),
+      animationName: Math.random() > 0.5 ? 'cloud-left' : 'cloud-right',
+      animationDuration: `${(Math.random() * 40) + 100}s`
+    }}
+  />
+));
 
 const SectionHeader = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant)
@@ -226,6 +250,83 @@ const SectionHeader = ({ showUI, ...props }) => {
                 <br />
                 Lisbon
               </h2>
+            </div>
+          </header>
+        </Fragment>
+      )
+    case 5:
+      return (
+        <Fragment>
+          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
+          <header
+            sx={{
+              borderBottom: borderBottom && "1px solid",
+              borderTop: borderTop && "1px solid",
+              borderColor: border,
+              bg: background,
+              color: text,
+                            position: 'relative'
+            }}
+            {...props}
+          >
+            <style>{`
+              @keyframes cloud-left {
+              0% {
+                transform: translateX(0);
+              }
+
+              50% {
+                transform: translateX(-400px);
+              }
+
+              100% {
+                transform: translateX(0);
+              }
+            }
+            @keyframes cloud-right {
+              0% {
+                transform: translateX(0);
+              }
+
+              50% {
+                transform: translateX(400px);
+              }
+
+              100% {
+                transform: translateX(0);
+              }
+            }
+            `}</style>
+
+            
+
+            <div sx={{
+              position: 'absolute',
+              top: 0,
+              overflow: 'hidden',
+              width: '100%',
+              height: '100%'
+            }}>
+              {clouds}
+            </div>
+            <div sx={{
+              display: 'flex',
+              alignItems: 'center',
+              px: 4
+            }}>
+            <Logo variant="mark" sx={{ width: [32, 64, 96], mr: 3, position:'relative' }} />
+            <h1
+              sx={{
+                position: 'relative',
+                fontSize: [4, 6, 8],
+                lineHeight: [1, 0.995],
+                fontWeight: 700,
+                mx: 3,
+                my: 4
+              }}
+            >
+              Cloudflare Design
+            </h1>
             </div>
           </header>
         </Fragment>
