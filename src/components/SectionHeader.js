@@ -34,10 +34,6 @@ const variants = [
   {
     label: "4",
     value: 4
-  },
-  {
-    label: "5",
-    value: 5
   }
 ];
 
@@ -221,56 +217,6 @@ const SectionHeader = ({ showUI, ...props }) => {
                 <br />
                 Lisbon
               </h2>
-            </div>
-          </header>
-        </>
-      );
-    case 5:
-      return (
-        <>
-          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <header
-            sx={{ bg: background, color: text, py: [5, 6, 7] }}
-            {...props}
-          >
-            <div>
-              <div
-                sx={{
-                  mx: "auto",
-                  mb: 3,
-                  borderRadius: 9999,
-                  borderBottom: borderBottom && "1px solid",
-                  borderTop: borderTop && "1px solid",
-                  borderLeft: "1px solid",
-                  borderRight: "1px solid",
-                  bg: "white",
-                  borderColor: text,
-                  height: 128,
-                  width: 128,
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
-              >
-                <Logo
-                  variant="mark"
-                  sx={{ width: 96, position: "relative", top: "-8px" }}
-                />
-              </div>
-              <h1
-                sx={{
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  fontSize: [1, 1, 1],
-                  fontWeight: 400,
-                  lineHeight: [1, 0.995],
-                  mt: 0,
-                  mb: [4, 0],
-                  textAlign: "center"
-                }}
-              >
-                Design
-              </h1>
             </div>
           </header>
         </>

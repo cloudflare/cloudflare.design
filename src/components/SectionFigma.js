@@ -22,10 +22,10 @@ const variants = [
     label: "1",
     value: 1
   },
-  {
-    label: "2",
-    value: 2
-  }
+//  {
+//    label: "2",
+//    value: 2
+//  }
 ]
 
 const SectionFigma = ({ showUI, ...props }) => {
@@ -302,24 +302,6 @@ const SectionFigma = ({ showUI, ...props }) => {
                 </a>
               </article>
             </div>
-          </section>
-        </>
-      )
-    case 2:
-      return (
-        <>
-          {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
-          <section
-            sx={{
-              bg: background,
-              color: text,
-              borderColor: border,
-              borderBottom: borderBottom && "1px solid",
-              borderTop: borderTop && "1px solid"
-            }}
-            {...props}
-          >
-            <h3 sx={{ my: 0 }}>FIGMA</h3>
           </section>
         </>
       )
