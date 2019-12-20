@@ -225,15 +225,100 @@ const SectionLocations = ({ showUI, ...props }) => {
           {showUI && <PickerUIs variants={variants} sectionKey={sectionKey} />}
           <section
             sx={{
-              bg: background,
               color: text,
+              bg: background,
+              px: [4, 3, 3],
+              py: [4, 5, 6],
+              borderColor: border,
               borderBottom: borderBottom && "1px solid",
-              borderTop: borderTop && "1px solid",
-              borderColor: border
+              borderTop: borderTop && "1px solid"
             }}
-            {...props}
           >
-            <h3>Locations</h3>
+            <div sx={{ maxWidth: "96em", display: 'flex', flexWrap: ["wrap", "nowrap"], mx: "auto" }}>
+              <div
+                sx={{
+                  px: 4,
+                  fontSize: [4, 6, 6],
+                  width: ['100%', '66.66%'],
+                  pt: [5,0,0]
+                }}
+              >
+                <h3
+                  sx={{
+                    fontSize: [5, 7, 7],
+                    mb: 3,
+                    mt: 0
+                  }}
+                >
+                  Team
+                </h3>
+                <p
+                  sx={{
+                    my: 0,
+                    lineHeight: 1.5,
+                    fontSize: [4, 5, 5],
+                    fontWeight: [400, 600, 600]
+                  }}
+                >
+                  We're currently growing the Design team in our San Francisco,
+                  Austin, London, and Lisbon offices.
+                </p>
+                <h4 sx={{ fontWeight: 400, lineHeight: 1.5, fontSize: [4], mt: [4, 5] }}>
+                  Want to come work with us? We'd love to hear from you.
+                </h4>
+                <a
+                  sx={{
+                    mt: 4,
+                    textAlign: "center",
+                    borderRadius: "5px",
+                    border: "1px solid",
+                    color: "inherit",
+                    fontWeight: 700,
+                    textDecoration: "none",
+                    px: 4,
+                    py: 3,
+                    fontSize: 3
+                  }}
+                  href="https://cloudflare.com/careers/departments/design"
+                >
+                  We're Hiring
+                </a>
+              </div>
+              <div
+                sx={{
+                  width: ['100%', '33.33%'],
+                  mt: [5,0,0],
+                  px: [3,4,4],
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                }}
+              >
+                {data.locations.map((location, index) => (
+                  <article key={index} sx={{ width: '50%', px: 3 }}>
+                    <div
+                      sx={{
+                        backgroundSize: "cover",
+                        backgroundImage: "url(" + location.image + ")",
+                        backgroundPosition: "center center",
+                        pt: [6],
+                        pb: [5],
+                        width: "100%"
+                      }}
+                    />
+                    <h4
+                      sx={{
+                        mt: 2,
+                        fontSize: [2,3,3],
+                        fontWeight: 700,
+                        textAlign: ["center", "left"]
+                      }}
+                    >
+                      {location.city}
+                    </h4>
+                  </article>
+                ))}
+              </div>
+            </div>
           </section>
         </Fragment>
       )
