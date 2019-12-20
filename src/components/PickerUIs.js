@@ -1,24 +1,24 @@
 /** @jsx jsx */
-import React from "react";
-import { jsx } from "theme-ui";
-import { useBorderTop, useBorderBottom } from "../config";
+import React from "react"
+import { jsx } from "theme-ui"
+import { useBorderTop, useBorderBottom } from "../config"
 
-import VariantPicker from "./VariantPicker";
-import ColorModePicker from "./ColorModePicker";
+import VariantPicker from "./VariantPicker"
+import ColorModePicker from "./ColorModePicker"
 
 const PickerUIs = ({ variants, sectionKey }) => {
-  const { borderTop, setBorderTop } = useBorderTop(sectionKey);
-  const { borderBottom, setBorderBottom } = useBorderBottom(sectionKey);
+  const { borderTop, setBorderTop } = useBorderTop(sectionKey)
+  const { borderBottom, setBorderBottom } = useBorderBottom(sectionKey)
 
   const handleSetBorderTop = e => {
-    const checkboxValue = e.target.checked;
-    setBorderTop(checkboxValue);
-  };
+    const checkboxValue = e.target.checked
+    setBorderTop(checkboxValue)
+  }
 
   const handleSetBorderBottom = e => {
-    const checkboxValue = e.target.checked;
-    setBorderBottom(checkboxValue);
-  };
+    const checkboxValue = e.target.checked
+    setBorderBottom(checkboxValue)
+  }
 
   return (
     <div
@@ -78,7 +78,7 @@ const PickerUIs = ({ variants, sectionKey }) => {
         </label>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PickerUIs;
+export default PickerUIs

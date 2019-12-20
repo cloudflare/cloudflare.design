@@ -50,6 +50,7 @@ const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
                 fontSize: 1,
                 fontWeight: myVersions.includes(h.id) && 700,
                 mb: 3,
+                textDecoration: "underline",
                 cursor: "pointer",
                 transition: "color .2s ease-in",
                 ":hover": {
