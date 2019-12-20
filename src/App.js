@@ -152,7 +152,7 @@ const Site = () => {
 
   useEffect(() => {
     // Load remote config via endpoint if in dev mode
-    if (!isDev) {
+    if (isDev) {
       return fetch("https://cloudflare-design-read.cloudflare-ui.workers.dev")
         .then(res => res.json())
         .then(json => {
