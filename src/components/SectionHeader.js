@@ -307,10 +307,10 @@ const SectionHeader = ({ showUI, ...props }) => {
         <div sx={{width: '33.33%'}}>
           <Logo variant='lego' /> 
         </div>
-        <div sx={{pl: [0,6], width: '66.66%'}}>
+        <div sx={{pl: [4,5,6], width: '66.66%'}}>
               <h1
                 sx={{
-                  fontSize: [5, 8, 8],
+                  fontSize: [6, 8, 8],
                   lineHeight: [1, 0.995],
                   fontWeight: 700,
                   mt: 0,
