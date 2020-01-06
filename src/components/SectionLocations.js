@@ -80,7 +80,7 @@ const SectionLocations = ({ showUI, ...props }) => {
                     <div
                       sx={{
                         backgroundSize: "cover",
-                        backgroundImage: "url(" + location.image + ")",
+                        backgroundImage: `url(${location.image})`,
                         backgroundPosition: "center center",
                         pt: [6, 7],
                         pb: [6, 6],
@@ -195,7 +195,7 @@ const SectionLocations = ({ showUI, ...props }) => {
                     <div
                       sx={{
                         backgroundSize: "cover",
-                        backgroundImage: "url(" + location.image + ")",
+                        backgroundImage: `url(${location.image})`,
                         backgroundPosition: "center center",
                         pt: [6, 7],
                         pb: [6, 6],
@@ -234,13 +234,20 @@ const SectionLocations = ({ showUI, ...props }) => {
               borderTop: borderTop && "1px solid"
             }}
           >
-            <div sx={{ maxWidth: "96em", display: 'flex', flexWrap: ["wrap", "nowrap"], mx: "auto" }}>
+            <div
+              sx={{
+                maxWidth: "96em",
+                display: "flex",
+                flexWrap: ["wrap", "nowrap"],
+                mx: "auto"
+              }}
+            >
               <div
                 sx={{
                   px: 4,
                   fontSize: [4, 6, 6],
-                  width: ['100%', '66.66%'],
-                  pt: [5,0,0]
+                  width: ["100%", "66.66%"],
+                  pt: [5, 0, 0]
                 }}
               >
                 <h3
@@ -263,7 +270,14 @@ const SectionLocations = ({ showUI, ...props }) => {
                   We're currently growing the Design team in our San Francisco,
                   Austin, London, and Lisbon offices.
                 </p>
-                <h4 sx={{ fontWeight: 400, lineHeight: 1.5, fontSize: [4], mt: [4, 5] }}>
+                <h4
+                  sx={{
+                    fontWeight: 400,
+                    lineHeight: 1.5,
+                    fontSize: [4],
+                    mt: [4, 5]
+                  }}
+                >
                   Want to come work with us? We'd love to hear from you.
                 </h4>
                 <a
@@ -286,19 +300,19 @@ const SectionLocations = ({ showUI, ...props }) => {
               </div>
               <div
                 sx={{
-                  width: ['100%', '33.33%'],
-                  mt: [5,0,0],
-                  px: [3,4,4],
-                  display: 'flex',
-                  flexWrap: 'wrap',
+                  width: ["100%", "33.33%"],
+                  mt: [5, 0, 0],
+                  px: [3, 4, 4],
+                  display: "flex",
+                  flexWrap: "wrap"
                 }}
               >
                 {data.locations.map((location, index) => (
-                  <article key={index} sx={{ width: '50%', px: 3 }}>
+                  <article key={index} sx={{ width: "50%", px: 3 }}>
                     <div
                       sx={{
                         backgroundSize: "cover",
-                        backgroundImage: "url(" + location.image + ")",
+                        backgroundImage: `url(${location.image})`,
                         backgroundPosition: "center center",
                         pt: [6],
                         pb: [5],
@@ -308,7 +322,7 @@ const SectionLocations = ({ showUI, ...props }) => {
                     <h4
                       sx={{
                         mt: 2,
-                        fontSize: [2,3,3],
+                        fontSize: [2, 3, 3],
                         fontWeight: 700,
                         textAlign: ["center", "left"]
                       }}

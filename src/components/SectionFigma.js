@@ -10,6 +10,10 @@ import {
 import Card from "./Card"
 import Text from "./Text"
 import PickerUIs from "./PickerUIs"
+import eyeImg from "../images/eye-transparent.png"
+import chartsImg from "../images/charts.png"
+import translateImg from "../images/translate.png"
+import samFigmaImg from "../images/sam-figma.jpg"
 
 const sectionKey = "figmaSection"
 
@@ -76,9 +80,9 @@ const SectionFigma = ({ showUI, ...props }) => {
                     href="https://www.figma.com/c/plugin/733343906244951586/Color-Blind"
                     title="Color Blind"
                     text="Preview your designs in 8 different types of color vision deficiency."
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/eye-transparent.png"
+                    image={eyeImg}
                     height={192}
-                border={border}
+                    border={border}
                   />
                 </div>
                 <div sx={{ px: [4, 3], mb: [4, 0] }}>
@@ -86,9 +90,9 @@ const SectionFigma = ({ showUI, ...props }) => {
                     href="https://www.figma.com/c/plugin/733062974250826253/Translate"
                     title="Translate"
                     text="Test your UI against different languages to see what may break."
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/translate.png"
+                    image={translateImg}
                     height={192}
-                border={border}
+                    border={border}
                   />
                 </div>
                 <div sx={{ px: [4, 3], mb: [4, 0] }}>
@@ -96,9 +100,9 @@ const SectionFigma = ({ showUI, ...props }) => {
                     href="https://www.figma.com/c/plugin/731451122947612104/Charts"
                     title="Charts"
                     text="Preview your designs in 8 different types of color vision deficiency."
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/charts.png"
+                    image={chartsImg}
                     height={192}
-                border={border}
+                    border={border}
                   />
                 </div>
               </div>
@@ -133,7 +137,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     }}
                   >
                     <img
-                      src="https://cloudflare-assets.s3.us-east-1.amazonaws.com/sam-figma.jpg"
+                      src={samFigmaImg}
                       sx={{
                         height: 64,
                         width: 64,
@@ -197,12 +201,11 @@ const SectionFigma = ({ showUI, ...props }) => {
                         display: "block",
                         backgroundColor: "white",
                         borderRadius: 7,
-                        backgroundImage:
-                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/eye-transparent.png)",
+                        backgroundImage: `url(${eyeImg})`,
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center center",
-                        boxShadow: '0px 0 12px rgba(0,0,0,.1)',
+                        boxShadow: "0px 0 12px rgba(0,0,0,.1)",
                         minHeight: 320,
                         width: "100%",
                         height: "100%"
@@ -215,10 +218,9 @@ const SectionFigma = ({ showUI, ...props }) => {
                       title="Translate"
                       sx={{
                         display: "block",
-                        boxShadow: '0px 0 12px rgba(0,0,0,.1)',
-                        backgroundColor: 'white',
-                        backgroundImage:
-                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/translate.png)",
+                        boxShadow: "0px 0 12px rgba(0,0,0,.1)",
+                        backgroundColor: "white",
+                        backgroundImage: `url(${translateImg})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center center",
                         borderRadius: 7,
@@ -234,10 +236,9 @@ const SectionFigma = ({ showUI, ...props }) => {
                       title="Charts Blind"
                       sx={{
                         display: "block",
-                        boxShadow: '0px 0 12px rgba(0,0,0,.1)',
-                        backgroundColor: 'white',
-                        backgroundImage:
-                          "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/charts.png)",
+                        boxShadow: "0px 0 12px rgba(0,0,0,.1)",
+                        backgroundColor: "white",
+                        backgroundImage: `url(${chartsImg})`,
                         backgroundSize: "contain",
                         backgroundPosition: "center center",
                         borderRadius: 7,

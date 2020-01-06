@@ -10,6 +10,7 @@ import {
 import Card from "./Card"
 import Text from "./Text"
 import PickerUIs from "./PickerUIs"
+import colorIconsCoverImg from "../images/color-icons-cover.jpg"
 
 const sectionKey = "colorSection"
 
@@ -79,8 +80,8 @@ const SectionColor = ({ showUI, ...props }) => {
                   <Card
                     title="Color"
                     text="Our open source app for building and previewing accessible color palettes"
-                    image="https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg"
-        border={border}
+                    image={colorIconsCoverImg}
+                    border={border}
                   />
                 </div>
                 <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
@@ -88,7 +89,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     title="Thinking about color"
                     text="Notes and documentation from our journey exploring color systems"
                     image="https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg"
-        border={border}
+                    border={border}
                   />
                 </div>
               </div>
@@ -144,8 +145,7 @@ const SectionColor = ({ showUI, ...props }) => {
                   <a
                     href="https://cloudflare.design/color"
                     sx={{
-                      backgroundImage:
-                        "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg)",
+                      backgroundImage: `url(${colorIconsCoverImg})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center center",
                       borderRadius: 5,
@@ -238,8 +238,7 @@ const SectionColor = ({ showUI, ...props }) => {
                 >
                   <div
                     sx={{
-                      backgroundImage:
-                        "url(https://cloudflare-assets.s3.us-east-1.amazonaws.com/color-icons-cover.jpg)",
+                      backgroundImage: `url(${colorIconsCoverImg})`,
                       backgroundPosition: "center center",
                       borderRadius: 5,
                       backgroundSize: "cover",

@@ -6,7 +6,7 @@ const sectionKey = "aboutSection"
 
 const ConfigHistory = ({ history, myVersions, onPreviewClick, ...props }) => {
   const { config, setConfig } = useConfig()
-  const { background, text } = useColorMode(sectionKey, props.colorMode)
+  const { text } = useColorMode(sectionKey, props.colorMode)
 
   const handleSetConfig = i => () => {
     const { history } = config

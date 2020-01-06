@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
 import { useVariant } from "../config"
+import colorBlindImg from "../images/color-blind.png"
 
-const Card = ({ height, href, title, text, image,border, ...props }) => {
+const Card = ({ height, href, title, text, image, border, ...props }) => {
   const { variant } = useVariant("card")
   switch (variant) {
     case "default":
@@ -14,17 +15,17 @@ const Card = ({ height, href, title, text, image,border, ...props }) => {
             textDecoration: "none",
             borderRadius: props.borderRadius ? props.borderRadius : 5,
             display: "block",
-            boxShadow: '0px 0px 8px rgba(0,0,0,.15)',
-            border: '1px solid',
+            boxShadow: "0px 0px 8px rgba(0,0,0,.15)",
+            border: "1px solid",
             borderColor: border,
-            transition: 'box-shadow .2s ease-in',
+            transition: "box-shadow .2s ease-in",
             ":hover": {
-              boxShadow: '0px 0px 12px rgba(0,0,0,.25)',
-              transition: 'box-shadow .2s ease-in',
+              boxShadow: "0px 0px 12px rgba(0,0,0,.25)",
+              transition: "box-shadow .2s ease-in"
             },
             ":focus": {
-              boxShadow: '0px 0px 12px rgba(0,0,0,.25)',
-              transition: 'box-shadow .2s ease-in',
+              boxShadow: "0px 0px 12px rgba(0,0,0,.25)",
+              transition: "box-shadow .2s ease-in"
             }
           }}
           href={href}
@@ -35,16 +36,16 @@ const Card = ({ height, href, title, text, image,border, ...props }) => {
               borderBottomLeftRadius: 0,
               borderBottomRightRadius: 0,
               backgroundSize: "contain",
-              backgroundImage: "url(" + image + ")",
+              backgroundImage: `url(${image})`,
               backgroundPosition: "center center",
               height: height,
-              bg: 'white',
+              bg: "white"
             }}
           ></div>
-        <div sx={{p: 3, borderTop: '1px solid', borderColor: border}}>
-          <h4 sx={{mt: 0,  mb: 2 }}>{title}</h4>
-          <span>{text}</span>
-        </div>
+          <div sx={{ p: 3, borderTop: "1px solid", borderColor: border }}>
+            <h4 sx={{ mt: 0, mb: 2 }}>{title}</h4>
+            <span>{text}</span>
+          </div>
         </a>
       )
     case "test":
@@ -60,7 +61,7 @@ const Card = ({ height, href, title, text, image,border, ...props }) => {
             sx={{
               borderRadius: 0,
               backgroundSize: "cover",
-              backgroundImage: "url(" + image + ")",
+              backgroundImage: `url(${image})`,
               backgroundPosition: "center center",
               height: height
             }}
@@ -74,8 +75,7 @@ const Card = ({ height, href, title, text, image,border, ...props }) => {
 
 Card.defaultProps = {
   variant: "default",
-  image:
-    "https://cloudflare-assets.s3.us-east-1.amazonaws.com/photos/color-blind.png",
+  image: colorBlindImg,
   title: "Color Blind",
   text: "Some default text",
   height: 256,
