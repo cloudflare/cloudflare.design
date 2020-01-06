@@ -32,10 +32,7 @@ const SectionLocations = ({ showUI, ...props }) => {
   const { variant } = useVariant(sectionKey, props.variant)
   const { borderTop } = useBorderTop(sectionKey, props.borders)
   const { borderBottom } = useBorderBottom(sectionKey, props.borders)
-  const { background, text, primary, border } = useColorMode(
-    sectionKey,
-    props.colorMode
-  )
+  const { background, text, border } = useColorMode(sectionKey, props.colorMode)
 
   switch (variant) {
     case 0:

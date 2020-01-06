@@ -1,11 +1,9 @@
 import React from "react"
-import theme from "../theme"
 
 const Logo = ({ variant, ...props }) => {
-  const textColor = props.light
-
   switch (variant) {
     case "default":
+    default:
       return (
         <svg viewBox="0 0 600 311" version="1.1">
           <title>cf-01</title>

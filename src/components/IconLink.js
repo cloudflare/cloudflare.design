@@ -4,6 +4,7 @@ import { jsx } from "theme-ui"
 const IconLink = ({ href, variant, ...props }) => {
   switch (variant) {
     case "default":
+    default:
       return (
         <div sx={{ display: "flex", alignItems: "center" }}>
           <a

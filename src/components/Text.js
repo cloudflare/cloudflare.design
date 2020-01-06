@@ -1,9 +1,10 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx } from "theme-ui"
 
 const Text = ({ variant, ...props }) => {
   switch (variant) {
     case "default":
+    default:
       return (
         <p
           sx={{
@@ -16,13 +17,13 @@ const Text = ({ variant, ...props }) => {
         >
           {props.children}
         </p>
-      );
+      )
   }
-};
+}
 
 Text.defaultProps = {
   variant: "default",
   text: "Site Title"
-};
+}
 
-export default Text;
+export default Text

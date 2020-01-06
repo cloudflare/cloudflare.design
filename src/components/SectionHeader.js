@@ -12,6 +12,7 @@ import {
 } from "../config"
 import Logo from "./Logo"
 import CF01 from "./CF01"
+import cloudImg from "../images/cloud.png"
 
 const sectionKey = "headerSection"
 
@@ -69,7 +70,7 @@ const clouds = [...Array(10).keys()].map(index => (
       alt="cloud"
       key={index}
       className="cloud"
-      src="cloud.png"
+      src={cloudImg}
       sx={{
         transform: `rotate(${Math.random() * 360}deg) scale(${Math.random() +
           1})`

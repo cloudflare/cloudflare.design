@@ -137,6 +137,7 @@ const SectionFigma = ({ showUI, ...props }) => {
                     }}
                   >
                     <img
+                      alt="Sam Mason de Caires headshot"
                       src={samFigmaImg}
                       sx={{
                         height: 64,

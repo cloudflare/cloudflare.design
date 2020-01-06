@@ -8,6 +8,7 @@ const Logo = ({ variant, ...props }) => {
 
   switch (variant) {
     case "default":
+    default:
       return (
         <svg viewBox="4 0 102 40" {...props}>
           <path
