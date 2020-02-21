@@ -15,7 +15,8 @@
     "theme-ui": "^0.2.52"
   },
   "scripts": {
-    "dev": "react-scripts start",
+    "start": "react-scripts start",
+    "dev": "react-scripts build && react-scripts start",
     "build": "react-scripts build"
   },
   "eslintConfig": {
