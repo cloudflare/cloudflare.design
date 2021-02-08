@@ -5,7 +5,7 @@ import {
   useVariant,
   useColorMode,
   useBorderTop,
-  useBorderBottom
+  useBorderBottom,
 } from "../config"
 import Card from "./Card"
 import Text from "./Text"
@@ -17,16 +17,16 @@ const sectionKey = "colorSection"
 const variants = [
   {
     label: "0",
-    value: 0
+    value: 0,
   },
   {
     label: "1",
-    value: 1
+    value: 1,
   },
   {
     label: "2",
-    value: 2
-  }
+    value: 2,
+  },
 ]
 
 const SectionColor = ({ showUI, ...props }) => {
@@ -49,7 +49,7 @@ const SectionColor = ({ showUI, ...props }) => {
               borderBottom: borderBottom && "1px solid",
               borderTop: borderTop && "1px solid",
               borderColor: border,
-              color: text
+              color: text,
             }}
           >
             {showUI && (
@@ -60,7 +60,7 @@ const SectionColor = ({ showUI, ...props }) => {
                 color: text,
                 fontSize: [3, 5, 6],
                 textAlign: "center",
-                mb: [4, 4, 5]
+                mb: [4, 4, 5],
               }}
             >
               Color
@@ -73,7 +73,7 @@ const SectionColor = ({ showUI, ...props }) => {
                 sx={{
                   display: "flex",
                   flexWrap: ["wrap", "nowrap"],
-                  px: [3, 3]
+                  px: [3, 3],
                 }}
               >
                 <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
@@ -82,6 +82,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     text="Our open source app for building and previewing accessible color palettes"
                     image={colorIconsCoverImg}
                     border={border}
+                    href="https://color.cloudflare.com"
                   />
                 </div>
                 <div sx={{ px: 3, width: ["100%", "50%"], mb: 4 }}>
@@ -90,6 +91,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     text="Notes and documentation from our journey exploring color systems"
                     image="https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg"
                     border={border}
+                    href="https://color.cloudflare.com/thinking"
                   />
                 </div>
               </div>
@@ -108,7 +110,7 @@ const SectionColor = ({ showUI, ...props }) => {
               borderTop: borderTop && "1px solid",
               borderColor: border,
               backgroundColor: background,
-              color: text
+              color: text,
             }}
           >
             {showUI && (
@@ -120,7 +122,7 @@ const SectionColor = ({ showUI, ...props }) => {
                   px: 3,
                   maxWidth: "32em",
                   fontSize: [5, 6, 6],
-                  mx: "auto"
+                  mx: "auto",
                 }}
               >
                 <h3 sx={{ mt: 0, fontSize: [5, 7, 96], mb: 3, color: text }}>
@@ -133,7 +135,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     fontSize: [4, 6, 6],
                     maxWidth: "32em",
                     lineHeight: 1.5,
-                    fontWeight: [400, 600, 600]
+                    fontWeight: [400, 600, 600],
                   }}
                 >
                   Tools, experiments, and documentation from our work around
@@ -143,20 +145,20 @@ const SectionColor = ({ showUI, ...props }) => {
               <div sx={{ display: "flex", flexWrap: ["wrap", "nowrap"] }}>
                 <div sx={{ width: ["100%", "50%"], mb: [4, 0], p: 3 }}>
                   <a
-                    href="https://cloudflare.design/color"
+                    href="https://color.cloudflare.design"
                     sx={{
                       backgroundImage: `url(${colorIconsCoverImg})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center center",
                       borderRadius: 5,
                       display: "block",
-                      height: [256, 320, 480]
+                      height: [256, 320, 480],
                     }}
                   />
                 </div>
                 <div sx={{ width: ["100%", "50%"], mb: [4, 0], p: 3 }}>
                   <a
-                    href="https://cloudflare.design/color/thinking"
+                    href="https://color.cloudflare.design/thinking"
                     sx={{
                       backgroundImage:
                         "url(https://blog-cloudflare-com-assets.storage.googleapis.com/2019/12/gradient.jpg)",
@@ -164,7 +166,7 @@ const SectionColor = ({ showUI, ...props }) => {
                       borderRadius: 5,
                       backgroundSize: "cover",
                       display: "block",
-                      height: [256, 320, 480]
+                      height: [256, 320, 480],
                     }}
                   ></a>
                 </div>
@@ -185,7 +187,7 @@ const SectionColor = ({ showUI, ...props }) => {
               borderTop: borderTop && "1px solid",
               borderColor: border,
               bg: background,
-              color: text
+              color: text,
             }}
           >
             <div
@@ -193,13 +195,13 @@ const SectionColor = ({ showUI, ...props }) => {
                 mx: "auto",
                 maxWidth: "96em",
                 display: "flex",
-                flexWrap: "wrap"
+                flexWrap: "wrap",
               }}
             >
               <div
                 sx={{
                   px: [0, 3, 0],
-                  width: ["100%", "100%", "33.33%"]
+                  width: ["100%", "100%", "33.33%"],
                 }}
               >
                 <h1
@@ -207,7 +209,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     pt: 4,
                     mt: 0,
                     mb: 3,
-                    fontSize: 8
+                    fontSize: 8,
                   }}
                 >
                   Color
@@ -218,7 +220,7 @@ const SectionColor = ({ showUI, ...props }) => {
                     fontSize: 5,
                     lineHeight: 1.25,
                     fontWeight: 500,
-                    mb: [4, 0, 0]
+                    mb: [4, 0, 0],
                   }}
                 >
                   Tools, experiments, and documentation from our work with
@@ -229,11 +231,11 @@ const SectionColor = ({ showUI, ...props }) => {
                 sx={{ width: ["100%", "50%", "33.33%"], mb: [4, 0], p: [0, 3] }}
               >
                 <a
-                  href="https://cloudflare.design/color"
+                  href="https://color.cloudflare.design"
                   sx={{
                     textDecoration: "none",
                     fontWeight: 700,
-                    color: text
+                    color: text,
                   }}
                 >
                   <div
@@ -244,7 +246,7 @@ const SectionColor = ({ showUI, ...props }) => {
                       backgroundSize: "cover",
                       display: "block",
                       height: [192],
-                      mb: 2
+                      mb: 2,
                     }}
                   ></div>
                   <span sx={{ fontSize: 4 }}>Color</span>
@@ -253,7 +255,7 @@ const SectionColor = ({ showUI, ...props }) => {
                       fontSize: 3,
                       display: "block",
                       mt: 2,
-                      fontWeight: 400
+                      fontWeight: 400,
                     }}
                   >
                     Build, edit, and preview color palettes
@@ -264,11 +266,11 @@ const SectionColor = ({ showUI, ...props }) => {
                 sx={{ width: ["100%", "50%", "33.33%"], mb: [4, 0], p: [0, 3] }}
               >
                 <a
-                  href="https://cloudflare.design/color/thinking"
+                  href="https://color.cloudflare.design/thinking"
                   sx={{
                     textDecoration: "none",
                     fontWeight: 700,
-                    color: text
+                    color: text,
                   }}
                 >
                   <div
@@ -280,7 +282,7 @@ const SectionColor = ({ showUI, ...props }) => {
                       backgroundSize: "cover",
                       display: "block",
                       height: [192],
-                      mb: 2
+                      mb: 2,
                     }}
                   ></div>
                   <span sx={{ fontSize: 4 }}>Thinking about color</span>
@@ -289,7 +291,7 @@ const SectionColor = ({ showUI, ...props }) => {
                       fontSize: 3,
                       display: "block",
                       mt: 2,
-                      fontWeight: 400
+                      fontWeight: 400,
                     }}
                   >
                     How we turned our color palette into a color system
