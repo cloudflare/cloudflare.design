@@ -9,7 +9,7 @@ import austinImg from "./images/austin-1.jpg"
 const data = {
   title: "Cloudflare Design",
   subtitle: "",
-  copyright: "© 2019 Cloudflare, Inc.",
+  copyright: "© 2021 Cloudflare, Inc.",
   locations: [
     {
       city: "Lisbon",
